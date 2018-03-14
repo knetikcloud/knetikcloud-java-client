@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * FileGroupPropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T10:38:25.443-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:49.137-04:00")
 public class FileGroupPropertyDefinitionResource extends PropertyDefinitionResource {
   @JsonProperty("file_type")
   private String fileType = null;

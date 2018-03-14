@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * DoublePropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-12T10:38:25.443-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:49.137-04:00")
 public class DoublePropertyDefinitionResource extends PropertyDefinitionResource {
   @JsonProperty("max")
   private Double max = null;
