@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ChatBlacklistResource;
 import com.knetikcloud.model.ChatMessageResource;
+import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceChatUserThreadResource;
 import com.knetikcloud.model.Result;
@@ -47,7 +48,7 @@ public class ChatApiTest {
     @Test
     public void acknowledgeChatMessageTest() throws ApiException {
         String id = null;
-        Integer readCount = null;
+        IntWrapper readCount = null;
         api.acknowledgeChatMessage(id, readCount);
 
         // TODO: test validations

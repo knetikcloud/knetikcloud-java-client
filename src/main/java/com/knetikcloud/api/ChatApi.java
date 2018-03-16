@@ -9,6 +9,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.ChatBlacklistResource;
 import com.knetikcloud.model.ChatMessageResource;
+import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceChatUserThreadResource;
 import com.knetikcloud.model.Result;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:49.137-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:48.459-04:00")
 public class ChatApi {
   private ApiClient apiClient;
 
@@ -45,7 +46,7 @@ public class ChatApi {
    * @param readCount The amount of messages read (optional)
    * @throws ApiException if fails to make API call
    */
-  public void acknowledgeChatMessage(String id, Integer readCount) throws ApiException {
+  public void acknowledgeChatMessage(String id, IntWrapper readCount) throws ApiException {
     Object localVarPostBody = readCount;
     
     // verify the required parameter 'id' is set

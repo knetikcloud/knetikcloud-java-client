@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * AchievementDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-14T13:34:49.137-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:48.459-04:00")
 public class AchievementDefinitionResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -104,10 +104,10 @@ public class AchievementDefinitionResource {
   }
 
    /**
-   * The description of the achievement. Must be at least 2 characters in length.
+   * The description of the achievement
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the achievement. Must be at least 2 characters in length.")
+  @ApiModelProperty(value = "The description of the achievement")
   public String getDescription() {
     return description;
   }
