@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:48.459-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:18.305-04:00")
 public class ActivitiesApi {
   private ApiClient apiClient;
 
@@ -52,7 +52,7 @@ public class ActivitiesApi {
 
   /**
    * Add a user to an occurrence
-   * If called with no body, defaults to the user making the call.
+   * If called with no body, defaults to the user making the call. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
    * @param activityOccurrenceId The id of the activity occurrence (required)
    * @param test if true, indicates that the user should NOT be added. This can be used to test for eligibility (optional, default to false)
    * @param bypassRestrictions if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN (optional, default to false)
@@ -556,7 +556,7 @@ public class ActivitiesApi {
       }
   /**
    * Remove a user from an occurrence
-   * 
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
    * @param activityOccurrenceId The id of the activity occurrence (required)
    * @param userId The id of the user, or &#39;me&#39; (required)
    * @param ban if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin (optional, default to false)
@@ -694,7 +694,7 @@ public class ActivitiesApi {
       }
   /**
    * Set a user&#39;s status within an occurrence
-   * 
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
    * @param activityOccurrenceId The id of the activity occurrence (required)
    * @param userId The id of the user (required)
    * @param status The new status (optional)

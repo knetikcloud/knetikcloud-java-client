@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * ChallengeResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T11:20:48.459-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:18.305-04:00")
 public class ChallengeResource {
   @JsonProperty("activities")
   private Integer activities = null;

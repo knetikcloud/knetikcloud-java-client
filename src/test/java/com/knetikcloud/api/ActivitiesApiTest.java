@@ -51,7 +51,7 @@ public class ActivitiesApiTest {
     /**
      * Add a user to an occurrence
      *
-     * If called with no body, defaults to the user making the call.
+     * If called with no body, defaults to the user making the call. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
      *
      * @throws ApiException
      *          if the Api call fails
@@ -261,7 +261,7 @@ public class ActivitiesApiTest {
     /**
      * Remove a user from an occurrence
      *
-     * 
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
      *
      * @throws ApiException
      *          if the Api call fails
@@ -314,7 +314,7 @@ public class ActivitiesApiTest {
     /**
      * Set a user&#39;s status within an occurrence
      *
-     * 
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
      *
      * @throws ApiException
      *          if the Api call fails
