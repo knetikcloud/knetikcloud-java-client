@@ -27,7 +27,7 @@ import java.util.Map;
 /**
  * BillingReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-16T15:25:18.305-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
 public class BillingReport {
   @JsonProperty("created")
   private Long created = null;
