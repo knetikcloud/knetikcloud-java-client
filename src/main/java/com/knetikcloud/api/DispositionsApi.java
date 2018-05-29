@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class DispositionsApi {
   private ApiClient apiClient;
 
@@ -159,12 +159,13 @@ public class DispositionsApi {
   /**
    * Returns a list of disposition counts
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
    * @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
    * @return List&lt;DispositionCount&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<DispositionCount> getDispositionCounts(String filterContext, String filterOwner) throws ApiException {
+  public List<DispositionCount> getDispositionCounts(String filterCreatedDate, String filterContext, String filterOwner) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -175,6 +176,7 @@ public class DispositionsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_created_date", filterCreatedDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_context", filterContext));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_owner", filterOwner));
 
@@ -198,6 +200,7 @@ public class DispositionsApi {
   /**
    * Returns a page of dispositions
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
    * @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
    * @param size The number of objects returned per page (optional, default to 25)
@@ -206,7 +209,7 @@ public class DispositionsApi {
    * @return PageResourceDispositionResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceDispositionResource getDispositions(String filterContext, String filterOwner, Integer size, Integer page, String order) throws ApiException {
+  public PageResourceDispositionResource getDispositions(String filterCreatedDate, String filterContext, String filterOwner, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -217,6 +220,7 @@ public class DispositionsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_created_date", filterCreatedDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_context", filterContext));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_owner", filterOwner));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));

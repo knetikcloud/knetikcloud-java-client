@@ -617,7 +617,7 @@ null (empty response body)
 
 <a name="deleteVideoDisposition"></a>
 # **deleteVideoDisposition**
-> deleteVideoDisposition(dispositionId)
+> deleteVideoDisposition(videoId, dispositionId)
 
 Delete a video disposition
 
@@ -643,9 +643,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 MediaVideosApi apiInstance = new MediaVideosApi();
+Long videoId = 789L; // Long | The video id
 Long dispositionId = 789L; // Long | The disposition id
 try {
-    apiInstance.deleteVideoDisposition(dispositionId);
+    apiInstance.deleteVideoDisposition(videoId, dispositionId);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaVideosApi#deleteVideoDisposition");
     e.printStackTrace();
@@ -656,6 +657,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **videoId** | **Long**| The video id |
  **dispositionId** | **Long**| The disposition id |
 
 ### Return type
@@ -1026,7 +1028,7 @@ Name | Type | Description  | Notes
 
 <a name="getVideoDispositions"></a>
 # **getVideoDispositions**
-> PageResourceDispositionResource getVideoDispositions(videoId, size, page)
+> PageResourceDispositionResource getVideoDispositions(videoId, filterCreatedDate, size, page)
 
 Returns a page of dispositions for a video
 
@@ -1053,10 +1055,11 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 MediaVideosApi apiInstance = new MediaVideosApi();
 Integer videoId = 56; // Integer | The video id
+String filterCreatedDate = "filterCreatedDate_example"; // String | Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874
 Integer size = 25; // Integer | The number of objects returned per page
 Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    PageResourceDispositionResource result = apiInstance.getVideoDispositions(videoId, size, page);
+    PageResourceDispositionResource result = apiInstance.getVideoDispositions(videoId, filterCreatedDate, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MediaVideosApi#getVideoDispositions");
@@ -1069,6 +1072,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **Integer**| The video id |
+ **filterCreatedDate** | **String**| Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 | [optional]
  **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
  **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 

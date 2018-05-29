@@ -17,68 +17,35 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.knetikcloud.model.BroadcastableEvent;
+import com.knetikcloud.model.SearchObjectDefinition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * GroupMemberStatusWrapper
+ * SearchDefinitionCreated
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
-public class GroupMemberStatusWrapper {
-  /**
-   * Gets or Sets value
-   */
-  public enum ValueEnum {
-    MODERATOR("moderator"),
-    
-    MEMBER("member");
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+public class SearchDefinitionCreated extends BroadcastableEvent {
+  @JsonProperty("definition")
+  private SearchObjectDefinition definition = null;
 
-    private String value;
-
-    ValueEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ValueEnum fromValue(String text) {
-      for (ValueEnum b : ValueEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
-  @JsonProperty("value")
-  private ValueEnum value = null;
-
-  public GroupMemberStatusWrapper value(ValueEnum value) {
-    this.value = value;
+  public SearchDefinitionCreated definition(SearchObjectDefinition definition) {
+    this.definition = definition;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get definition
+   * @return definition
   **/
   @ApiModelProperty(value = "")
-  public ValueEnum getValue() {
-    return value;
+  public SearchObjectDefinition getDefinition() {
+    return definition;
   }
 
-  public void setValue(ValueEnum value) {
-    this.value = value;
+  public void setDefinition(SearchObjectDefinition definition) {
+    this.definition = definition;
   }
 
 
@@ -90,22 +57,23 @@ public class GroupMemberStatusWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GroupMemberStatusWrapper groupMemberStatusWrapper = (GroupMemberStatusWrapper) o;
-    return Objects.equals(this.value, groupMemberStatusWrapper.value);
+    SearchDefinitionCreated searchDefinitionCreated = (SearchDefinitionCreated) o;
+    return Objects.equals(this.definition, searchDefinitionCreated.definition) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(definition, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GroupMemberStatusWrapper {\n");
-    
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class SearchDefinitionCreated {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,7 +10,6 @@ import javax.ws.rs.core.GenericType;
 import com.knetikcloud.model.ChatMessageRequest;
 import com.knetikcloud.model.ChatMessageResource;
 import com.knetikcloud.model.GroupMemberResource;
-import com.knetikcloud.model.GroupMemberStatusWrapper;
 import com.knetikcloud.model.GroupResource;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceGroupMemberResource;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class UsersGroupsApi {
   private ApiClient apiClient;
 
@@ -48,7 +47,7 @@ public class UsersGroupsApi {
 
   /**
    * Adds a new member to the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
    * @param uniqueName The group unique name (required)
    * @param user The id and status for a user to add to the group (required)
    * @return GroupMemberResource
@@ -96,7 +95,7 @@ public class UsersGroupsApi {
       }
   /**
    * Adds multiple members to the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param uniqueName The group unique name (required)
    * @param users The id and status for a list of users to add to the group (required)
    * @return List&lt;GroupMemberResource&gt;
@@ -144,7 +143,7 @@ public class UsersGroupsApi {
       }
   /**
    * Create a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param groupResource The new group (optional)
    * @return GroupResource
    * @throws ApiException if fails to make API call
@@ -252,7 +251,7 @@ public class UsersGroupsApi {
       }
   /**
    * Removes a group from the system
-   * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param uniqueName The group unique name (required)
    * @throws ApiException if fails to make API call
    */
@@ -433,7 +432,7 @@ public class UsersGroupsApi {
   }
   /**
    * Loads a specific group&#39;s details
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param uniqueName The group unique name (required)
    * @return GroupResource
    * @throws ApiException if fails to make API call
@@ -517,7 +516,7 @@ public class UsersGroupsApi {
       }
   /**
    * Get a user from a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param uniqueName The group unique name (required)
    * @param userId The id of the user (required)
    * @return GroupMemberResource
@@ -649,7 +648,7 @@ public class UsersGroupsApi {
       }
   /**
    * Lists members of the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param uniqueName The group unique name (required)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -826,7 +825,7 @@ public class UsersGroupsApi {
       }
   /**
    * List groups a user is in
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
    * @param userId The id of the user (required)
    * @param filterChildren Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent. (optional)
    * @return List&lt;String&gt;
@@ -870,7 +869,7 @@ public class UsersGroupsApi {
       }
   /**
    * List and search groups
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterTemplate Filter for groups using a specific template, by id (optional)
    * @param filterMemberCount Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17 (optional)
    * @param filterName Filter for groups with names starting with the given string (optional)
@@ -966,7 +965,7 @@ public class UsersGroupsApi {
       }
   /**
    * Removes a user from a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param uniqueName The group unique name (required)
    * @param userId The id of the user to remove (required)
    * @throws ApiException if fails to make API call
@@ -1014,7 +1013,7 @@ public class UsersGroupsApi {
   }
   /**
    * Update a group
-   * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
+   * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param groupResource The updated group (optional)
    * @throws ApiException if fails to make API call
@@ -1056,7 +1055,7 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s order
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param order The new order for the membership (required)
@@ -1110,7 +1109,7 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s membership properties
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param properties The new properties for the membership (required)
@@ -1164,13 +1163,13 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s status
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param status The new status for the user (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateGroupMemberStatus(String uniqueName, Integer userId, GroupMemberStatusWrapper status) throws ApiException {
+  public void updateGroupMemberStatus(String uniqueName, Integer userId, StringWrapper status) throws ApiException {
     Object localVarPostBody = status;
     
     // verify the required parameter 'uniqueName' is set

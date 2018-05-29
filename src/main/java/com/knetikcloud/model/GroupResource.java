@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * GroupResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class GroupResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -48,43 +48,8 @@ public class GroupResource {
   @JsonProperty("parent")
   private String parent = null;
 
-  /**
-   * The status which describes whether other users can freely join the group or not
-   */
-  public enum StatusEnum {
-    OPEN("open"),
-    
-    CLOSED("closed");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
   @JsonProperty("status")
-  private StatusEnum status = null;
+  private String status = null;
 
   @JsonProperty("sub_member_count")
   private Integer subMemberCount = null;
@@ -205,21 +170,21 @@ public class GroupResource {
     this.parent = parent;
   }
 
-  public GroupResource status(StatusEnum status) {
+  public GroupResource status(String status) {
     this.status = status;
     return this;
   }
 
    /**
-   * The status which describes whether other users can freely join the group or not
+   * The status of the group. Max size 50
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "The status which describes whether other users can freely join the group or not")
-  public StatusEnum getStatus() {
+  @ApiModelProperty(value = "The status of the group. Max size 50")
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 

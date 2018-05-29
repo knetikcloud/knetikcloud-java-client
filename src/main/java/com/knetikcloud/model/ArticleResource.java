@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * ArticleResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class ArticleResource {
   @JsonProperty("active")
   private Boolean active = null;
@@ -60,6 +60,9 @@ public class ArticleResource {
 
   @JsonProperty("updated_date")
   private Long updatedDate = null;
+
+  @JsonProperty("view_count")
+  private Integer viewCount = null;
 
   public ArticleResource active(Boolean active) {
     this.active = active;
@@ -230,6 +233,24 @@ public class ArticleResource {
     return updatedDate;
   }
 
+  public ArticleResource viewCount(Integer viewCount) {
+    this.viewCount = viewCount;
+    return this;
+  }
+
+   /**
+   * The view count of the article
+   * @return viewCount
+  **/
+  @ApiModelProperty(value = "The view count of the article")
+  public Integer getViewCount() {
+    return viewCount;
+  }
+
+  public void setViewCount(Integer viewCount) {
+    this.viewCount = viewCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +270,13 @@ public class ArticleResource {
         Objects.equals(this.tags, articleResource.tags) &&
         Objects.equals(this.template, articleResource.template) &&
         Objects.equals(this.title, articleResource.title) &&
-        Objects.equals(this.updatedDate, articleResource.updatedDate);
+        Objects.equals(this.updatedDate, articleResource.updatedDate) &&
+        Objects.equals(this.viewCount, articleResource.viewCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, additionalProperties, body, category, createdDate, id, tags, template, title, updatedDate);
+    return Objects.hash(active, additionalProperties, body, category, createdDate, id, tags, template, title, updatedDate, viewCount);
   }
 
 
@@ -273,6 +295,7 @@ public class ArticleResource {
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
+    sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

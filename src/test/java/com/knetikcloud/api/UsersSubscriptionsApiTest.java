@@ -174,8 +174,8 @@ public class UsersSubscriptionsApiTest {
     public void setUserSubscriptionPriceTest() throws ApiException {
         Integer userId = null;
         Integer inventoryId = null;
-        SubscriptionPriceOverrideRequest theOverrideDetails = null;
-        api.setUserSubscriptionPrice(userId, inventoryId, theOverrideDetails);
+        SubscriptionPriceOverrideRequest override = null;
+        api.setUserSubscriptionPrice(userId, inventoryId, override);
 
         // TODO: test validations
     }

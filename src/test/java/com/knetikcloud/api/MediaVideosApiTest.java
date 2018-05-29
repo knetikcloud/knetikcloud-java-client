@@ -223,8 +223,9 @@ public class MediaVideosApiTest {
      */
     @Test
     public void deleteVideoDispositionTest() throws ApiException {
+        Long videoId = null;
         Long dispositionId = null;
-        api.deleteVideoDisposition(dispositionId);
+        api.deleteVideoDisposition(videoId, dispositionId);
 
         // TODO: test validations
     }
@@ -343,9 +344,10 @@ public class MediaVideosApiTest {
     @Test
     public void getVideoDispositionsTest() throws ApiException {
         Integer videoId = null;
+        String filterCreatedDate = null;
         Integer size = null;
         Integer page = null;
-        PageResourceDispositionResource response = api.getVideoDispositions(videoId, size, page);
+        PageResourceDispositionResource response = api.getVideoDispositions(videoId, filterCreatedDate, size, page);
 
         // TODO: test validations
     }

@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.9</version>
+    <version>3.0.10</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.9"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.10"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.9.jar
+* target/knetikcloud-java-client-3.0.10.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -166,6 +166,23 @@ Class | Method | HTTP request | Description
 *AuthTokensApi* | [**deleteTokens**](docs/AuthTokensApi.md#deleteTokens) | **DELETE** /auth/tokens | Delete tokens by username, client id, or both
 *AuthTokensApi* | [**getToken**](docs/AuthTokensApi.md#getToken) | **GET** /auth/tokens/{username}/{client_id} | Get a single token by username and client id
 *AuthTokensApi* | [**getTokens**](docs/AuthTokensApi.md#getTokens) | **GET** /auth/tokens | List usernames and client ids
+*AuthTypesApi* | [**allowedResourceActions**](docs/AuthTypesApi.md#allowedResourceActions) | **GET** /access/resources/{type}/{id}/actions | Get allowed action
+*AuthTypesApi* | [**allowedTypeActions**](docs/AuthTypesApi.md#allowedTypeActions) | **GET** /access/types/{type}/actions | Get allowed actions on a type
+*AuthTypesApi* | [**createResource**](docs/AuthTypesApi.md#createResource) | **POST** /access/resources/{type} | Create or update resource
+*AuthTypesApi* | [**createType**](docs/AuthTypesApi.md#createType) | **POST** /access/types | Create a new type
+*AuthTypesApi* | [**deleteResource**](docs/AuthTypesApi.md#deleteResource) | **DELETE** /access/resources/{type}/{id} | Delete a resource
+*AuthTypesApi* | [**deleteResources**](docs/AuthTypesApi.md#deleteResources) | **DELETE** /access/resources/{type} | Delete all resources of a type
+*AuthTypesApi* | [**deleteType**](docs/AuthTypesApi.md#deleteType) | **DELETE** /access/types/{type} | Delete a root type
+*AuthTypesApi* | [**getResource**](docs/AuthTypesApi.md#getResource) | **GET** /access/resources/{type}/{id} | Get a single resource
+*AuthTypesApi* | [**getResources**](docs/AuthTypesApi.md#getResources) | **GET** /access/resources/{type} | List and search resources
+*AuthTypesApi* | [**getType**](docs/AuthTypesApi.md#getType) | **GET** /access/types/{type} | Get a single root type
+*AuthTypesApi* | [**getTypes**](docs/AuthTypesApi.md#getTypes) | **GET** /access/types | List and search types
+*AuthTypesApi* | [**updateResource**](docs/AuthTypesApi.md#updateResource) | **PUT** /access/resources/{type}/{id} | Update a resource
+*AuthTypesApi* | [**updateType**](docs/AuthTypesApi.md#updateType) | **PUT** /access/types/{type} | Update a root type
+*AuthUsersApi* | [**addSid**](docs/AuthUsersApi.md#addSid) | **POST** /access/users/{user_id}/sids | Add a sid to a user
+*AuthUsersApi* | [**getSid**](docs/AuthUsersApi.md#getSid) | **GET** /access/users/{user_id}/sids/{sid} | Get a user sid
+*AuthUsersApi* | [**getSids**](docs/AuthUsersApi.md#getSids) | **GET** /access/users/{user_id}/sids | List and search user sids
+*AuthUsersApi* | [**removeSid**](docs/AuthUsersApi.md#removeSid) | **DELETE** /access/users/{user_id}/sids/{sid} | Remove a sid from a user
 *CampaignsApi* | [**addChallengeToCampaign**](docs/CampaignsApi.md#addChallengeToCampaign) | **POST** /campaigns/{id}/challenges | Add a challenge to a campaign
 *CampaignsApi* | [**createCampaign**](docs/CampaignsApi.md#createCampaign) | **POST** /campaigns | Create a campaign
 *CampaignsApi* | [**createCampaignTemplate**](docs/CampaignsApi.md#createCampaignTemplate) | **POST** /campaigns/templates | Create a campaign template
@@ -363,7 +380,6 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**getCountryByGeoLocation**](docs/LocationsApi.md#getCountryByGeoLocation) | **GET** /location/geolocation/country | Get the iso3 code of your country
 *LocationsApi* | [**getCountryStates**](docs/LocationsApi.md#getCountryStates) | **GET** /location/countries/{country_code_iso3}/states | Get a list of a country&#39;s states
 *LocationsApi* | [**getCurrencyByGeoLocation**](docs/LocationsApi.md#getCurrencyByGeoLocation) | **GET** /location/geolocation/currency | Get the currency information of your country
-*LogsApi* | [**addUserLog**](docs/LogsApi.md#addUserLog) | **POST** /audit/logs | Add a user log entry
 *LogsApi* | [**getBREEventLog**](docs/LogsApi.md#getBREEventLog) | **GET** /bre/logs/event-log/{id} | Get an existing BRE event log entry by id
 *LogsApi* | [**getBREEventLogs**](docs/LogsApi.md#getBREEventLogs) | **GET** /bre/logs/event-log | Returns a list of BRE event log entries
 *LogsApi* | [**getBREForwardLog**](docs/LogsApi.md#getBREForwardLog) | **GET** /bre/logs/forward-log/{id} | Get an existing forward log entry by id
@@ -534,6 +550,10 @@ Class | Method | HTTP request | Description
 *RuleEngineTriggersApi* | [**updateBRETrigger**](docs/RuleEngineTriggersApi.md#updateBRETrigger) | **PUT** /bre/triggers/{event_name} | Update a trigger
 *RuleEngineVariablesApi* | [**getBREVariableTypes**](docs/RuleEngineVariablesApi.md#getBREVariableTypes) | **GET** /bre/variable-types | Get a list of variable types available
 *RuleEngineVariablesApi* | [**getBREVariableValues**](docs/RuleEngineVariablesApi.md#getBREVariableValues) | **GET** /bre/variable-types/{name}/values | List valid values for a type
+*SearchApi* | [**indexDocument**](docs/SearchApi.md#indexDocument) | **POST** /search/documents | Adds a document to be indexed. For system use only.
+*SearchApi* | [**registerDefinition**](docs/SearchApi.md#registerDefinition) | **POST** /search/definitions | Register a new index definition. For system use only.
+*SearchApi* | [**reindex**](docs/SearchApi.md#reindex) | **POST** /search/reindex | Triggers a full re-indexing of all documents of the specified type. For system use only.
+*SearchApi* | [**removeDocument**](docs/SearchApi.md#removeDocument) | **DELETE** /search/documents | Remove a document from the index. For system use only.
 *SearchApi* | [**searchCountGET**](docs/SearchApi.md#searchCountGET) | **GET** /search/count/{type} | Count matches with no template
 *SearchApi* | [**searchCountPOST**](docs/SearchApi.md#searchCountPOST) | **POST** /search/count/{type} | Count matches with no template
 *SearchApi* | [**searchCountWithTemplateGET**](docs/SearchApi.md#searchCountWithTemplateGET) | **GET** /search/count/{type}/{template} | Count matches with a template
@@ -551,6 +571,8 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**searchIndicesGET**](docs/SearchApi.md#searchIndicesGET) | **GET** /search/indices | Get indices
 *SearchApi* | [**searchMappingsGET**](docs/SearchApi.md#searchMappingsGET) | **GET** /search/mappings/{type} | Get mapping with no template
 *SearchApi* | [**searchMappingsWithTemplateGET**](docs/SearchApi.md#searchMappingsWithTemplateGET) | **GET** /search/mappings/{type}/{template} | Get mapping with a template
+*SearchApi* | [**searchPublicIndex**](docs/SearchApi.md#searchPublicIndex) | **POST** /search/public/{type} | Search public index with no template
+*SearchApi* | [**searchPublicIndexWithTemplate**](docs/SearchApi.md#searchPublicIndexWithTemplate) | **POST** /search/public/{type}/{template} | Search public index with template
 *SearchApi* | [**searchValidateGET**](docs/SearchApi.md#searchValidateGET) | **GET** /search/validate/{type} | Validate matches with no template
 *SearchApi* | [**searchValidatePOST**](docs/SearchApi.md#searchValidatePOST) | **POST** /search/validate/{type} | Validate matches with no template
 *SearchApi* | [**searchValidateWithTemplateGET**](docs/SearchApi.md#searchValidateWithTemplateGET) | **GET** /search/validate/{type}/{template} | Validate matches with a template
@@ -754,6 +776,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AccessEntryResource](docs/AccessEntryResource.md)
+ - [AccessResourceCreateRequest](docs/AccessResourceCreateRequest.md)
+ - [AccessSubTypeResource](docs/AccessSubTypeResource.md)
+ - [AccessTypeResource](docs/AccessTypeResource.md)
  - [AchievementDefinitionResource](docs/AchievementDefinitionResource.md)
  - [ActionContextobject](docs/ActionContextobject.md)
  - [ActionResource](docs/ActionResource.md)
@@ -846,6 +872,7 @@ Class | Method | HTTP request | Description
  - [Discount](docs/Discount.md)
  - [DispositionCount](docs/DispositionCount.md)
  - [DispositionResource](docs/DispositionResource.md)
+ - [DocumentRemoveRequest](docs/DocumentRemoveRequest.md)
  - [DoubleOperationResource](docs/DoubleOperationResource.md)
  - [EntitlementGrantRequest](docs/EntitlementGrantRequest.md)
  - [ErrorResource](docs/ErrorResource.md)
@@ -866,11 +893,11 @@ Class | Method | HTTP request | Description
  - [GoogleToken](docs/GoogleToken.md)
  - [GrantTypeResource](docs/GrantTypeResource.md)
  - [GroupMemberResource](docs/GroupMemberResource.md)
- - [GroupMemberStatusWrapper](docs/GroupMemberStatusWrapper.md)
  - [GroupResource](docs/GroupResource.md)
  - [IdRef](docs/IdRef.md)
  - [ImportJobOutputResource](docs/ImportJobOutputResource.md)
  - [ImportJobResource](docs/ImportJobResource.md)
+ - [InnerQuery](docs/InnerQuery.md)
  - [IntWrapper](docs/IntWrapper.md)
  - [IntegerOperationResource](docs/IntegerOperationResource.md)
  - [InventoryStatusWrapper](docs/InventoryStatusWrapper.md)
@@ -912,6 +939,7 @@ Class | Method | HTTP request | Description
  - [Operator](docs/Operator.md)
  - [OptimalPaymentRequest](docs/OptimalPaymentRequest.md)
  - [Order](docs/Order.md)
+ - [PageResourceAccessTypeResource](docs/PageResourceAccessTypeResource.md)
  - [PageResourceAchievementDefinitionResource](docs/PageResourceAchievementDefinitionResource.md)
  - [PageResourceActivityOccurrenceResource](docs/PageResourceActivityOccurrenceResource.md)
  - [PageResourceAggregateCountResource](docs/PageResourceAggregateCountResource.md)
@@ -989,6 +1017,7 @@ Class | Method | HTTP request | Description
  - [PageResourceUserLevelingResource](docs/PageResourceUserLevelingResource.md)
  - [PageResourceUserNotificationResource](docs/PageResourceUserNotificationResource.md)
  - [PageResourceUserRelationshipResource](docs/PageResourceUserRelationshipResource.md)
+ - [PageResourceUserSidResource](docs/PageResourceUserSidResource.md)
  - [PageResourceVendorResource](docs/PageResourceVendorResource.md)
  - [PageResourceVideoRelationshipResource](docs/PageResourceVideoRelationshipResource.md)
  - [PageResourceVideoResource](docs/PageResourceVideoResource.md)
@@ -1021,6 +1050,7 @@ Class | Method | HTTP request | Description
  - [ReactivateSubscriptionRequest](docs/ReactivateSubscriptionRequest.md)
  - [RefundRequest](docs/RefundRequest.md)
  - [RefundResource](docs/RefundResource.md)
+ - [ReindexRequest](docs/ReindexRequest.md)
  - [ResourceTypeDescription](docs/ResourceTypeDescription.md)
  - [Result](docs/Result.md)
  - [RevenueCountryReportResource](docs/RevenueCountryReportResource.md)
@@ -1034,6 +1064,10 @@ Class | Method | HTTP request | Description
  - [SampleCountriesResponse](docs/SampleCountriesResponse.md)
  - [SavedAddressResource](docs/SavedAddressResource.md)
  - [Schedule](docs/Schedule.md)
+ - [SearchDocument](docs/SearchDocument.md)
+ - [SearchObjectDefinition](docs/SearchObjectDefinition.md)
+ - [SearchQuery](docs/SearchQuery.md)
+ - [SearchReferenceMapping](docs/SearchReferenceMapping.md)
  - [SelectedSettingRequest](docs/SelectedSettingRequest.md)
  - [SelectedSettingResource](docs/SelectedSettingResource.md)
  - [SettingOption](docs/SettingOption.md)
@@ -1090,6 +1124,7 @@ Class | Method | HTTP request | Description
  - [UserRelationshipReferenceResource](docs/UserRelationshipReferenceResource.md)
  - [UserRelationshipResource](docs/UserRelationshipResource.md)
  - [UserResource](docs/UserResource.md)
+ - [UserSidResource](docs/UserSidResource.md)
  - [UsernameLookupResource](docs/UsernameLookupResource.md)
  - [ValueWrapperboolean](docs/ValueWrapperboolean.md)
  - [VariableTypeResource](docs/VariableTypeResource.md)
@@ -1138,6 +1173,7 @@ Class | Method | HTTP request | Description
  - [PreReqEntitlement](docs/PreReqEntitlement.md)
  - [PriceOverridable](docs/PriceOverridable.md)
  - [RemoveCustomerEvent](docs/RemoveCustomerEvent.md)
+ - [SearchDefinitionCreated](docs/SearchDefinitionCreated.md)
  - [ServiceDeployedEvent](docs/ServiceDeployedEvent.md)
  - [Spendable](docs/Spendable.md)
  - [StoreItem](docs/StoreItem.md)

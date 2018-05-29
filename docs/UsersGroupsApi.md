@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 Adds a new member to the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
 
 ### Example
 ```java
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 Adds multiple members to the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 Create a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
 
 ### Example
 ```java
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 Removes a group from the system
 
-All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -561,7 +561,7 @@ null (empty response body)
 
 Loads a specific group&#39;s details
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 Get a user from a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
 
 ### Example
 ```java
@@ -852,7 +852,7 @@ Name | Type | Description  | Notes
 
 Lists members of the group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1094,7 +1094,7 @@ Name | Type | Description  | Notes
 
 List groups a user is in
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
 
 ### Example
 ```java
@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 List and search groups
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
 
 ### Example
 ```java
@@ -1271,7 +1271,7 @@ No authorization required
 
 Removes a user from a group
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
 
 ### Example
 ```java
@@ -1329,7 +1329,7 @@ null (empty response body)
 
 Update a group
 
-If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1387,7 +1387,7 @@ null (empty response body)
 
 Change a user&#39;s order
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1447,7 +1447,7 @@ null (empty response body)
 
 Change a user&#39;s membership properties
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1507,7 +1507,7 @@ null (empty response body)
 
 Change a user&#39;s status
 
-&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
 
 ### Example
 ```java
@@ -1531,7 +1531,7 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 UsersGroupsApi apiInstance = new UsersGroupsApi();
 String uniqueName = "uniqueName_example"; // String | The group unique name
 Integer userId = 56; // Integer | The user id of the member to modify
-GroupMemberStatusWrapper status = new GroupMemberStatusWrapper(); // GroupMemberStatusWrapper | The new status for the user
+StringWrapper status = new StringWrapper(); // StringWrapper | The new status for the user
 try {
     apiInstance.updateGroupMemberStatus(uniqueName, userId, status);
 } catch (ApiException e) {
@@ -1546,7 +1546,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **String**| The group unique name |
  **userId** | **Integer**| The user id of the member to modify |
- **status** | [**GroupMemberStatusWrapper**](GroupMemberStatusWrapper.md)| The new status for the user |
+ **status** | [**StringWrapper**](StringWrapper.md)| The new status for the user |
 
 ### Return type
 

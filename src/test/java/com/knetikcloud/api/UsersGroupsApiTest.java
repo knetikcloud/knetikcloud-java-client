@@ -17,7 +17,6 @@ import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ChatMessageRequest;
 import com.knetikcloud.model.ChatMessageResource;
 import com.knetikcloud.model.GroupMemberResource;
-import com.knetikcloud.model.GroupMemberStatusWrapper;
 import com.knetikcloud.model.GroupResource;
 import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceGroupMemberResource;
@@ -47,7 +46,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds a new member to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
      *
      * @throws ApiException
      *          if the Api call fails
@@ -64,7 +63,7 @@ public class UsersGroupsApiTest {
     /**
      * Adds multiple members to the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,7 +80,7 @@ public class UsersGroupsApiTest {
     /**
      * Create a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -129,7 +128,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a group from the system
      *
-     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -197,7 +196,7 @@ public class UsersGroupsApiTest {
     /**
      * Loads a specific group&#39;s details
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -229,7 +228,7 @@ public class UsersGroupsApiTest {
     /**
      * Get a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -280,7 +279,7 @@ public class UsersGroupsApiTest {
     /**
      * Lists members of the group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -351,7 +350,7 @@ public class UsersGroupsApiTest {
     /**
      * List groups a user is in
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
      *
      * @throws ApiException
      *          if the Api call fails
@@ -368,7 +367,7 @@ public class UsersGroupsApiTest {
     /**
      * List and search groups
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -409,7 +408,7 @@ public class UsersGroupsApiTest {
     /**
      * Removes a user from a group
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -426,7 +425,7 @@ public class UsersGroupsApiTest {
     /**
      * Update a group
      *
-     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
+     * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -443,7 +442,7 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s order
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -461,7 +460,7 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s membership properties
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -479,7 +478,7 @@ public class UsersGroupsApiTest {
     /**
      * Change a user&#39;s status
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -488,7 +487,7 @@ public class UsersGroupsApiTest {
     public void updateGroupMemberStatusTest() throws ApiException {
         String uniqueName = null;
         Integer userId = null;
-        GroupMemberStatusWrapper status = null;
+        StringWrapper status = null;
         api.updateGroupMemberStatus(uniqueName, userId, status);
 
         // TODO: test validations

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -46,7 +46,7 @@ public class UsersApi {
 
   /**
    * Add a tag to a user
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
    * @param userId The id of the user (required)
    * @param tag tag (required)
    * @throws ApiException if fails to make API call
@@ -218,7 +218,7 @@ public class UsersApi {
       }
   /**
    * Get a single user
-   * Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Additional private info is included if access controls allow GET. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param id The id of the user or &#39;me&#39; (required)
    * @return UserResource
    * @throws ApiException if fails to make API call
@@ -260,7 +260,7 @@ public class UsersApi {
       }
   /**
    * List tags for a user
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param userId The id of the user (required)
    * @return List&lt;String&gt;
    * @throws ApiException if fails to make API call
@@ -385,7 +385,7 @@ public class UsersApi {
       }
   /**
    * List and search users
-   * Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Additional private info is included with LIST_PRIVATE. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterDisplayname Filter for users whose display name starts with provided string. (optional)
    * @param filterEmail Filter for users whose email starts with provided string. Requires USERS_ADMIN permission (optional)
    * @param filterFirstname Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission (optional)
@@ -535,7 +535,7 @@ public class UsersApi {
       }
   /**
    * Register a new user
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param userResource The user resource object (optional)
    * @return UserResource
    * @throws ApiException if fails to make API call
@@ -571,7 +571,7 @@ public class UsersApi {
       }
   /**
    * Remove a tag from a user
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TAGS
    * @param userId The id of the user (required)
    * @param tag The tag to remove (required)
    * @throws ApiException if fails to make API call
@@ -619,7 +619,7 @@ public class UsersApi {
   }
   /**
    * Set a user&#39;s password
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or (USERS_USER and owner)
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user (required)
    * @param password The new plain text password (optional)
    * @throws ApiException if fails to make API call
@@ -737,7 +737,7 @@ public class UsersApi {
   }
   /**
    * Update a user
-   * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
+   * Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user or &#39;me&#39; (required)
    * @param userResource The user resource object (optional)
    * @throws ApiException if fails to make API call

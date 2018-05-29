@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class UsersSubscriptionsApi {
   private ApiClient apiClient;
 
@@ -393,11 +393,11 @@ public class UsersSubscriptionsApi {
    * This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
    * @param userId The id of the user (required)
    * @param inventoryId The id of the user&#39;s inventory (required)
-   * @param theOverrideDetails override (optional)
+   * @param override The override details (optional)
    * @throws ApiException if fails to make API call
    */
-  public void setUserSubscriptionPrice(Integer userId, Integer inventoryId, SubscriptionPriceOverrideRequest theOverrideDetails) throws ApiException {
-    Object localVarPostBody = theOverrideDetails;
+  public void setUserSubscriptionPrice(Integer userId, Integer inventoryId, SubscriptionPriceOverrideRequest override) throws ApiException {
+    Object localVarPostBody = override;
     
     // verify the required parameter 'userId' is set
     if (userId == null) {

@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class MediaVideosApi {
   private ApiClient apiClient;
 
@@ -468,11 +468,17 @@ public class MediaVideosApi {
   /**
    * Delete a video disposition
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
+   * @param videoId The video id (required)
    * @param dispositionId The disposition id (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteVideoDisposition(Long dispositionId) throws ApiException {
+  public void deleteVideoDisposition(Long videoId, Long dispositionId) throws ApiException {
     Object localVarPostBody = null;
+    
+    // verify the required parameter 'videoId' is set
+    if (videoId == null) {
+      throw new ApiException(400, "Missing the required parameter 'videoId' when calling deleteVideoDisposition");
+    }
     
     // verify the required parameter 'dispositionId' is set
     if (dispositionId == null) {
@@ -481,6 +487,7 @@ public class MediaVideosApi {
     
     // create path and map variables
     String localVarPath = "/media/videos/{video_id}/dispositions/{disposition_id}"
+      .replaceAll("\\{" + "video_id" + "\\}", apiClient.escapeString(videoId.toString()))
       .replaceAll("\\{" + "disposition_id" + "\\}", apiClient.escapeString(dispositionId.toString()));
 
     // query params
@@ -778,12 +785,13 @@ public class MediaVideosApi {
    * Returns a page of dispositions for a video
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param videoId The video id (required)
+   * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return PageResourceDispositionResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceDispositionResource getVideoDispositions(Integer videoId, Integer size, Integer page) throws ApiException {
+  public PageResourceDispositionResource getVideoDispositions(Integer videoId, String filterCreatedDate, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'videoId' is set
@@ -800,6 +808,7 @@ public class MediaVideosApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_created_date", filterCreatedDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 

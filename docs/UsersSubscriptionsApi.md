@@ -433,7 +433,7 @@ null (empty response body)
 
 <a name="setUserSubscriptionPrice"></a>
 # **setUserSubscriptionPrice**
-> setUserSubscriptionPrice(userId, inventoryId, theOverrideDetails)
+> setUserSubscriptionPrice(userId, inventoryId, override)
 
 Set a new subscription price for a user
 
@@ -461,9 +461,9 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 UsersSubscriptionsApi apiInstance = new UsersSubscriptionsApi();
 Integer userId = 56; // Integer | The id of the user
 Integer inventoryId = 56; // Integer | The id of the user's inventory
-SubscriptionPriceOverrideRequest theOverrideDetails = new SubscriptionPriceOverrideRequest(); // SubscriptionPriceOverrideRequest | override
+SubscriptionPriceOverrideRequest override = new SubscriptionPriceOverrideRequest(); // SubscriptionPriceOverrideRequest | The override details
 try {
-    apiInstance.setUserSubscriptionPrice(userId, inventoryId, theOverrideDetails);
+    apiInstance.setUserSubscriptionPrice(userId, inventoryId, override);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersSubscriptionsApi#setUserSubscriptionPrice");
     e.printStackTrace();
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The id of the user |
  **inventoryId** | **Integer**| The id of the user&#39;s inventory |
- **theOverrideDetails** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| override | [optional]
+ **override** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| The override details | [optional]
 
 ### Return type
 

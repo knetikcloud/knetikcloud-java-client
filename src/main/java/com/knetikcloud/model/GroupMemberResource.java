@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * GroupMemberResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-19T12:00:41.398-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
 public class GroupMemberResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -46,43 +46,8 @@ public class GroupMemberResource {
   @JsonProperty("order")
   private String order = null;
 
-  /**
-   * The member&#39;s access level. Default: member
-   */
-  public enum StatusEnum {
-    MODERATOR("moderator"),
-    
-    MEMBER("member");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
   @JsonProperty("status")
-  private StatusEnum status = null;
+  private String status = null;
 
   @JsonProperty("template")
   private String template = null;
@@ -170,21 +135,21 @@ public class GroupMemberResource {
     this.order = order;
   }
 
-  public GroupMemberResource status(StatusEnum status) {
+  public GroupMemberResource status(String status) {
     this.status = status;
     return this;
   }
 
    /**
-   * The member&#39;s access level. Default: member
+   * The member&#39;s status. Max size 50. Default: member
    * @return status
   **/
-  @ApiModelProperty(value = "The member's access level. Default: member")
-  public StatusEnum getStatus() {
+  @ApiModelProperty(value = "The member's status. Max size 50. Default: member")
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
