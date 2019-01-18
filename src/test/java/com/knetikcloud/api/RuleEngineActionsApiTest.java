@@ -14,7 +14,7 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
-import com.knetikcloud.model.ActionResource;
+import com.knetikcloud.model.PageResourceActionResource;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -47,7 +47,9 @@ public class RuleEngineActionsApiTest {
         String filterName = null;
         String filterTags = null;
         String filterSearch = null;
-        List<ActionResource> response = api.getBREActions(filterCategory, filterName, filterTags, filterSearch);
+        Integer size = null;
+        Integer page = null;
+        PageResourceActionResource response = api.getBREActions(filterCategory, filterName, filterTags, filterSearch, size, page);
 
         // TODO: test validations
     }

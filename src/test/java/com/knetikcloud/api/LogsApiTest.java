@@ -57,7 +57,7 @@ public class LogsApiTest {
     /**
      * Returns a list of BRE event log entries
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+     * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
      *
      * @throws ApiException
      *          if the Api call fails
@@ -95,7 +95,7 @@ public class LogsApiTest {
     /**
      * Returns a list of forward log entries
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+     * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
      *
      * @throws ApiException
      *          if the Api call fails
@@ -123,9 +123,9 @@ public class LogsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getUserLogTest() throws ApiException {
+    public void getUserLogsTest() throws ApiException {
         String id = null;
-        UserActionLog response = api.getUserLog(id);
+        UserActionLog response = api.getUserLogs(id);
 
         // TODO: test validations
     }
@@ -139,13 +139,13 @@ public class LogsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getUserLogsTest() throws ApiException {
+    public void getUserLogs1Test() throws ApiException {
         Integer filterUser = null;
         String filterActionName = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        PageResourceUserActionLog response = api.getUserLogs(filterUser, filterActionName, size, page, order);
+        PageResourceUserActionLog response = api.getUserLogs1(filterUser, filterActionName, size, page, order);
 
         // TODO: test validations
     }

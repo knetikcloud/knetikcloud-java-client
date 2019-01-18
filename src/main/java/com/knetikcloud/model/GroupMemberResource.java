@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * GroupMemberResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class GroupMemberResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -39,6 +39,9 @@ public class GroupMemberResource {
 
   @JsonProperty("implicit")
   private Boolean implicit = null;
+
+  @JsonProperty("member_since")
+  private Long memberSince = null;
 
   @JsonProperty("membership_id")
   private Long membershipId = null;
@@ -51,6 +54,9 @@ public class GroupMemberResource {
 
   @JsonProperty("template")
   private String template = null;
+
+  @JsonProperty("updated_date")
+  private Long updatedDate = null;
 
   @JsonProperty("user")
   private SimpleUserResource user = null;
@@ -106,6 +112,15 @@ public class GroupMemberResource {
   @ApiModelProperty(example = "false", value = "Whether this membership is explicit (the user was added directly to the group) or implicit (the user was added only to one or more child groups)")
   public Boolean isImplicit() {
     return implicit;
+  }
+
+   /**
+   * The group member&#39;s membership date as a unix timestamp
+   * @return memberSince
+  **/
+  @ApiModelProperty(value = "The group member's membership date as a unix timestamp")
+  public Long getMemberSince() {
+    return memberSince;
   }
 
    /**
@@ -171,6 +186,15 @@ public class GroupMemberResource {
     this.template = template;
   }
 
+   /**
+   * The date the group member&#39;s info was updated as a unix timestamp
+   * @return updatedDate
+  **/
+  @ApiModelProperty(value = "The date the group member's info was updated as a unix timestamp")
+  public Long getUpdatedDate() {
+    return updatedDate;
+  }
+
   public GroupMemberResource user(SimpleUserResource user) {
     this.user = user;
     return this;
@@ -202,16 +226,18 @@ public class GroupMemberResource {
     return Objects.equals(this.additionalProperties, groupMemberResource.additionalProperties) &&
         Objects.equals(this.group, groupMemberResource.group) &&
         Objects.equals(this.implicit, groupMemberResource.implicit) &&
+        Objects.equals(this.memberSince, groupMemberResource.memberSince) &&
         Objects.equals(this.membershipId, groupMemberResource.membershipId) &&
         Objects.equals(this.order, groupMemberResource.order) &&
         Objects.equals(this.status, groupMemberResource.status) &&
         Objects.equals(this.template, groupMemberResource.template) &&
+        Objects.equals(this.updatedDate, groupMemberResource.updatedDate) &&
         Objects.equals(this.user, groupMemberResource.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, group, implicit, membershipId, order, status, template, user);
+    return Objects.hash(additionalProperties, group, implicit, memberSince, membershipId, order, status, template, updatedDate, user);
   }
 
 
@@ -223,10 +249,12 @@ public class GroupMemberResource {
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    implicit: ").append(toIndentedString(implicit)).append("\n");
+    sb.append("    memberSince: ").append(toIndentedString(memberSince)).append("\n");
     sb.append("    membershipId: ").append(toIndentedString(membershipId)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();

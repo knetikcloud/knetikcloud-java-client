@@ -16,6 +16,7 @@ import com.knetikcloud.model.PageResourceEntitlementItem;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
 import com.knetikcloud.model.PageResourceUserInventoryResource;
 import com.knetikcloud.model.PageResourceUserItemLogResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.UserInventoryAddRequest;
 import com.knetikcloud.model.UserInventoryResource;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UsersInventoryApi {
   private ApiClient apiClient;
 
@@ -178,7 +179,7 @@ public class UsersInventoryApi {
       }
   /**
    * Create an entitlement template
-   * Entitlement templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Entitlement templates define a type of entitlement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param template The entitlement template to be created (optional)
    * @return ItemTemplateResource
    * @throws ApiException if fails to make API call
@@ -255,7 +256,7 @@ public class UsersInventoryApi {
   }
   /**
    * Delete an entitlement template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -383,7 +384,7 @@ public class UsersInventoryApi {
       }
   /**
    * Get a single entitlement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return ItemTemplateResource
    * @throws ApiException if fails to make API call
@@ -425,7 +426,7 @@ public class UsersInventoryApi {
       }
   /**
    * List and search entitlement templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -462,6 +463,57 @@ public class UsersInventoryApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<PageResourceItemTemplateResource> localVarReturnType = new GenericType<PageResourceItemTemplateResource>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * List the user inventory entries for all users
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
+   * @param inactive If true, accepts inactive user inventories (optional, default to false)
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @param filterItemName Filter by items whose name starts with a string (optional)
+   * @param filterItemId Filter by item id (optional)
+   * @param filterUsername Filter by entries owned by the user with the specified username (optional)
+   * @param filterGroup Filter by entries owned by the users in a given group, by unique name (optional)
+   * @param filterDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
+   * @return PageResourceUserInventoryResource
+   * @throws ApiException if fails to make API call
+   */
+  public PageResourceUserInventoryResource getInventoryList(Boolean inactive, Integer size, Integer page, String filterItemName, Integer filterItemId, String filterUsername, String filterGroup, String filterDate) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/inventories";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "inactive", inactive));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_item_name", filterItemName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_item_id", filterItemId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_username", filterUsername));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_group", filterGroup));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_date", filterDate));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+    GenericType<PageResourceUserInventoryResource> localVarReturnType = new GenericType<PageResourceUserInventoryResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -625,57 +677,6 @@ public class UsersInventoryApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * List the user inventory entries for all users
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
-   * @param inactive If true, accepts inactive user inventories (optional, default to false)
-   * @param size The number of objects returned per page (optional, default to 25)
-   * @param page The number of the page returned, starting with 1 (optional, default to 1)
-   * @param filterItemName Filter by items whose name starts with a string (optional)
-   * @param filterItemId Filter by item id (optional)
-   * @param filterUsername Filter by entries owned by the user with the specified username (optional)
-   * @param filterGroup Filter by entries owned by the users in a given group, by unique name (optional)
-   * @param filterDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
-   * @return PageResourceUserInventoryResource
-   * @throws ApiException if fails to make API call
-   */
-  public PageResourceUserInventoryResource getUsersInventory(Boolean inactive, Integer size, Integer page, String filterItemName, Integer filterItemId, String filterUsername, String filterGroup, String filterDate) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/inventories";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "inactive", inactive));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_item_name", filterItemName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_item_id", filterItemId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_username", filterUsername));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_group", filterGroup));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_date", filterDate));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
-
-    GenericType<PageResourceUserInventoryResource> localVarReturnType = new GenericType<PageResourceUserInventoryResource>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
    * Grant an entitlement
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
    * @param userId The id of the user to grant the entitlement to (required)
@@ -768,14 +769,15 @@ public class UsersInventoryApi {
   }
   /**
    * Update an entitlement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param template The updated template (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return ItemTemplateResource
    * @throws ApiException if fails to make API call
    */
-  public ItemTemplateResource updateEntitlementTemplate(String id, ItemTemplateResource template) throws ApiException {
-    Object localVarPostBody = template;
+  public ItemTemplateResource updateEntitlementTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -791,6 +793,7 @@ public class UsersInventoryApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -807,7 +810,7 @@ public class UsersInventoryApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<ItemTemplateResource> localVarReturnType = new GenericType<ItemTemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Set the behavior data for an inventory entry

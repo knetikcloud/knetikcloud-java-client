@@ -82,7 +82,7 @@ public class UsersFriendshipsApiTest {
     @Test
     public void getInviteTokenTest() throws ApiException {
         String userId = null;
-        String response = api.getInviteToken(userId);
+        StringWrapper response = api.getInviteToken(userId);
 
         // TODO: test validations
     }

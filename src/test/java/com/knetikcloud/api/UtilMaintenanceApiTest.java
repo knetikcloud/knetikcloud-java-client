@@ -79,20 +79,4 @@ public class UtilMaintenanceApiTest {
         // TODO: test validations
     }
     
-    /**
-     * Update current maintenance info
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateMaintenanceTest() throws ApiException {
-        Maintenance maintenance = null;
-        api.updateMaintenance(maintenance);
-
-        // TODO: test validations
-    }
-    
 }

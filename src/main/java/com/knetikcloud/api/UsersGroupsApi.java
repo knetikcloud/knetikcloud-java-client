@@ -15,6 +15,8 @@ import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceGroupMemberResource;
 import com.knetikcloud.model.PageResourceGroupResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
@@ -25,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UsersGroupsApi {
   private ApiClient apiClient;
 
@@ -47,7 +49,7 @@ public class UsersGroupsApi {
 
   /**
    * Adds a new member to the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST or JOIN if self&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param uniqueName The group unique name (required)
    * @param user The id and status for a user to add to the group (required)
    * @return GroupMemberResource
@@ -95,7 +97,7 @@ public class UsersGroupsApi {
       }
   /**
    * Adds multiple members to the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param uniqueName The group unique name (required)
    * @param users The id and status for a list of users to add to the group (required)
    * @return List&lt;GroupMemberResource&gt;
@@ -143,7 +145,7 @@ public class UsersGroupsApi {
       }
   /**
    * Create a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; POST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param groupResource The new group (optional)
    * @return GroupResource
    * @throws ApiException if fails to make API call
@@ -178,8 +180,8 @@ public class UsersGroupsApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Create an group member template
-   * GroupMember Templates define a type of group member and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Create a group member template
+   * GroupMember Templates define a type of group member and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param groupMemberTemplateResource The group member template resource object (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -215,7 +217,7 @@ public class UsersGroupsApi {
       }
   /**
    * Create a group template
-   * Group Templates define a type of group and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Group Templates define a type of group and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param groupTemplateResource The group template resource object (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -251,7 +253,7 @@ public class UsersGroupsApi {
       }
   /**
    * Removes a group from the system
-   * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+   * All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param uniqueName The group unique name (required)
    * @throws ApiException if fails to make API call
    */
@@ -291,8 +293,8 @@ public class UsersGroupsApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete an group member template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Delete a group member template
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -335,7 +337,7 @@ public class UsersGroupsApi {
   }
   /**
    * Delete a group template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -432,7 +434,7 @@ public class UsersGroupsApi {
   }
   /**
    * Loads a specific group&#39;s details
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param uniqueName The group unique name (required)
    * @return GroupResource
    * @throws ApiException if fails to make API call
@@ -474,12 +476,14 @@ public class UsersGroupsApi {
       }
   /**
    * Get group ancestors
-   * Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param uniqueName The group unique name (required)
-   * @return List&lt;GroupResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceGroupResource
    * @throws ApiException if fails to make API call
    */
-  public List<GroupResource> getGroupAncestors(String uniqueName) throws ApiException {
+  public PageResourceGroupResource getGroupAncestors(String uniqueName, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'uniqueName' is set
@@ -496,6 +500,8 @@ public class UsersGroupsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -511,12 +517,12 @@ public class UsersGroupsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<GroupResource>> localVarReturnType = new GenericType<List<GroupResource>>() {};
+    GenericType<PageResourceGroupResource> localVarReturnType = new GenericType<PageResourceGroupResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get a user from a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param uniqueName The group unique name (required)
    * @param userId The id of the user (required)
    * @return GroupMemberResource
@@ -565,7 +571,7 @@ public class UsersGroupsApi {
       }
   /**
    * Get a single group member template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -607,7 +613,7 @@ public class UsersGroupsApi {
       }
   /**
    * List and search group member templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -648,7 +654,7 @@ public class UsersGroupsApi {
       }
   /**
    * Lists members of the group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param uniqueName The group unique name (required)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
@@ -700,10 +706,11 @@ public class UsersGroupsApi {
    * @param uniqueName The group unique name (required)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
    * @return PageResourceChatMessageResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceChatMessageResource getGroupMessages(String uniqueName, Integer size, Integer page) throws ApiException {
+  public PageResourceChatMessageResource getGroupMessages(String uniqueName, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'uniqueName' is set
@@ -722,6 +729,7 @@ public class UsersGroupsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));
 
     
     
@@ -742,7 +750,7 @@ public class UsersGroupsApi {
       }
   /**
    * Get a single group template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -784,7 +792,7 @@ public class UsersGroupsApi {
       }
   /**
    * List and search group templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -825,13 +833,15 @@ public class UsersGroupsApi {
       }
   /**
    * List groups a user is in
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST_GROUPS
    * @param userId The id of the user (required)
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param filterChildren Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent. (optional)
-   * @return List&lt;String&gt;
+   * @return PageResourcestring
    * @throws ApiException if fails to make API call
    */
-  public List<String> getGroupsForUser(Integer userId, Boolean filterChildren) throws ApiException {
+  public PageResourcestring getGroupsForUser(Integer userId, Integer size, Integer page, Boolean filterChildren) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -848,6 +858,8 @@ public class UsersGroupsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_children", filterChildren));
 
     
@@ -864,12 +876,12 @@ public class UsersGroupsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourcestring> localVarReturnType = new GenericType<PageResourcestring>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * List and search groups
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterTemplate Filter for groups using a specific template, by id (optional)
    * @param filterMemberCount Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17 (optional)
    * @param filterName Filter for groups with names starting with the given string (optional)
@@ -958,14 +970,14 @@ public class UsersGroupsApi {
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {  };
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<ChatMessageResource> localVarReturnType = new GenericType<ChatMessageResource>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Removes a user from a group
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param uniqueName The group unique name (required)
    * @param userId The id of the user to remove (required)
    * @throws ApiException if fails to make API call
@@ -1013,7 +1025,7 @@ public class UsersGroupsApi {
   }
   /**
    * Update a group
-   * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param groupResource The updated group (optional)
    * @throws ApiException if fails to make API call
@@ -1055,28 +1067,28 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s order
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param order The new order for the membership (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateGroupMemberProperties(String uniqueName, Integer userId, StringWrapper order) throws ApiException {
+  public void updateGroupMemberOrder(String uniqueName, Integer userId, StringWrapper order) throws ApiException {
     Object localVarPostBody = order;
     
     // verify the required parameter 'uniqueName' is set
     if (uniqueName == null) {
-      throw new ApiException(400, "Missing the required parameter 'uniqueName' when calling updateGroupMemberProperties");
+      throw new ApiException(400, "Missing the required parameter 'uniqueName' when calling updateGroupMemberOrder");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling updateGroupMemberProperties");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling updateGroupMemberOrder");
     }
     
     // verify the required parameter 'order' is set
     if (order == null) {
-      throw new ApiException(400, "Missing the required parameter 'order' when calling updateGroupMemberProperties");
+      throw new ApiException(400, "Missing the required parameter 'order' when calling updateGroupMemberOrder");
     }
     
     // create path and map variables
@@ -1109,28 +1121,28 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s membership properties
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param properties The new properties for the membership (required)
    * @throws ApiException if fails to make API call
    */
-  public void updateGroupMemberProperties1(String uniqueName, Integer userId, Object properties) throws ApiException {
+  public void updateGroupMemberProperties(String uniqueName, Integer userId, Object properties) throws ApiException {
     Object localVarPostBody = properties;
     
     // verify the required parameter 'uniqueName' is set
     if (uniqueName == null) {
-      throw new ApiException(400, "Missing the required parameter 'uniqueName' when calling updateGroupMemberProperties1");
+      throw new ApiException(400, "Missing the required parameter 'uniqueName' when calling updateGroupMemberProperties");
     }
     
     // verify the required parameter 'userId' is set
     if (userId == null) {
-      throw new ApiException(400, "Missing the required parameter 'userId' when calling updateGroupMemberProperties1");
+      throw new ApiException(400, "Missing the required parameter 'userId' when calling updateGroupMemberProperties");
     }
     
     // verify the required parameter 'properties' is set
     if (properties == null) {
-      throw new ApiException(400, "Missing the required parameter 'properties' when calling updateGroupMemberProperties1");
+      throw new ApiException(400, "Missing the required parameter 'properties' when calling updateGroupMemberProperties");
     }
     
     // create path and map variables
@@ -1163,7 +1175,7 @@ public class UsersGroupsApi {
   }
   /**
    * Change a user&#39;s status
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param uniqueName The group unique name (required)
    * @param userId The user id of the member to modify (required)
    * @param status The new status for the user (required)
@@ -1216,15 +1228,16 @@ public class UsersGroupsApi {
     apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Update an group member template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Update a group member template
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param groupMemberTemplateResource The group member template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
    */
-  public TemplateResource updateGroupMemberTemplate(String id, TemplateResource groupMemberTemplateResource) throws ApiException {
-    Object localVarPostBody = groupMemberTemplateResource;
+  public TemplateResource updateGroupMemberTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1240,6 +1253,7 @@ public class UsersGroupsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -1256,18 +1270,19 @@ public class UsersGroupsApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<TemplateResource> localVarReturnType = new GenericType<TemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Update a group template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param groupTemplateResource The group template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
    */
-  public TemplateResource updateGroupTemplate(String id, TemplateResource groupTemplateResource) throws ApiException {
-    Object localVarPostBody = groupTemplateResource;
+  public TemplateResource updateGroupTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1283,6 +1298,7 @@ public class UsersGroupsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -1299,6 +1315,6 @@ public class UsersGroupsApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<TemplateResource> localVarReturnType = new GenericType<TemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

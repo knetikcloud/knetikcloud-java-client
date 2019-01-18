@@ -8,6 +8,7 @@ import com.knetikcloud.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.ExpressionResource;
+import com.knetikcloud.model.PageResourceExpressionResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class RuleEngineExpressionsApi {
   private ApiClient apiClient;
 
@@ -82,10 +83,12 @@ public class RuleEngineExpressionsApi {
    * Get a list of supported expressions to use in conditions or actions.
    * Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EXPRESSIONS_USER
    * @param filterTypeGroup Filter for expressions by type group (optional)
-   * @return List&lt;ExpressionResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceExpressionResource
    * @throws ApiException if fails to make API call
    */
-  public List<ExpressionResource> getBREExpressions(String filterTypeGroup) throws ApiException {
+  public PageResourceExpressionResource getBREExpressions(String filterTypeGroup, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -97,6 +100,8 @@ public class RuleEngineExpressionsApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_type_group", filterTypeGroup));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -112,7 +117,7 @@ public class RuleEngineExpressionsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<ExpressionResource>> localVarReturnType = new GenericType<List<ExpressionResource>>() {};
+    GenericType<PageResourceExpressionResource> localVarReturnType = new GenericType<PageResourceExpressionResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

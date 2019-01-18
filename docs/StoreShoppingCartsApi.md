@@ -1,6 +1,6 @@
 # StoreShoppingCartsApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -195,7 +195,7 @@ null (empty response body)
 
 <a name="createCart"></a>
 # **createCart**
-> String createCart(owner, currencyCode)
+> StringWrapper createCart(owner, currencyCode)
 
 Create a cart
 
@@ -224,7 +224,7 @@ StoreShoppingCartsApi apiInstance = new StoreShoppingCartsApi();
 Integer owner = 56; // Integer | Set the owner of a cart. If not specified, defaults to the calling user's id. If specified and is not the calling user's id, SHOPPING_CARTS_ADMIN permission is required
 String currencyCode = "currencyCode_example"; // String | Set the currency for the cart, by currency code. May be disallowed by site settings.
 try {
-    String result = apiInstance.createCart(owner, currencyCode);
+    StringWrapper result = apiInstance.createCart(owner, currencyCode);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StoreShoppingCartsApi#createCart");
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**StringWrapper**](StringWrapper.md)
 
 ### Authorization
 

@@ -15,6 +15,7 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.XsollaPaymentRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -44,7 +45,7 @@ public class PaymentsXsollaApiTest {
     @Test
     public void createXsollaTokenUrlTest() throws ApiException {
         XsollaPaymentRequest request = null;
-        String response = api.createXsollaTokenUrl(request);
+        StringWrapper response = api.createXsollaTokenUrl(request);
 
         // TODO: test validations
     }

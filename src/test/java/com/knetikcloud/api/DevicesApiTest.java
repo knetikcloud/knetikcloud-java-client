@@ -17,6 +17,7 @@ import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.DeviceResource;
 import com.knetikcloud.model.PageResourceDeviceResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.SimpleUserResource;
 import com.knetikcloud.model.TemplateResource;
@@ -46,10 +47,10 @@ public class DevicesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void addDeviceUsersTest() throws ApiException {
+    public void addDeviceUserTest() throws ApiException {
         List<SimpleUserResource> userResources = null;
         String id = null;
-        DeviceResource response = api.addDeviceUsers(userResources, id);
+        DeviceResource response = api.addDeviceUser(userResources, id);
 
         // TODO: test validations
     }
@@ -73,7 +74,7 @@ public class DevicesApiTest {
     /**
      * Create a device template
      *
-     * Device Templates define a type of device and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Device Templates define a type of device and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -105,7 +106,7 @@ public class DevicesApiTest {
     /**
      * Delete an device template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -172,7 +173,7 @@ public class DevicesApiTest {
     /**
      * Get a single device template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; description
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -188,7 +189,7 @@ public class DevicesApiTest {
     /**
      * List and search device templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or DEVICES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -247,7 +248,7 @@ public class DevicesApiTest {
     /**
      * Update an device template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -255,8 +256,9 @@ public class DevicesApiTest {
     @Test
     public void updateDeviceTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource deviceTemplateResource = null;
-        TemplateResource response = api.updateDeviceTemplate(id, deviceTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateDeviceTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

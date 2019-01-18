@@ -15,8 +15,8 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ClientResource;
-import com.knetikcloud.model.GrantTypeResource;
 import com.knetikcloud.model.PageResourceClientResource;
+import com.knetikcloud.model.PageResourceGrantTypeResource;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -93,7 +93,9 @@ public class AuthClientsApiTest {
      */
     @Test
     public void getClientGrantTypesTest() throws ApiException {
-        List<GrantTypeResource> response = api.getClientGrantTypes();
+        Integer size = null;
+        Integer page = null;
+        PageResourceGrantTypeResource response = api.getClientGrantTypes(size, page);
 
         // TODO: test validations
     }

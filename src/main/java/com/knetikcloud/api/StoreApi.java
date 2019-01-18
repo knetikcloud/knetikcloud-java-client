@@ -7,10 +7,11 @@ import com.knetikcloud.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.knetikcloud.model.BehaviorDefinitionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceBehaviorDefinitionResource;
 import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class StoreApi {
   private ApiClient apiClient;
 
@@ -43,7 +44,7 @@ public class StoreApi {
 
   /**
    * Create an item template
-   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param itemTemplateResource The new item template (optional)
    * @return StoreItemTemplateResource
    * @throws ApiException if fails to make API call
@@ -117,7 +118,7 @@ public class StoreApi {
       }
   /**
    * Delete an item template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach (optional)
    * @throws ApiException if fails to make API call
@@ -202,10 +203,12 @@ public class StoreApi {
   /**
    * List available item behaviors
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
-   * @return List&lt;BehaviorDefinitionResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceBehaviorDefinitionResource
    * @throws ApiException if fails to make API call
    */
-  public List<BehaviorDefinitionResource> getBehaviors() throws ApiException {
+  public PageResourceBehaviorDefinitionResource getBehaviors(Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -216,6 +219,8 @@ public class StoreApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -231,12 +236,12 @@ public class StoreApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<BehaviorDefinitionResource>> localVarReturnType = new GenericType<List<BehaviorDefinitionResource>>() {};
+    GenericType<PageResourceBehaviorDefinitionResource> localVarReturnType = new GenericType<PageResourceBehaviorDefinitionResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get a single item template
-   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return StoreItemTemplateResource
    * @throws ApiException if fails to make API call
@@ -278,7 +283,7 @@ public class StoreApi {
       }
   /**
    * List and search item templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -466,14 +471,15 @@ public class StoreApi {
       }
   /**
    * Update an item template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param itemTemplateResource The item template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return StoreItemTemplateResource
    * @throws ApiException if fails to make API call
    */
-  public StoreItemTemplateResource updateItemTemplate(String id, StoreItemTemplateResource itemTemplateResource) throws ApiException {
-    Object localVarPostBody = itemTemplateResource;
+  public StoreItemTemplateResource updateItemTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -489,6 +495,7 @@ public class StoreApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -505,7 +512,7 @@ public class StoreApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<StoreItemTemplateResource> localVarReturnType = new GenericType<StoreItemTemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Update a store item

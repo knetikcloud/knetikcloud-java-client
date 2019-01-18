@@ -52,9 +52,9 @@ public class MessagingApiTest {
      *          if the Api call fails
      */
     @Test
-    public void compileMessageTemplateTest() throws ApiException {
+    public void compileMessageTemplatesTest() throws ApiException {
         MessageTemplateBulkRequest request = null;
-        Map<String, String> response = api.compileMessageTemplate(request);
+        Map<String, String> response = api.compileMessageTemplates(request);
 
         // TODO: test validations
     }

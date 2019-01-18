@@ -14,10 +14,11 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
-import com.knetikcloud.model.BehaviorDefinitionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceBehaviorDefinitionResource;
 import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
@@ -42,7 +43,7 @@ public class StoreApiTest {
     /**
      * Create an item template
      *
-     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -75,7 +76,7 @@ public class StoreApiTest {
     /**
      * Delete an item template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -115,7 +116,9 @@ public class StoreApiTest {
      */
     @Test
     public void getBehaviorsTest() throws ApiException {
-        List<BehaviorDefinitionResource> response = api.getBehaviors();
+        Integer size = null;
+        Integer page = null;
+        PageResourceBehaviorDefinitionResource response = api.getBehaviors(size, page);
 
         // TODO: test validations
     }
@@ -123,7 +126,7 @@ public class StoreApiTest {
     /**
      * Get a single item template
      *
-     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Item Templates define a type of item and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -139,7 +142,7 @@ public class StoreApiTest {
     /**
      * List and search item templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -221,7 +224,7 @@ public class StoreApiTest {
     /**
      * Update an item template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -229,8 +232,9 @@ public class StoreApiTest {
     @Test
     public void updateItemTemplateTest() throws ApiException {
         String id = null;
-        StoreItemTemplateResource itemTemplateResource = null;
-        StoreItemTemplateResource response = api.updateItemTemplate(id, itemTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        StoreItemTemplateResource response = api.updateItemTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

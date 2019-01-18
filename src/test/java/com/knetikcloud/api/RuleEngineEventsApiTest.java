@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.BreEvent;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +45,7 @@ public class RuleEngineEventsApiTest {
     @Test
     public void sendBREEventTest() throws ApiException {
         BreEvent breEvent = null;
-        String response = api.sendBREEvent(breEvent);
+        StringWrapper response = api.sendBREEvent(breEvent);
 
         // TODO: test validations
     }

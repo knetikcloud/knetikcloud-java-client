@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.PageResourcePollResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.PollResource;
 import com.knetikcloud.model.PollResponseResource;
 import com.knetikcloud.model.Result;
@@ -74,7 +75,7 @@ public class MediaPollsApiTest {
     /**
      * Create a poll template
      *
-     * Poll templates define a type of poll and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Poll templates define a type of poll and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -106,7 +107,7 @@ public class MediaPollsApiTest {
     /**
      * Delete a poll template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -155,7 +156,7 @@ public class MediaPollsApiTest {
     /**
      * Get a single poll template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -171,7 +172,7 @@ public class MediaPollsApiTest {
     /**
      * List and search poll templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -227,7 +228,7 @@ public class MediaPollsApiTest {
     /**
      * Update a poll template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -235,8 +236,9 @@ public class MediaPollsApiTest {
     @Test
     public void updatePollTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource pollTemplateResource = null;
-        TemplateResource response = api.updatePollTemplate(id, pollTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updatePollTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

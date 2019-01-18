@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class AuthRolesApi {
   private ApiClient apiClient;
 
@@ -121,10 +121,12 @@ public class AuthRolesApi {
    * Get roles for a client
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
    * @param clientKey The client key (required)
-   * @return List&lt;RoleResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceRoleResource
    * @throws ApiException if fails to make API call
    */
-  public List<RoleResource> getClientRoles(String clientKey) throws ApiException {
+  public PageResourceRoleResource getClientRoles(String clientKey, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'clientKey' is set
@@ -141,6 +143,8 @@ public class AuthRolesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -156,7 +160,7 @@ public class AuthRolesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<RoleResource>> localVarReturnType = new GenericType<List<RoleResource>>() {};
+    GenericType<PageResourceRoleResource> localVarReturnType = new GenericType<PageResourceRoleResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -250,10 +254,12 @@ public class AuthRolesApi {
    * Get roles for a user
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
    * @param userId The user&#39;s id (required)
-   * @return List&lt;RoleResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceRoleResource
    * @throws ApiException if fails to make API call
    */
-  public List<RoleResource> getUserRoles(Integer userId) throws ApiException {
+  public PageResourceRoleResource getUserRoles(Integer userId, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -270,6 +276,8 @@ public class AuthRolesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -285,7 +293,7 @@ public class AuthRolesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<RoleResource>> localVarReturnType = new GenericType<List<RoleResource>>() {};
+    GenericType<PageResourceRoleResource> localVarReturnType = new GenericType<PageResourceRoleResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * LevelingResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class LevelingResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -42,6 +42,9 @@ public class LevelingResource {
 
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("template")
+  private String template = null;
 
   @JsonProperty("tiers")
   private List<TierResource> tiers = null;
@@ -123,6 +126,24 @@ public class LevelingResource {
     this.name = name;
   }
 
+  public LevelingResource template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * The template being used
+   * @return template
+  **/
+  @ApiModelProperty(value = "The template being used")
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
   public LevelingResource tiers(List<TierResource> tiers) {
     this.tiers = tiers;
     return this;
@@ -190,6 +211,7 @@ public class LevelingResource {
         Objects.equals(this.createdDate, levelingResource.createdDate) &&
         Objects.equals(this.description, levelingResource.description) &&
         Objects.equals(this.name, levelingResource.name) &&
+        Objects.equals(this.template, levelingResource.template) &&
         Objects.equals(this.tiers, levelingResource.tiers) &&
         Objects.equals(this.triggerEventName, levelingResource.triggerEventName) &&
         Objects.equals(this.updatedDate, levelingResource.updatedDate);
@@ -197,7 +219,7 @@ public class LevelingResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, createdDate, description, name, tiers, triggerEventName, updatedDate);
+    return Objects.hash(additionalProperties, createdDate, description, name, template, tiers, triggerEventName, updatedDate);
   }
 
 
@@ -210,6 +232,7 @@ public class LevelingResource {
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    triggerEventName: ").append(toIndentedString(triggerEventName)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");

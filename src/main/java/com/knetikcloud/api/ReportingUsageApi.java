@@ -8,6 +8,7 @@ import com.knetikcloud.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.PageResourceUsageInfo;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class ReportingUsageApi {
   private ApiClient apiClient;
 
@@ -335,10 +336,10 @@ public class ReportingUsageApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
    * @param startDate The beginning of the range being requested, unix timestamp in seconds (required)
    * @param endDate The ending of the range being requested, unix timestamp in seconds (required)
-   * @return List&lt;String&gt;
+   * @return PageResourcestring
    * @throws ApiException if fails to make API call
    */
-  public List<String> getUsageEndpoints(Long startDate, Long endDate) throws ApiException {
+  public PageResourcestring getUsageEndpoints(Long startDate, Long endDate) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startDate' is set
@@ -376,7 +377,7 @@ public class ReportingUsageApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourcestring> localVarReturnType = new GenericType<PageResourcestring>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

@@ -7,6 +7,7 @@ import com.knetikcloud.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
+import com.knetikcloud.model.PageResourcePaymentMethodResource;
 import com.knetikcloud.model.PageResourcePaymentMethodTypeResource;
 import com.knetikcloud.model.PaymentAuthorizationResource;
 import com.knetikcloud.model.PaymentMethodResource;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class PaymentsApi {
   private ApiClient apiClient;
 
@@ -274,10 +275,10 @@ public class PaymentsApi {
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
-   * @return List&lt;PaymentMethodResource&gt;
+   * @return PageResourcePaymentMethodResource
    * @throws ApiException if fails to make API call
    */
-  public List<PaymentMethodResource> getPaymentMethods(Integer userId, String filterName, String filterPaymentType, Integer filterPaymentMethodTypeId, String filterPaymentMethodTypeName, Integer size, Integer page, String order) throws ApiException {
+  public PageResourcePaymentMethodResource getPaymentMethods(Integer userId, String filterName, String filterPaymentType, Integer filterPaymentMethodTypeId, String filterPaymentMethodTypeName, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -316,7 +317,7 @@ public class PaymentsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<PaymentMethodResource>> localVarReturnType = new GenericType<List<PaymentMethodResource>>() {};
+    GenericType<PageResourcePaymentMethodResource> localVarReturnType = new GenericType<PageResourcePaymentMethodResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

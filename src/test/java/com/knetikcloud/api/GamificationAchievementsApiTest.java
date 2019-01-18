@@ -15,11 +15,12 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.AchievementDefinitionResource;
-import com.knetikcloud.model.BreTriggerResource;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceAchievementDefinitionResource;
+import com.knetikcloud.model.PageResourceBreTriggerResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserAchievementGroupResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.UserAchievementGroupResource;
@@ -59,7 +60,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Create an achievement template
      *
-     * Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Achievement templates define a type of achievement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -91,7 +92,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Delete an achievement template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -124,7 +125,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Get a single achievement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -140,7 +141,7 @@ public class GamificationAchievementsApiTest {
     /**
      * List and search achievement templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -165,7 +166,9 @@ public class GamificationAchievementsApiTest {
      */
     @Test
     public void getAchievementTriggersTest() throws ApiException {
-        List<BreTriggerResource> response = api.getAchievementTriggers();
+        Integer size = null;
+        Integer page = null;
+        PageResourceBreTriggerResource response = api.getAchievementTriggers(size, page);
 
         // TODO: test validations
     }
@@ -203,7 +206,9 @@ public class GamificationAchievementsApiTest {
     @Test
     public void getDerivedAchievementsTest() throws ApiException {
         String name = null;
-        List<AchievementDefinitionResource> response = api.getDerivedAchievements(name);
+        Integer size = null;
+        Integer page = null;
+        PageResourceAchievementDefinitionResource response = api.getDerivedAchievements(name, size, page);
 
         // TODO: test validations
     }
@@ -238,10 +243,10 @@ public class GamificationAchievementsApiTest {
         Integer userId = null;
         Boolean filterAchievementDerived = null;
         String filterAchievementTagset = null;
-        String filterAchievementName = null;
+        String filterGroupName = null;
         Integer size = null;
         Integer page = null;
-        PageResourceUserAchievementGroupResource response = api.getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+        PageResourceUserAchievementGroupResource response = api.getUserAchievementsProgress(userId, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
 
         // TODO: test validations
     }
@@ -249,7 +254,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Retrieve progress on a given achievement for all users
      *
-     * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+     * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -259,10 +264,10 @@ public class GamificationAchievementsApiTest {
         String achievementName = null;
         Boolean filterAchievementDerived = null;
         String filterAchievementTagset = null;
-        String filterAchievementName = null;
+        String filterGroupName = null;
         Integer size = null;
         Integer page = null;
-        PageResourceUserAchievementGroupResource response = api.getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+        PageResourceUserAchievementGroupResource response = api.getUsersAchievementProgress(achievementName, filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
 
         // TODO: test validations
     }
@@ -270,7 +275,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Retrieve progress on achievements for all users
      *
-     * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+     * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -279,10 +284,10 @@ public class GamificationAchievementsApiTest {
     public void getUsersAchievementsProgressTest() throws ApiException {
         Boolean filterAchievementDerived = null;
         String filterAchievementTagset = null;
-        String filterAchievementName = null;
+        String filterGroupName = null;
         Integer size = null;
         Integer page = null;
-        PageResourceUserAchievementGroupResource response = api.getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterAchievementName, size, page);
+        PageResourceUserAchievementGroupResource response = api.getUsersAchievementsProgress(filterAchievementDerived, filterAchievementTagset, filterGroupName, size, page);
 
         // TODO: test validations
     }
@@ -343,7 +348,7 @@ public class GamificationAchievementsApiTest {
     /**
      * Update an achievement template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -351,8 +356,9 @@ public class GamificationAchievementsApiTest {
     @Test
     public void updateAchievementTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource template = null;
-        TemplateResource response = api.updateAchievementTemplate(id, template);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateAchievementTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

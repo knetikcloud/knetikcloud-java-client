@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class LogsApi {
   private ApiClient apiClient;
 
@@ -84,7 +84,7 @@ public class LogsApi {
       }
   /**
    * Returns a list of BRE event log entries
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+   * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
    * @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterEventName Filter event logs by event name (optional)
    * @param filterEventId Filter event logs by request id (optional)
@@ -175,7 +175,7 @@ public class LogsApi {
       }
   /**
    * Returns a list of forward log entries
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
+   * Logs are kept for 24 hours. &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
    * @param filterStartDate A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterEndDate A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
    * @param filterStatusCode Filter forward logs by http status code (optional)
@@ -229,12 +229,12 @@ public class LogsApi {
    * @return UserActionLog
    * @throws ApiException if fails to make API call
    */
-  public UserActionLog getUserLog(String id) throws ApiException {
+  public UserActionLog getUserLogs(String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getUserLog");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getUserLogs");
     }
     
     // create path and map variables
@@ -275,7 +275,7 @@ public class LogsApi {
    * @return PageResourceUserActionLog
    * @throws ApiException if fails to make API call
    */
-  public PageResourceUserActionLog getUserLogs(Integer filterUser, String filterActionName, Integer size, Integer page, String order) throws ApiException {
+  public PageResourceUserActionLog getUserLogs1(Integer filterUser, String filterActionName, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables

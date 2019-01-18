@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.knetikcloud.model.ActivityOccurrenceResource;
-import com.knetikcloud.model.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import java.util.List;
 /**
  * PageResourceActivityOccurrenceResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class PageResourceActivityOccurrenceResource {
   @JsonProperty("content")
   private List<ActivityOccurrenceResource> content = null;
@@ -46,9 +45,6 @@ public class PageResourceActivityOccurrenceResource {
 
   @JsonProperty("size")
   private Integer size = null;
-
-  @JsonProperty("sort")
-  private List<Order> sort = null;
 
   @JsonProperty("total_elements")
   private Long totalElements = null;
@@ -172,32 +168,6 @@ public class PageResourceActivityOccurrenceResource {
     this.size = size;
   }
 
-  public PageResourceActivityOccurrenceResource sort(List<Order> sort) {
-    this.sort = sort;
-    return this;
-  }
-
-  public PageResourceActivityOccurrenceResource addSortItem(Order sortItem) {
-    if (this.sort == null) {
-      this.sort = new ArrayList<Order>();
-    }
-    this.sort.add(sortItem);
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @ApiModelProperty(value = "")
-  public List<Order> getSort() {
-    return sort;
-  }
-
-  public void setSort(List<Order> sort) {
-    this.sort = sort;
-  }
-
   public PageResourceActivityOccurrenceResource totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
@@ -250,14 +220,13 @@ public class PageResourceActivityOccurrenceResource {
         Objects.equals(this.number, pageResourceActivityOccurrenceResource.number) &&
         Objects.equals(this.numberOfElements, pageResourceActivityOccurrenceResource.numberOfElements) &&
         Objects.equals(this.size, pageResourceActivityOccurrenceResource.size) &&
-        Objects.equals(this.sort, pageResourceActivityOccurrenceResource.sort) &&
         Objects.equals(this.totalElements, pageResourceActivityOccurrenceResource.totalElements) &&
         Objects.equals(this.totalPages, pageResourceActivityOccurrenceResource.totalPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, first, last, number, numberOfElements, size, sort, totalElements, totalPages);
+    return Objects.hash(content, first, last, number, numberOfElements, size, totalElements, totalPages);
   }
 
 
@@ -272,7 +241,6 @@ public class PageResourceActivityOccurrenceResource {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("}");

@@ -7,8 +7,8 @@ import com.knetikcloud.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.knetikcloud.model.DispositionCount;
 import com.knetikcloud.model.DispositionResource;
+import com.knetikcloud.model.PageResourceDispositionCount;
 import com.knetikcloud.model.PageResourceDispositionResource;
 import com.knetikcloud.model.Result;
 
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class DispositionsApi {
   private ApiClient apiClient;
 
@@ -162,10 +162,12 @@ public class DispositionsApi {
    * @param filterCreatedDate Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date&#x3D;GT,1452154258,LT,1554254874 (optional)
    * @param filterContext Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47 (optional)
    * @param filterOwner Filter for dispositions from a specific user by id or &#39;me&#39; (optional)
-   * @return List&lt;DispositionCount&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceDispositionCount
    * @throws ApiException if fails to make API call
    */
-  public List<DispositionCount> getDispositionCounts(String filterCreatedDate, String filterContext, String filterOwner) throws ApiException {
+  public PageResourceDispositionCount getDispositionCounts(String filterCreatedDate, String filterContext, String filterOwner, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -179,6 +181,8 @@ public class DispositionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_created_date", filterCreatedDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_context", filterContext));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_owner", filterOwner));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -194,7 +198,7 @@ public class DispositionsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<DispositionCount>> localVarReturnType = new GenericType<List<DispositionCount>>() {};
+    GenericType<PageResourceDispositionCount> localVarReturnType = new GenericType<PageResourceDispositionCount>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

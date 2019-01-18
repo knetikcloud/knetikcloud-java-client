@@ -14,6 +14,7 @@
 package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
+import com.knetikcloud.model.PageResourcePropertyFieldListResource;
 import com.knetikcloud.model.PropertyFieldListResource;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
@@ -36,7 +37,7 @@ public class TemplatesPropertiesApiTest {
     /**
      * Get details for a template property type
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -44,7 +45,9 @@ public class TemplatesPropertiesApiTest {
     @Test
     public void getTemplatePropertyTypeTest() throws ApiException {
         String type = null;
-        PropertyFieldListResource response = api.getTemplatePropertyType(type);
+        Integer size = null;
+        Integer page = null;
+        PropertyFieldListResource response = api.getTemplatePropertyType(type, size, page);
 
         // TODO: test validations
     }
@@ -52,14 +55,14 @@ public class TemplatesPropertiesApiTest {
     /**
      * List template property types
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getTemplatePropertyTypesTest() throws ApiException {
-        List<PropertyFieldListResource> response = api.getTemplatePropertyTypes();
+        PageResourcePropertyFieldListResource response = api.getTemplatePropertyTypes();
 
         // TODO: test validations
     }

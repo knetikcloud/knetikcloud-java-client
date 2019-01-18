@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.OptimalPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +45,7 @@ public class PaymentsOptimalApiTest {
     @Test
     public void silentPostOptimalTest() throws ApiException {
         OptimalPaymentRequest request = null;
-        String response = api.silentPostOptimal(request);
+        StringWrapper response = api.silentPostOptimal(request);
 
         // TODO: test validations
     }

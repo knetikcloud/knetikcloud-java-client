@@ -25,10 +25,13 @@ import java.util.List;
 /**
  * AccessEntryResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class AccessEntryResource {
   @JsonProperty("actions")
   private List<String> actions = new ArrayList<String>();
+
+  @JsonProperty("field_blacklist")
+  private List<String> fieldBlacklist = null;
 
   @JsonProperty("sid")
   private String sid = null;
@@ -54,6 +57,32 @@ public class AccessEntryResource {
 
   public void setActions(List<String> actions) {
     this.actions = actions;
+  }
+
+  public AccessEntryResource fieldBlacklist(List<String> fieldBlacklist) {
+    this.fieldBlacklist = fieldBlacklist;
+    return this;
+  }
+
+  public AccessEntryResource addFieldBlacklistItem(String fieldBlacklistItem) {
+    if (this.fieldBlacklist == null) {
+      this.fieldBlacklist = new ArrayList<String>();
+    }
+    this.fieldBlacklist.add(fieldBlacklistItem);
+    return this;
+  }
+
+   /**
+   * Optional list of fields, in JSON Pointer notation (RFC 6901), that are not to be granted the associated actions for. Specifically, this affects LIST, GET, PUT, and POST by not allowing retrieval, edit, or creation of the field. For LIST the fields stripped from return objects based on parent ACL. The ACL is always additive, thus other access entries may grant these actions on these fields anyways
+   * @return fieldBlacklist
+  **/
+  @ApiModelProperty(value = "Optional list of fields, in JSON Pointer notation (RFC 6901), that are not to be granted the associated actions for. Specifically, this affects LIST, GET, PUT, and POST by not allowing retrieval, edit, or creation of the field. For LIST the fields stripped from return objects based on parent ACL. The ACL is always additive, thus other access entries may grant these actions on these fields anyways")
+  public List<String> getFieldBlacklist() {
+    return fieldBlacklist;
+  }
+
+  public void setFieldBlacklist(List<String> fieldBlacklist) {
+    this.fieldBlacklist = fieldBlacklist;
   }
 
   public AccessEntryResource sid(String sid) {
@@ -85,12 +114,13 @@ public class AccessEntryResource {
     }
     AccessEntryResource accessEntryResource = (AccessEntryResource) o;
     return Objects.equals(this.actions, accessEntryResource.actions) &&
+        Objects.equals(this.fieldBlacklist, accessEntryResource.fieldBlacklist) &&
         Objects.equals(this.sid, accessEntryResource.sid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, sid);
+    return Objects.hash(actions, fieldBlacklist, sid);
   }
 
 
@@ -100,6 +130,7 @@ public class AccessEntryResource {
     sb.append("class AccessEntryResource {\n");
     
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
+    sb.append("    fieldBlacklist: ").append(toIndentedString(fieldBlacklist)).append("\n");
     sb.append("    sid: ").append(toIndentedString(sid)).append("\n");
     sb.append("}");
     return sb.toString();

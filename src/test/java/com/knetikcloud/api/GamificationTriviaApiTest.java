@@ -15,11 +15,15 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.AnswerResource;
-import com.knetikcloud.model.DeltaResource;
 import com.knetikcloud.model.ImportJobResource;
+import com.knetikcloud.model.LongWrapper;
+import com.knetikcloud.model.PageResourceAnswerResource;
+import com.knetikcloud.model.PageResourceDeltaResource;
 import com.knetikcloud.model.PageResourceImportJobResource;
 import com.knetikcloud.model.PageResourceQuestionResource;
 import com.knetikcloud.model.PageResourceQuestionTemplateResource;
+import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuestionResource;
 import com.knetikcloud.model.QuestionTemplateResource;
 import com.knetikcloud.model.Result;
@@ -134,7 +138,7 @@ public class GamificationTriviaApiTest {
     /**
      * Create a question template
      *
-     * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
+     * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -199,7 +203,7 @@ public class GamificationTriviaApiTest {
     /**
      * Delete a question template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -295,7 +299,9 @@ public class GamificationTriviaApiTest {
     @Test
     public void getQuestionAnswersTest() throws ApiException {
         String questionId = null;
-        List<AnswerResource> response = api.getQuestionAnswers(questionId);
+        Integer size = null;
+        Integer page = null;
+        PageResourceAnswerResource response = api.getQuestionAnswers(questionId, size, page);
 
         // TODO: test validations
     }
@@ -311,7 +317,9 @@ public class GamificationTriviaApiTest {
     @Test
     public void getQuestionDeltasTest() throws ApiException {
         Long since = null;
-        List<DeltaResource> response = api.getQuestionDeltas(since);
+        Integer size = null;
+        Integer page = null;
+        PageResourceDeltaResource response = api.getQuestionDeltas(since, size, page);
 
         // TODO: test validations
     }
@@ -327,7 +335,9 @@ public class GamificationTriviaApiTest {
     @Test
     public void getQuestionTagsTest() throws ApiException {
         String id = null;
-        List<String> response = api.getQuestionTags(id);
+        Integer size = null;
+        Integer page = null;
+        PageResourcestring response = api.getQuestionTags(id, size, page);
 
         // TODO: test validations
     }
@@ -335,7 +345,7 @@ public class GamificationTriviaApiTest {
     /**
      * Get a single question template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -351,7 +361,7 @@ public class GamificationTriviaApiTest {
     /**
      * List and search question templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -409,7 +419,7 @@ public class GamificationTriviaApiTest {
         String filterTagset = null;
         String filterType = null;
         Boolean filterPublished = null;
-        Long response = api.getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished);
+        LongWrapper response = api.getQuestionsCount(filterSearch, filterIdset, filterCategory, filterTag, filterTagset, filterType, filterPublished);
 
         // TODO: test validations
     }
@@ -485,7 +495,9 @@ public class GamificationTriviaApiTest {
         String filterSearch = null;
         String filterCategory = null;
         Long filterImportId = null;
-        List<String> response = api.searchQuestionTags(filterSearch, filterCategory, filterImportId);
+        Integer size = null;
+        Integer page = null;
+        PageResourcestring response = api.searchQuestionTags(filterSearch, filterCategory, filterImportId, size, page);
 
         // TODO: test validations
     }
@@ -545,7 +557,7 @@ public class GamificationTriviaApiTest {
     /**
      * Update a question template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -553,8 +565,9 @@ public class GamificationTriviaApiTest {
     @Test
     public void updateQuestionTemplateTest() throws ApiException {
         String id = null;
-        QuestionTemplateResource questionTemplateResource = null;
-        QuestionTemplateResource response = api.updateQuestionTemplate(id, questionTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        QuestionTemplateResource response = api.updateQuestionTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

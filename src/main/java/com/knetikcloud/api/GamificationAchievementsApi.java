@@ -8,11 +8,12 @@ import com.knetikcloud.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.AchievementDefinitionResource;
-import com.knetikcloud.model.BreTriggerResource;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.PageResourceAchievementDefinitionResource;
+import com.knetikcloud.model.PageResourceBreTriggerResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserAchievementGroupResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.UserAchievementGroupResource;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class GamificationAchievementsApi {
   private ApiClient apiClient;
 
@@ -80,7 +81,7 @@ public class GamificationAchievementsApi {
       }
   /**
    * Create an achievement template
-   * Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Achievement templates define a type of achievement and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param template The achievement template to be created (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -157,7 +158,7 @@ public class GamificationAchievementsApi {
   }
   /**
    * Delete an achievement template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -242,7 +243,7 @@ public class GamificationAchievementsApi {
       }
   /**
    * Get a single achievement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -284,7 +285,7 @@ public class GamificationAchievementsApi {
       }
   /**
    * List and search achievement templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -326,10 +327,12 @@ public class GamificationAchievementsApi {
   /**
    * Get the list of triggers that can be used to trigger an achievement progress update
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
-   * @return List&lt;BreTriggerResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceBreTriggerResource
    * @throws ApiException if fails to make API call
    */
-  public List<BreTriggerResource> getAchievementTriggers() throws ApiException {
+  public PageResourceBreTriggerResource getAchievementTriggers(Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -340,6 +343,8 @@ public class GamificationAchievementsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -355,7 +360,7 @@ public class GamificationAchievementsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<BreTriggerResource>> localVarReturnType = new GenericType<List<BreTriggerResource>>() {};
+    GenericType<PageResourceBreTriggerResource> localVarReturnType = new GenericType<PageResourceBreTriggerResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -411,10 +416,12 @@ public class GamificationAchievementsApi {
    * Get a list of derived achievements
    * Used by other services that depend on achievements.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
    * @param name The name of the derived achievement (required)
-   * @return List&lt;AchievementDefinitionResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceAchievementDefinitionResource
    * @throws ApiException if fails to make API call
    */
-  public List<AchievementDefinitionResource> getDerivedAchievements(String name) throws ApiException {
+  public PageResourceAchievementDefinitionResource getDerivedAchievements(String name, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
@@ -431,6 +438,8 @@ public class GamificationAchievementsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -446,7 +455,7 @@ public class GamificationAchievementsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<AchievementDefinitionResource>> localVarReturnType = new GenericType<List<AchievementDefinitionResource>>() {};
+    GenericType<PageResourceAchievementDefinitionResource> localVarReturnType = new GenericType<PageResourceAchievementDefinitionResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -504,13 +513,13 @@ public class GamificationAchievementsApi {
    * @param userId The user&#39;s id (required)
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return PageResourceUserAchievementGroupResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceUserAchievementGroupResource getUserAchievementsProgress(Integer userId, Boolean filterAchievementDerived, String filterAchievementTagset, String filterAchievementName, Integer size, Integer page) throws ApiException {
+  public PageResourceUserAchievementGroupResource getUserAchievementsProgress(Integer userId, Boolean filterAchievementDerived, String filterAchievementTagset, String filterGroupName, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -529,7 +538,7 @@ public class GamificationAchievementsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_derived", filterAchievementDerived));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_tagset", filterAchievementTagset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_name", filterAchievementName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_group_name", filterGroupName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
@@ -552,17 +561,17 @@ public class GamificationAchievementsApi {
       }
   /**
    * Retrieve progress on a given achievement for all users
-   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param achievementName The achievement&#39;s name (required)
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return PageResourceUserAchievementGroupResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceUserAchievementGroupResource getUsersAchievementProgress(String achievementName, Boolean filterAchievementDerived, String filterAchievementTagset, String filterAchievementName, Integer size, Integer page) throws ApiException {
+  public PageResourceUserAchievementGroupResource getUsersAchievementProgress(String achievementName, Boolean filterAchievementDerived, String filterAchievementTagset, String filterGroupName, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'achievementName' is set
@@ -581,7 +590,7 @@ public class GamificationAchievementsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_derived", filterAchievementDerived));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_tagset", filterAchievementTagset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_name", filterAchievementName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_group_name", filterGroupName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
@@ -604,16 +613,16 @@ public class GamificationAchievementsApi {
       }
   /**
    * Retrieve progress on achievements for all users
-   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
+   * Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param filterAchievementDerived Filter for achievements that are derived from other services (optional)
    * @param filterAchievementTagset Filter for achievements with specified tags (separated by comma) (optional)
-   * @param filterAchievementName Filter for achievements whose name contains a string (optional)
+   * @param filterGroupName Filter for achievements whose group/level name contains a string (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return PageResourceUserAchievementGroupResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceUserAchievementGroupResource getUsersAchievementsProgress(Boolean filterAchievementDerived, String filterAchievementTagset, String filterAchievementName, Integer size, Integer page) throws ApiException {
+  public PageResourceUserAchievementGroupResource getUsersAchievementsProgress(Boolean filterAchievementDerived, String filterAchievementTagset, String filterGroupName, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -626,7 +635,7 @@ public class GamificationAchievementsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_derived", filterAchievementDerived));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_tagset", filterAchievementTagset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_achievement_name", filterAchievementName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_group_name", filterGroupName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
@@ -792,14 +801,15 @@ public class GamificationAchievementsApi {
       }
   /**
    * Update an achievement template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param template The updated template (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
    */
-  public TemplateResource updateAchievementTemplate(String id, TemplateResource template) throws ApiException {
-    Object localVarPostBody = template;
+  public TemplateResource updateAchievementTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -815,6 +825,7 @@ public class GamificationAchievementsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -831,6 +842,6 @@ public class GamificationAchievementsApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<TemplateResource> localVarReturnType = new GenericType<TemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

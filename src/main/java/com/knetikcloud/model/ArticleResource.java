@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.knetikcloud.model.NestedCategory;
 import com.knetikcloud.model.Property;
+import com.knetikcloud.model.SimpleUserResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import java.util.Map;
 /**
  * ArticleResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class ArticleResource {
   @JsonProperty("active")
   private Boolean active = null;
@@ -45,6 +46,9 @@ public class ArticleResource {
 
   @JsonProperty("created_date")
   private Long createdDate = null;
+
+  @JsonProperty("creator")
+  private SimpleUserResource creator = null;
 
   @JsonProperty("id")
   private String id = null;
@@ -153,11 +157,29 @@ public class ArticleResource {
     return createdDate;
   }
 
+  public ArticleResource creator(SimpleUserResource creator) {
+    this.creator = creator;
+    return this;
+  }
+
    /**
-   * The id of the article
+   * The creator of the article. Default: caller
+   * @return creator
+  **/
+  @ApiModelProperty(value = "The creator of the article. Default: caller")
+  public SimpleUserResource getCreator() {
+    return creator;
+  }
+
+  public void setCreator(SimpleUserResource creator) {
+    this.creator = creator;
+  }
+
+   /**
+   * The id of the article. Default: random
    * @return id
   **/
-  @ApiModelProperty(value = "The id of the article")
+  @ApiModelProperty(value = "The id of the article. Default: random")
   public String getId() {
     return id;
   }
@@ -266,6 +288,7 @@ public class ArticleResource {
         Objects.equals(this.body, articleResource.body) &&
         Objects.equals(this.category, articleResource.category) &&
         Objects.equals(this.createdDate, articleResource.createdDate) &&
+        Objects.equals(this.creator, articleResource.creator) &&
         Objects.equals(this.id, articleResource.id) &&
         Objects.equals(this.tags, articleResource.tags) &&
         Objects.equals(this.template, articleResource.template) &&
@@ -276,7 +299,7 @@ public class ArticleResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, additionalProperties, body, category, createdDate, id, tags, template, title, updatedDate, viewCount);
+    return Objects.hash(active, additionalProperties, body, category, createdDate, creator, id, tags, template, title, updatedDate, viewCount);
   }
 
 
@@ -290,6 +313,7 @@ public class ArticleResource {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");

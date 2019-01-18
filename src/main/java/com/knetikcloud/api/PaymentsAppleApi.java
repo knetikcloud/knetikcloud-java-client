@@ -9,13 +9,14 @@ import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.ApplyPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class PaymentsAppleApi {
   private ApiClient apiClient;
 
@@ -39,10 +40,10 @@ public class PaymentsAppleApi {
    * Pay invoice with Apple receipt
    * Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param request The request for paying an invoice through an Apple receipt (optional)
-   * @return String
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public String verifyAppleReceipt(ApplyPaymentRequest request) throws ApiException {
+  public StringWrapper verifyAppleReceipt(ApplyPaymentRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // create path and map variables
@@ -68,7 +69,7 @@ public class PaymentsAppleApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

@@ -9,6 +9,7 @@ import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.AccessResourceCreateRequest;
 import com.knetikcloud.model.AccessTypeResource;
+import com.knetikcloud.model.PageResourceAccessResultsResource;
 import com.knetikcloud.model.PageResourceAccessTypeResource;
 import com.knetikcloud.model.Result;
 
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class AuthTypesApi {
   private ApiClient apiClient;
 
@@ -42,10 +43,12 @@ public class AuthTypesApi {
    * Checks for which actions can be taken against a given resource by the caller. &lt;b&gt;Types Needed:&lt;/b&gt; any
    * @param type The type value (required)
    * @param id The resource id (required)
-   * @return List&lt;String&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceAccessResultsResource
    * @throws ApiException if fails to make API call
    */
-  public List<String> allowedResourceActions(String type, String id) throws ApiException {
+  public PageResourceAccessResultsResource allowedResourceActions(String type, String id, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'type' is set
@@ -68,6 +71,8 @@ public class AuthTypesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -83,17 +88,19 @@ public class AuthTypesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourceAccessResultsResource> localVarReturnType = new GenericType<PageResourceAccessResultsResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get allowed actions on a type
    * Checks for which actions can be taken against a given type by the caller. &lt;b&gt;Types Needed:&lt;/b&gt; any
    * @param type The type value (required)
-   * @return List&lt;String&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceAccessResultsResource
    * @throws ApiException if fails to make API call
    */
-  public List<String> allowedTypeActions(String type) throws ApiException {
+  public PageResourceAccessResultsResource allowedTypeActions(String type, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'type' is set
@@ -110,6 +117,8 @@ public class AuthTypesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -125,7 +134,7 @@ public class AuthTypesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourceAccessResultsResource> localVarReturnType = new GenericType<PageResourceAccessResultsResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -208,29 +217,22 @@ public class AuthTypesApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Delete a resource
-   * Deletes a non-root level type&lt;br /&gt;&lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
+   * Delete all resources of a type
+   * &lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
    * @param type The type value (required)
-   * @param id The resource id (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteResource(String type, String id) throws ApiException {
+  public void deleteAllOfType(String type) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'type' is set
     if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling deleteResource");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteResource");
+      throw new ApiException(400, "Missing the required parameter 'type' when calling deleteAllOfType");
     }
     
     // create path and map variables
-    String localVarPath = "/access/resources/{type}/{id}"
-      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+    String localVarPath = "/access/resources/{type}"
+      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -256,22 +258,29 @@ public class AuthTypesApi {
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
   }
   /**
-   * Delete all resources of a type
-   * &lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
+   * Delete a resource
+   * Deletes a non-root level type&lt;br /&gt;&lt;b&gt;Types Needed:&lt;/b&gt; ROLE_SUPER_ADMIN
    * @param type The type value (required)
+   * @param id The resource id (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteResources(String type) throws ApiException {
+  public void deleteResource(String type, String id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'type' is set
     if (type == null) {
-      throw new ApiException(400, "Missing the required parameter 'type' when calling deleteResources");
+      throw new ApiException(400, "Missing the required parameter 'type' when calling deleteResource");
+    }
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteResource");
     }
     
     // create path and map variables
-    String localVarPath = "/access/resources/{type}"
-      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()));
+    String localVarPath = "/access/resources/{type}/{id}"
+      .replaceAll("\\{" + "type" + "\\}", apiClient.escapeString(type.toString()))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

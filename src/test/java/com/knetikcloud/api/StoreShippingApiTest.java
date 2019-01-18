@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.ShippingItem;
 import org.junit.Test;
@@ -55,7 +56,7 @@ public class StoreShippingApiTest {
     /**
      * Create a shipping template
      *
-     * Shipping Templates define a type of shipping and the properties they have.
+     * Shipping Templates define a type of shipping and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -87,7 +88,7 @@ public class StoreShippingApiTest {
     /**
      * Delete a shipping template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -120,7 +121,7 @@ public class StoreShippingApiTest {
     /**
      * Get a single shipping template
      *
-     * Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
+     * Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,7 +137,7 @@ public class StoreShippingApiTest {
     /**
      * List and search shipping templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -172,7 +173,7 @@ public class StoreShippingApiTest {
     /**
      * Update a shipping template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -180,8 +181,9 @@ public class StoreShippingApiTest {
     @Test
     public void updateShippingTemplateTest() throws ApiException {
         String id = null;
-        ItemTemplateResource shippingTemplateResource = null;
-        ItemTemplateResource response = api.updateShippingTemplate(id, shippingTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        ItemTemplateResource response = api.updateShippingTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

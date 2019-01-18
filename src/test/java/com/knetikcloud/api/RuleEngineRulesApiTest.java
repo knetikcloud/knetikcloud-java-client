@@ -19,6 +19,7 @@ import com.knetikcloud.model.BreRule;
 import com.knetikcloud.model.Expressionobject;
 import com.knetikcloud.model.PageResourceBreRule;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -79,7 +80,7 @@ public class RuleEngineRulesApiTest {
     @Test
     public void getBREExpressionAsStringTest() throws ApiException {
         Expressionobject expression = null;
-        String response = api.getBREExpressionAsString(expression);
+        StringWrapper response = api.getBREExpressionAsString(expression);
 
         // TODO: test validations
     }

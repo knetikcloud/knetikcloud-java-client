@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UsersRelationshipsApi {
   private ApiClient apiClient;
 
@@ -38,7 +38,7 @@ public class UsersRelationshipsApi {
 
   /**
    * Create a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param relationship The new relationship (optional)
    * @return UserRelationshipResource
    * @throws ApiException if fails to make API call
@@ -74,7 +74,7 @@ public class UsersRelationshipsApi {
       }
   /**
    * Delete a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @throws ApiException if fails to make API call
    */
@@ -115,17 +115,17 @@ public class UsersRelationshipsApi {
   }
   /**
    * Get a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @return UserRelationshipResource
    * @throws ApiException if fails to make API call
    */
-  public UserRelationshipResource getUserRelationship(Long id) throws ApiException {
+  public UserRelationshipResource getRelationship(Long id) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getUserRelationship");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getRelationship");
     }
     
     // create path and map variables
@@ -157,7 +157,7 @@ public class UsersRelationshipsApi {
       }
   /**
    * Get a list of user relationships
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -198,7 +198,7 @@ public class UsersRelationshipsApi {
       }
   /**
    * Update a user relationship
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the relationship (required)
    * @param relationship The new relationship (optional)
    * @return UserRelationshipResource

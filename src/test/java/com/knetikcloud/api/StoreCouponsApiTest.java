@@ -17,6 +17,7 @@ import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.CouponItem;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -55,7 +56,7 @@ public class StoreCouponsApiTest {
     /**
      * Create a coupon template
      *
-     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -87,7 +88,7 @@ public class StoreCouponsApiTest {
     /**
      * Delete a coupon template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,7 +137,7 @@ public class StoreCouponsApiTest {
     /**
      * Get a single coupon template
      *
-     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
+     * Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -152,7 +153,7 @@ public class StoreCouponsApiTest {
     /**
      * List and search coupon templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -188,7 +189,7 @@ public class StoreCouponsApiTest {
     /**
      * Update a coupon template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -196,8 +197,9 @@ public class StoreCouponsApiTest {
     @Test
     public void updateCouponTemplateTest() throws ApiException {
         String id = null;
-        ItemTemplateResource couponTemplateResource = null;
-        ItemTemplateResource response = api.updateCouponTemplate(id, couponTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        ItemTemplateResource response = api.updateCouponTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

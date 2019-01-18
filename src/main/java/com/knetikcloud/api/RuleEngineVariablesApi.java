@@ -8,15 +8,15 @@ import com.knetikcloud.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.PageResourceSimpleReferenceResourceobject;
+import com.knetikcloud.model.PageResourceVariableTypeResource;
 import com.knetikcloud.model.Result;
-import com.knetikcloud.model.VariableTypeResource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class RuleEngineVariablesApi {
   private ApiClient apiClient;
 
@@ -39,10 +39,12 @@ public class RuleEngineVariablesApi {
   /**
    * Get a list of variable types available
    * Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_VARIABLES_USER
-   * @return List&lt;VariableTypeResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceVariableTypeResource
    * @throws ApiException if fails to make API call
    */
-  public List<VariableTypeResource> getBREVariableTypes() throws ApiException {
+  public PageResourceVariableTypeResource getBREVariableTypes(Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -53,6 +55,8 @@ public class RuleEngineVariablesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -68,7 +72,7 @@ public class RuleEngineVariablesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<VariableTypeResource>> localVarReturnType = new GenericType<List<VariableTypeResource>>() {};
+    GenericType<PageResourceVariableTypeResource> localVarReturnType = new GenericType<PageResourceVariableTypeResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

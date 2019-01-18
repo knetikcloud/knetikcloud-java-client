@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ApplyPaymentRequest;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +45,7 @@ public class PaymentsAppleApiTest {
     @Test
     public void verifyAppleReceiptTest() throws ApiException {
         ApplyPaymentRequest request = null;
-        String response = api.verifyAppleReceipt(request);
+        StringWrapper response = api.verifyAppleReceipt(request);
 
         // TODO: test validations
     }

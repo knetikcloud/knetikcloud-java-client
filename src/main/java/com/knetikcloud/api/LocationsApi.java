@@ -7,17 +7,18 @@ import com.knetikcloud.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.knetikcloud.model.CountryResource;
 import com.knetikcloud.model.CurrencyResource;
+import com.knetikcloud.model.PageResourceCountryResource;
+import com.knetikcloud.model.PageResourceStateResource;
 import com.knetikcloud.model.Result;
-import com.knetikcloud.model.StateResource;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class LocationsApi {
   private ApiClient apiClient;
 
@@ -40,10 +41,12 @@ public class LocationsApi {
   /**
    * Get a list of countries
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
-   * @return List&lt;CountryResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceCountryResource
    * @throws ApiException if fails to make API call
    */
-  public List<CountryResource> getCountries() throws ApiException {
+  public PageResourceCountryResource getCountries(Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -54,6 +57,8 @@ public class LocationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -69,16 +74,16 @@ public class LocationsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<CountryResource>> localVarReturnType = new GenericType<List<CountryResource>>() {};
+    GenericType<PageResourceCountryResource> localVarReturnType = new GenericType<PageResourceCountryResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get the iso3 code of your country
    * Determined by geo ip location. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
-   * @return String
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public String getCountryByGeoLocation() throws ApiException {
+  public StringWrapper getCountryByGeoLocation() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -104,17 +109,19 @@ public class LocationsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get a list of a country&#39;s states
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param countryCodeIso3 The iso3 code of the country (required)
-   * @return List&lt;StateResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceStateResource
    * @throws ApiException if fails to make API call
    */
-  public List<StateResource> getCountryStates(String countryCodeIso3) throws ApiException {
+  public PageResourceStateResource getCountryStates(String countryCodeIso3, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'countryCodeIso3' is set
@@ -131,6 +138,8 @@ public class LocationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -146,7 +155,7 @@ public class LocationsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<StateResource>> localVarReturnType = new GenericType<List<StateResource>>() {};
+    GenericType<PageResourceStateResource> localVarReturnType = new GenericType<PageResourceStateResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

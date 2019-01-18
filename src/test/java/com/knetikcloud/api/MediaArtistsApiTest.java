@@ -17,6 +17,7 @@ import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ArtistResource;
 import com.knetikcloud.model.PageResourceArtistResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Test;
@@ -55,7 +56,7 @@ public class MediaArtistsApiTest {
     /**
      * Create an artist template
      *
-     * Artist Templates define a type of artist and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Artist Templates define a type of artist and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -87,7 +88,7 @@ public class MediaArtistsApiTest {
     /**
      * Delete an artist template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -121,7 +122,7 @@ public class MediaArtistsApiTest {
     /**
      * Get a single artist template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -137,7 +138,7 @@ public class MediaArtistsApiTest {
     /**
      * List and search artist templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -191,7 +192,7 @@ public class MediaArtistsApiTest {
     /**
      * Update an artist template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -199,8 +200,9 @@ public class MediaArtistsApiTest {
     @Test
     public void updateArtistTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource artistTemplateResource = null;
-        TemplateResource response = api.updateArtistTemplate(id, artistTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateArtistTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

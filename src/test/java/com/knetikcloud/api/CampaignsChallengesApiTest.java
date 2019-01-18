@@ -21,6 +21,7 @@ import com.knetikcloud.model.PageResourceBareChallengeActivityResource;
 import com.knetikcloud.model.PageResourceChallengeEventResource;
 import com.knetikcloud.model.PageResourceChallengeResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Test;
@@ -77,7 +78,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Create a challenge activity template
      *
-     * Challenge Activity Templates define a type of challenge activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Challenge Activity Templates define a type of challenge activity and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -93,7 +94,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Create a challenge template
      *
-     * Challenge Templates define a type of challenge and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Challenge Templates define a type of challenge and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -142,7 +143,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Delete a challenge activity template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -175,7 +176,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Delete a challenge template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -244,7 +245,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Get a single challenge activity template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -260,7 +261,7 @@ public class CampaignsChallengesApiTest {
     /**
      * List and search challenge activity templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -316,7 +317,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Get a single challenge template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -332,7 +333,7 @@ public class CampaignsChallengesApiTest {
     /**
      * List and search challenge templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -407,7 +408,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Update an challenge activity template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -415,8 +416,9 @@ public class CampaignsChallengesApiTest {
     @Test
     public void updateChallengeActivityTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource challengeActivityTemplateResource = null;
-        TemplateResource response = api.updateChallengeActivityTemplate(id, challengeActivityTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateChallengeActivityTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }
@@ -424,7 +426,7 @@ public class CampaignsChallengesApiTest {
     /**
      * Update a challenge template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -432,8 +434,9 @@ public class CampaignsChallengesApiTest {
     @Test
     public void updateChallengeTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource challengeTemplateResource = null;
-        TemplateResource response = api.updateChallengeTemplate(id, challengeTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateChallengeTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

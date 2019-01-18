@@ -24,10 +24,13 @@ import java.math.BigDecimal;
 /**
  * Discount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class Discount {
   @JsonProperty("description")
   private String description = null;
+
+  @JsonProperty("item_id")
+  private Integer itemId = null;
 
   @JsonProperty("name")
   private String name = null;
@@ -57,6 +60,24 @@ public class Discount {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Discount itemId(Integer itemId) {
+    this.itemId = itemId;
+    return this;
+  }
+
+   /**
+   * Get itemId
+   * @return itemId
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getItemId() {
+    return itemId;
+  }
+
+  public void setItemId(Integer itemId) {
+    this.itemId = itemId;
   }
 
   public Discount name(String name) {
@@ -142,6 +163,7 @@ public class Discount {
     }
     Discount discount = (Discount) o;
     return Objects.equals(this.description, discount.description) &&
+        Objects.equals(this.itemId, discount.itemId) &&
         Objects.equals(this.name, discount.name) &&
         Objects.equals(this.sku, discount.sku) &&
         Objects.equals(this.uniqueKey, discount.uniqueKey) &&
@@ -150,7 +172,7 @@ public class Discount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, sku, uniqueKey, value);
+    return Objects.hash(description, itemId, name, sku, uniqueKey, value);
   }
 
 
@@ -160,6 +182,7 @@ public class Discount {
     sb.append("class Discount {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    uniqueKey: ").append(toIndentedString(uniqueKey)).append("\n");

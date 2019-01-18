@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UserRelationshipResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UserRelationshipResource {
   @JsonProperty("child")
   private SimpleUserResource child = null;

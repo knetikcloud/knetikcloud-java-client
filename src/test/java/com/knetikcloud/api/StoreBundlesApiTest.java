@@ -17,6 +17,7 @@ import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.BundleItem;
 import com.knetikcloud.model.ItemTemplateResource;
 import com.knetikcloud.model.PageResourceItemTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -55,7 +56,7 @@ public class StoreBundlesApiTest {
     /**
      * Create a bundle template
      *
-     * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -87,7 +88,7 @@ public class StoreBundlesApiTest {
     /**
      * Delete a bundle template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -120,7 +121,7 @@ public class StoreBundlesApiTest {
     /**
      * Get a single bundle template
      *
-     * Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Bundle Templates define a type of bundle and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,7 +137,7 @@ public class StoreBundlesApiTest {
     /**
      * List and search bundle templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -172,7 +173,7 @@ public class StoreBundlesApiTest {
     /**
      * Update a bundle template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -180,8 +181,9 @@ public class StoreBundlesApiTest {
     @Test
     public void updateBundleTemplateTest() throws ApiException {
         String id = null;
-        ItemTemplateResource bundleTemplateResource = null;
-        ItemTemplateResource response = api.updateBundleTemplate(id, bundleTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        ItemTemplateResource response = api.updateBundleTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

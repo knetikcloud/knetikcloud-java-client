@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.LeaderboardEntryResource;
 import com.knetikcloud.model.LeaderboardResource;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -82,7 +83,9 @@ public class GamificationLeaderboardsApiTest {
      */
     @Test
     public void getLeaderboardStrategiesTest() throws ApiException {
-        List<String> response = api.getLeaderboardStrategies();
+        Integer size = null;
+        Integer page = null;
+        PageResourcestring response = api.getLeaderboardStrategies(size, page);
 
         // TODO: test validations
     }

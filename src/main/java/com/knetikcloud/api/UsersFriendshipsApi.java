@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UsersFriendshipsApi {
   private ApiClient apiClient;
 
@@ -138,10 +138,10 @@ public class UsersFriendshipsApi {
    * Returns the invite token
    * This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
    * @param userId The id of the user or &#39;me&#39; if logged in (required)
-   * @return String
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public String getInviteToken(String userId) throws ApiException {
+  public StringWrapper getInviteToken(String userId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -173,7 +173,7 @@ public class UsersFriendshipsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

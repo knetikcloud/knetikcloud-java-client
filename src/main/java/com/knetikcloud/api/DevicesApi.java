@@ -10,6 +10,7 @@ import javax.ws.rs.core.GenericType;
 import com.knetikcloud.model.DeviceResource;
 import com.knetikcloud.model.PageResourceDeviceResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.SimpleUserResource;
 import com.knetikcloud.model.TemplateResource;
@@ -19,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class DevicesApi {
   private ApiClient apiClient;
 
@@ -47,17 +48,17 @@ public class DevicesApi {
    * @return DeviceResource
    * @throws ApiException if fails to make API call
    */
-  public DeviceResource addDeviceUsers(List<SimpleUserResource> userResources, String id) throws ApiException {
+  public DeviceResource addDeviceUser(List<SimpleUserResource> userResources, String id) throws ApiException {
     Object localVarPostBody = userResources;
     
     // verify the required parameter 'userResources' is set
     if (userResources == null) {
-      throw new ApiException(400, "Missing the required parameter 'userResources' when calling addDeviceUsers");
+      throw new ApiException(400, "Missing the required parameter 'userResources' when calling addDeviceUser");
     }
     
     // verify the required parameter 'id' is set
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling addDeviceUsers");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling addDeviceUser");
     }
     
     // create path and map variables
@@ -130,7 +131,7 @@ public class DevicesApi {
       }
   /**
    * Create a device template
-   * Device Templates define a type of device and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * Device Templates define a type of device and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param deviceTemplateResource The device template resource object (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -207,7 +208,7 @@ public class DevicesApi {
   }
   /**
    * Delete an device template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -383,7 +384,7 @@ public class DevicesApi {
       }
   /**
    * Get a single device template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; description
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
@@ -425,7 +426,7 @@ public class DevicesApi {
       }
   /**
    * List and search device templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or DEVICES_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -567,14 +568,15 @@ public class DevicesApi {
       }
   /**
    * Update an device template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param deviceTemplateResource The device template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return TemplateResource
    * @throws ApiException if fails to make API call
    */
-  public TemplateResource updateDeviceTemplate(String id, TemplateResource deviceTemplateResource) throws ApiException {
-    Object localVarPostBody = deviceTemplateResource;
+  public TemplateResource updateDeviceTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -590,6 +592,7 @@ public class DevicesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -606,6 +609,6 @@ public class DevicesApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<TemplateResource> localVarReturnType = new GenericType<TemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

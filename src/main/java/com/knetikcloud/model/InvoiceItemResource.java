@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.knetikcloud.model.Discount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -24,13 +25,16 @@ import java.math.BigDecimal;
 /**
  * InvoiceItemResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class InvoiceItemResource {
   @JsonProperty("bundle_sku")
   private String bundleSku = null;
 
   @JsonProperty("current_fulfillment_status")
   private String currentFulfillmentStatus = null;
+
+  @JsonProperty("discount")
+  private Discount discount = null;
 
   @JsonProperty("id")
   private Integer id = null;
@@ -108,6 +112,24 @@ public class InvoiceItemResource {
 
   public void setCurrentFulfillmentStatus(String currentFulfillmentStatus) {
     this.currentFulfillmentStatus = currentFulfillmentStatus;
+  }
+
+  public InvoiceItemResource discount(Discount discount) {
+    this.discount = discount;
+    return this;
+  }
+
+   /**
+   * Get discount
+   * @return discount
+  **/
+  @ApiModelProperty(value = "")
+  public Discount getDiscount() {
+    return discount;
+  }
+
+  public void setDiscount(Discount discount) {
+    this.discount = discount;
   }
 
   public InvoiceItemResource id(Integer id) {
@@ -374,6 +396,7 @@ public class InvoiceItemResource {
     InvoiceItemResource invoiceItemResource = (InvoiceItemResource) o;
     return Objects.equals(this.bundleSku, invoiceItemResource.bundleSku) &&
         Objects.equals(this.currentFulfillmentStatus, invoiceItemResource.currentFulfillmentStatus) &&
+        Objects.equals(this.discount, invoiceItemResource.discount) &&
         Objects.equals(this.id, invoiceItemResource.id) &&
         Objects.equals(this.invoiceId, invoiceItemResource.invoiceId) &&
         Objects.equals(this.itemId, invoiceItemResource.itemId) &&
@@ -392,7 +415,7 @@ public class InvoiceItemResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bundleSku, currentFulfillmentStatus, id, invoiceId, itemId, itemName, originalTotalPrice, originalUnitPrice, qty, saleName, sku, skuDescription, systemPrice, totalPrice, typeHint, unitPrice);
+    return Objects.hash(bundleSku, currentFulfillmentStatus, discount, id, invoiceId, itemId, itemName, originalTotalPrice, originalUnitPrice, qty, saleName, sku, skuDescription, systemPrice, totalPrice, typeHint, unitPrice);
   }
 
 
@@ -403,6 +426,7 @@ public class InvoiceItemResource {
     
     sb.append("    bundleSku: ").append(toIndentedString(bundleSku)).append("\n");
     sb.append("    currentFulfillmentStatus: ").append(toIndentedString(currentFulfillmentStatus)).append("\n");
+    sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");

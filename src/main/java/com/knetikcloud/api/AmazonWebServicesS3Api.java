@@ -9,13 +9,14 @@ import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.AmazonS3Activity;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class AmazonWebServicesS3Api {
   private ApiClient apiClient;
 
@@ -39,16 +40,16 @@ public class AmazonWebServicesS3Api {
    * Get a temporary signed S3 URL for download
    * To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_ADMIN
    * @param bucket S3 bucket name (optional)
-   * @param path The path to the file relative to the bucket (the s3 object key) (optional)
+   * @param path The path to the file relative the bucket (the s3 object key) (optional)
    * @param expiration The number of seconds this URL will be valid. Default to 60 (optional, default to 60)
-   * @return String
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public String getDownloadURL(String bucket, String path, Integer expiration) throws ApiException {
+  public StringWrapper getDownloadURL(String bucket, String path, Integer expiration) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/amazon/s3/downloadurl";
+    String localVarPath = "/amazon/s3/download-url";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -73,7 +74,7 @@ public class AmazonWebServicesS3Api {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -88,7 +89,7 @@ public class AmazonWebServicesS3Api {
     Object localVarPostBody = null;
     
     // create path and map variables
-    String localVarPath = "/amazon/s3/signedposturl";
+    String localVarPath = "/amazon/s3/signed-post-url";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

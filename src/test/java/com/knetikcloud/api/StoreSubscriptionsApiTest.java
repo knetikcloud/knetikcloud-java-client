@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.PageResourceSubscriptionResource;
 import com.knetikcloud.model.PageResourceSubscriptionTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.SubscriptionResource;
 import com.knetikcloud.model.SubscriptionTemplateResource;
@@ -55,7 +56,7 @@ public class StoreSubscriptionsApiTest {
     /**
      * Create a subscription template
      *
-     * Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -88,7 +89,7 @@ public class StoreSubscriptionsApiTest {
     /**
      * Delete a subscription template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -121,7 +122,7 @@ public class StoreSubscriptionsApiTest {
     /**
      * Get a single subscription template
      *
-     * Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -137,7 +138,7 @@ public class StoreSubscriptionsApiTest {
     /**
      * List and search subscription templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -205,7 +206,7 @@ public class StoreSubscriptionsApiTest {
     /**
      * Update a subscription template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -213,8 +214,9 @@ public class StoreSubscriptionsApiTest {
     @Test
     public void updateSubscriptionTemplateTest() throws ApiException {
         String id = null;
-        SubscriptionTemplateResource subscriptionTemplateResource = null;
-        SubscriptionTemplateResource response = api.updateSubscriptionTemplate(id, subscriptionTemplateResource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        SubscriptionTemplateResource response = api.updateSubscriptionTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

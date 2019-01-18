@@ -15,6 +15,7 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.PageResourceUsageInfo;
+import com.knetikcloud.model.PageResourcestring;
 import com.knetikcloud.model.Result;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -155,7 +156,7 @@ public class ReportingUsageApiTest {
     public void getUsageEndpointsTest() throws ApiException {
         Long startDate = null;
         Long endDate = null;
-        List<String> response = api.getUsageEndpoints(startDate, endDate);
+        PageResourcestring response = api.getUsageEndpoints(startDate, endDate);
 
         // TODO: test validations
     }

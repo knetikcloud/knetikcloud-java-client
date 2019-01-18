@@ -18,7 +18,6 @@ import com.knetikcloud.model.DocumentRemoveRequest;
 import com.knetikcloud.model.ReindexRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.SearchDocument;
-import com.knetikcloud.model.SearchObjectDefinition;
 import com.knetikcloud.model.SearchQuery;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -40,7 +39,7 @@ public class SearchApiTest {
     /**
      * Adds a document to be indexed. For system use only.
      *
-     * 
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_MANAGEMENT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -54,33 +53,17 @@ public class SearchApiTest {
     }
     
     /**
-     * Register a new index definition. For system use only.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void registerDefinitionTest() throws ApiException {
-        SearchObjectDefinition definition = null;
-        api.registerDefinition(definition);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Triggers a full re-indexing of all documents of the specified type. For system use only.
      *
-     * 
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_MANAGEMENT
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void reindexTest() throws ApiException {
+    public void reindexAllTest() throws ApiException {
         ReindexRequest request = null;
-        api.reindex(request);
+        api.reindexAll(request);
 
         // TODO: test validations
     }
@@ -88,7 +71,7 @@ public class SearchApiTest {
     /**
      * Remove a document from the index. For system use only.
      *
-     * 
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_MANAGEMENT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -135,41 +118,6 @@ public class SearchApiTest {
     }
     
     /**
-     * Count matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchCountWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object response = api.searchCountWithTemplateGET(type, template);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Count matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchCountWithTemplatePOSTTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object query = null;
-        Object response = api.searchCountWithTemplatePOST(type, template, query);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get document with no template
      *
      * This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
@@ -182,24 +130,6 @@ public class SearchApiTest {
         String type = null;
         String id = null;
         Object response = api.searchDocumentGET(type, id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get document with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchDocumentWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String id = null;
-        String template = null;
-        Object response = api.searchDocumentWithTemplateGET(type, id, template);
 
         // TODO: test validations
     }
@@ -240,43 +170,6 @@ public class SearchApiTest {
     }
     
     /**
-     * Explain matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchExplainWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String id = null;
-        String template = null;
-        Object response = api.searchExplainWithTemplateGET(type, id, template);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Explain matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchExplainWithTemplatePOSTTest() throws ApiException {
-        String type = null;
-        String id = null;
-        String template = null;
-        Object query = null;
-        Object response = api.searchExplainWithTemplatePOST(type, id, template, query);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Search an index with no template
      *
      * This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
@@ -305,41 +198,6 @@ public class SearchApiTest {
     public void searchIndexGETTest() throws ApiException {
         String type = null;
         Object response = api.searchIndexGET(type);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Search an index with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchIndexWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object response = api.searchIndexWithTemplateGET(type, template);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Search an index with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchIndexWithTemplatePOSTTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object query = null;
-        Object response = api.searchIndexWithTemplatePOST(type, template, query);
 
         // TODO: test validations
     }
@@ -376,23 +234,6 @@ public class SearchApiTest {
     }
     
     /**
-     * Get mapping with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchMappingsWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object response = api.searchMappingsWithTemplateGET(type, template);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Search public index with no template
      *
      * Make an ElasticSearch query against a public index. Results filtered for records the caller has GET permission on. Further information on query format can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
@@ -406,25 +247,6 @@ public class SearchApiTest {
         Integer user = null;
         SearchQuery query = null;
         Object response = api.searchPublicIndex(type, user, query);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Search public index with template
-     *
-     * Make an ElasticSearch query against a public index. Results filtered for records the caller has GET permission on.  Further information on query format can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchPublicIndexWithTemplateTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Integer user = null;
-        SearchQuery query = null;
-        Object response = api.searchPublicIndexWithTemplate(type, template, user, query);
 
         // TODO: test validations
     }
@@ -458,41 +280,6 @@ public class SearchApiTest {
         String type = null;
         Object query = null;
         Object response = api.searchValidatePOST(type, query);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Validate matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchValidateWithTemplateGETTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object response = api.searchValidateWithTemplateGET(type, template);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Validate matches with a template
-     *
-     * This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void searchValidateWithTemplatePOSTTest() throws ApiException {
-        String type = null;
-        String template = null;
-        Object query = null;
-        Object response = api.searchValidateWithTemplatePOST(type, template, query);
 
         // TODO: test validations
     }

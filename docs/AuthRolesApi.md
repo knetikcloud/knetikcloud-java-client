@@ -1,6 +1,6 @@
 # AuthRolesApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -133,7 +133,7 @@ null (empty response body)
 
 <a name="getClientRoles"></a>
 # **getClientRoles**
-> List&lt;RoleResource&gt; getClientRoles(clientKey)
+> PageResourceRoleResource getClientRoles(clientKey, size, page)
 
 Get roles for a client
 
@@ -160,8 +160,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthRolesApi apiInstance = new AuthRolesApi();
 String clientKey = "clientKey_example"; // String | The client key
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<RoleResource> result = apiInstance.getClientRoles(clientKey);
+    PageResourceRoleResource result = apiInstance.getClientRoles(clientKey, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthRolesApi#getClientRoles");
@@ -174,10 +176,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **String**| The client key |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;RoleResource&gt;**](RoleResource.md)
+[**PageResourceRoleResource**](PageResourceRoleResource.md)
 
 ### Authorization
 
@@ -312,7 +316,7 @@ Name | Type | Description  | Notes
 
 <a name="getUserRoles"></a>
 # **getUserRoles**
-> List&lt;RoleResource&gt; getUserRoles(userId)
+> PageResourceRoleResource getUserRoles(userId, size, page)
 
 Get roles for a user
 
@@ -339,8 +343,10 @@ oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthRolesApi apiInstance = new AuthRolesApi();
 Integer userId = 56; // Integer | The user's id
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<RoleResource> result = apiInstance.getUserRoles(userId);
+    PageResourceRoleResource result = apiInstance.getUserRoles(userId, size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthRolesApi#getUserRoles");
@@ -353,10 +359,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **Integer**| The user&#39;s id |
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;RoleResource&gt;**](RoleResource.md)
+[**PageResourceRoleResource**](PageResourceRoleResource.md)
 
 ### Authorization
 

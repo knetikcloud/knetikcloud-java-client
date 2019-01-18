@@ -80,7 +80,9 @@ public class AuthRolesApiTest {
     @Test
     public void getClientRolesTest() throws ApiException {
         String clientKey = null;
-        List<RoleResource> response = api.getClientRoles(clientKey);
+        Integer size = null;
+        Integer page = null;
+        PageResourceRoleResource response = api.getClientRoles(clientKey, size, page);
 
         // TODO: test validations
     }
@@ -132,7 +134,9 @@ public class AuthRolesApiTest {
     @Test
     public void getUserRolesTest() throws ApiException {
         Integer userId = null;
-        List<RoleResource> response = api.getUserRoles(userId);
+        Integer size = null;
+        Integer page = null;
+        PageResourceRoleResource response = api.getUserRoles(userId, size, page);
 
         // TODO: test validations
     }

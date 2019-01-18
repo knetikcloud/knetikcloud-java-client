@@ -10,6 +10,7 @@ import javax.ws.rs.core.GenericType;
 import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.InventorySubscriptionResource;
 import com.knetikcloud.model.InvoiceResource;
+import com.knetikcloud.model.PageResourceInventorySubscriptionResource;
 import com.knetikcloud.model.ReactivateSubscriptionRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class UsersSubscriptionsApi {
   private ApiClient apiClient;
 
@@ -94,10 +95,12 @@ public class UsersSubscriptionsApi {
    * Get details about a user&#39;s subscriptions
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
    * @param userId The id of the user (required)
-   * @return List&lt;InventorySubscriptionResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceInventorySubscriptionResource
    * @throws ApiException if fails to make API call
    */
-  public List<InventorySubscriptionResource> getUsersSubscriptionDetails(Integer userId) throws ApiException {
+  public PageResourceInventorySubscriptionResource getUsersSubscriptionDetails(Integer userId, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -114,6 +117,8 @@ public class UsersSubscriptionsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -129,7 +134,7 @@ public class UsersSubscriptionsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<InventorySubscriptionResource>> localVarReturnType = new GenericType<List<InventorySubscriptionResource>>() {};
+    GenericType<PageResourceInventorySubscriptionResource> localVarReturnType = new GenericType<PageResourceInventorySubscriptionResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

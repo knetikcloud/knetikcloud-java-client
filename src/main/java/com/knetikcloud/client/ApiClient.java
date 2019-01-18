@@ -50,10 +50,10 @@ import com.knetikcloud.client.auth.HttpBasicAuth;
 import com.knetikcloud.client.auth.ApiKeyAuth;
 import com.knetikcloud.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  protected String basePath = "https://jsapi-integration.us-east-1.elasticbeanstalk.com";
+  protected String basePath = "https://devsandbox.knetikcloud.com";
   protected boolean debugging = false;
   protected int connectionTimeout = 0;
 
@@ -75,11 +75,12 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/3.0.10/java");
+    setUserAgent("Swagger-Codegen/3.0.11/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
     authentications.put("oauth2_client_credentials_grant", new OAuth());
+    authentications.put("oauth2_implicit_grant", new OAuth());
     authentications.put("oauth2_password_grant", new OAuth());
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);

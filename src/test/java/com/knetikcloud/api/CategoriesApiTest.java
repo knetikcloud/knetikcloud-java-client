@@ -18,6 +18,7 @@ import com.knetikcloud.model.CategoryResource;
 import com.knetikcloud.model.PageResourceCategoryResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Test;
@@ -56,7 +57,7 @@ public class CategoriesApiTest {
     /**
      * Create a category template
      *
-     * Templates define a type of category and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Templates define a type of category and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -88,7 +89,7 @@ public class CategoriesApiTest {
     /**
      * Delete a category template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -141,7 +142,7 @@ public class CategoriesApiTest {
     /**
      * Get a single category template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -157,7 +158,7 @@ public class CategoriesApiTest {
     /**
      * List and search category templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -209,7 +210,7 @@ public class CategoriesApiTest {
     /**
      * Update a category template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -217,8 +218,9 @@ public class CategoriesApiTest {
     @Test
     public void updateCategoryTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource template = null;
-        TemplateResource response = api.updateCategoryTemplate(id, template);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateCategoryTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

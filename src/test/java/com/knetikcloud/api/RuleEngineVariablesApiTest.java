@@ -15,8 +15,8 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.PageResourceSimpleReferenceResourceobject;
+import com.knetikcloud.model.PageResourceVariableTypeResource;
 import com.knetikcloud.model.Result;
-import com.knetikcloud.model.VariableTypeResource;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,9 @@ public class RuleEngineVariablesApiTest {
      */
     @Test
     public void getBREVariableTypesTest() throws ApiException {
-        List<VariableTypeResource> response = api.getBREVariableTypes();
+        Integer size = null;
+        Integer page = null;
+        PageResourceVariableTypeResource response = api.getBREVariableTypes(size, page);
 
         // TODO: test validations
     }

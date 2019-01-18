@@ -17,35 +17,41 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.knetikcloud.model.BroadcastableEvent;
-import com.knetikcloud.model.SearchObjectDefinition;
+import com.knetikcloud.model.PatchActionResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * SearchDefinitionCreated
+ * PatchResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
-public class SearchDefinitionCreated extends BroadcastableEvent {
-  @JsonProperty("definition")
-  private SearchObjectDefinition definition = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
+public class PatchResource {
+  @JsonProperty("patch_actions")
+  private List<PatchActionResource> patchActions = new ArrayList<PatchActionResource>();
 
-  public SearchDefinitionCreated definition(SearchObjectDefinition definition) {
-    this.definition = definition;
+  public PatchResource patchActions(List<PatchActionResource> patchActions) {
+    this.patchActions = patchActions;
+    return this;
+  }
+
+  public PatchResource addPatchActionsItem(PatchActionResource patchActionsItem) {
+    this.patchActions.add(patchActionsItem);
     return this;
   }
 
    /**
-   * Get definition
-   * @return definition
+   * The list of patch actions to perform on a resource
+   * @return patchActions
   **/
-  @ApiModelProperty(value = "")
-  public SearchObjectDefinition getDefinition() {
-    return definition;
+  @ApiModelProperty(required = true, value = "The list of patch actions to perform on a resource")
+  public List<PatchActionResource> getPatchActions() {
+    return patchActions;
   }
 
-  public void setDefinition(SearchObjectDefinition definition) {
-    this.definition = definition;
+  public void setPatchActions(List<PatchActionResource> patchActions) {
+    this.patchActions = patchActions;
   }
 
 
@@ -57,23 +63,22 @@ public class SearchDefinitionCreated extends BroadcastableEvent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchDefinitionCreated searchDefinitionCreated = (SearchDefinitionCreated) o;
-    return Objects.equals(this.definition, searchDefinitionCreated.definition) &&
-        super.equals(o);
+    PatchResource patchResource = (PatchResource) o;
+    return Objects.equals(this.patchActions, patchResource.patchActions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(definition, super.hashCode());
+    return Objects.hash(patchActions);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchDefinitionCreated {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+    sb.append("class PatchResource {\n");
+    
+    sb.append("    patchActions: ").append(toIndentedString(patchActions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

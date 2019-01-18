@@ -15,9 +15,9 @@ package com.knetikcloud.api;
 
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.ArticleResource;
-import com.knetikcloud.model.BasicTemplatedResource;
 import com.knetikcloud.model.PageResourceArticleResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.TemplateResource;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class ContentArticlesApiTest {
     /**
      * Create a new article
      *
-     * Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions:&lt;/b&gt; POST
+     * Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -56,7 +56,7 @@ public class ContentArticlesApiTest {
     /**
      * Create an article template
      *
-     * Article Templates define a type of article and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * Article Templates define a type of article and the properties they have.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -65,23 +65,6 @@ public class ContentArticlesApiTest {
     public void createArticleTemplateTest() throws ApiException {
         TemplateResource articleTemplateResource = null;
         TemplateResource response = api.createArticleTemplate(articleTemplateResource);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Create a template
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createTemplateTest() throws ApiException {
-        String typeHint = null;
-        TemplateResource template = null;
-        TemplateResource response = api.createTemplate(typeHint, template);
 
         // TODO: test validations
     }
@@ -105,7 +88,7 @@ public class ContentArticlesApiTest {
     /**
      * Delete an article template
      *
-     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
      *
      * @throws ApiException
      *          if the Api call fails
@@ -115,24 +98,6 @@ public class ContentArticlesApiTest {
         String id = null;
         String cascade = null;
         api.deleteArticleTemplate(id, cascade);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete a template
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteTemplateTest() throws ApiException {
-        String typeHint = null;
-        String id = null;
-        String cascade = null;
-        api.deleteTemplate(typeHint, id, cascade);
 
         // TODO: test validations
     }
@@ -156,7 +121,7 @@ public class ContentArticlesApiTest {
     /**
      * Get a single article template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; GET
      *
      * @throws ApiException
      *          if the Api call fails
@@ -172,7 +137,7 @@ public class ContentArticlesApiTest {
     /**
      * List and search article templates
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -190,7 +155,7 @@ public class ContentArticlesApiTest {
     /**
      * List and search articles
      *
-     * Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+     * Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
      *
      * @throws ApiException
      *          if the Api call fails
@@ -207,42 +172,6 @@ public class ContentArticlesApiTest {
         Integer page = null;
         String order = null;
         PageResourceArticleResource response = api.getArticles(filterActiveOnly, filterCategory, filterTagset, filterTagIntersection, filterTagExclusion, filterTitle, size, page, order);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get a template
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getTemplateTest() throws ApiException {
-        String typeHint = null;
-        String id = null;
-        TemplateResource response = api.getTemplate(typeHint, id);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List and search templates
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getTemplatesTest() throws ApiException {
-        String typeHint = null;
-        Integer size = null;
-        Integer page = null;
-        String order = null;
-        PageResourceTemplateResource response = api.getTemplates(typeHint, size, page, order);
 
         // TODO: test validations
     }
@@ -267,7 +196,7 @@ public class ContentArticlesApiTest {
     /**
      * Update an article template
      *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+     * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
      *
      * @throws ApiException
      *          if the Api call fails
@@ -275,43 +204,9 @@ public class ContentArticlesApiTest {
     @Test
     public void updateArticleTemplateTest() throws ApiException {
         String id = null;
-        TemplateResource articleTemplateResource = null;
-        TemplateResource response = api.updateArticleTemplate(id, articleTemplateResource);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a template
-     *
-     * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateTemplateTest() throws ApiException {
-        String typeHint = null;
-        String id = null;
-        TemplateResource template = null;
-        TemplateResource response = api.updateTemplate(typeHint, id, template);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Validate a templated resource
-     *
-     * Error code thrown if invalid.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void validateTest() throws ApiException {
-        String typeHint = null;
-        BasicTemplatedResource resource = null;
-        api.validate(typeHint, resource);
+        PatchResource templatePatchResource = null;
+        Boolean testValidation = null;
+        TemplateResource response = api.updateArticleTemplate(id, templatePatchResource, testValidation);
 
         // TODO: test validations
     }

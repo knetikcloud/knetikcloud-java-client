@@ -8,11 +8,15 @@ import com.knetikcloud.client.Pair;
 import javax.ws.rs.core.GenericType;
 
 import com.knetikcloud.model.AnswerResource;
-import com.knetikcloud.model.DeltaResource;
 import com.knetikcloud.model.ImportJobResource;
+import com.knetikcloud.model.LongWrapper;
+import com.knetikcloud.model.PageResourceAnswerResource;
+import com.knetikcloud.model.PageResourceDeltaResource;
 import com.knetikcloud.model.PageResourceImportJobResource;
 import com.knetikcloud.model.PageResourceQuestionResource;
 import com.knetikcloud.model.PageResourceQuestionTemplateResource;
+import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuestionResource;
 import com.knetikcloud.model.QuestionTemplateResource;
 import com.knetikcloud.model.Result;
@@ -23,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class GamificationTriviaApi {
   private ApiClient apiClient;
 
@@ -254,7 +258,7 @@ public class GamificationTriviaApi {
       }
   /**
    * Create a question template
-   * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
+   * Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param questionTemplateResource The question template resource object (optional)
    * @return QuestionTemplateResource
    * @throws ApiException if fails to make API call
@@ -420,7 +424,7 @@ public class GamificationTriviaApi {
   }
   /**
    * Delete a question template
-   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
    * @param id The id of the template (required)
    * @param cascade The value needed to delete used templates (optional)
    * @throws ApiException if fails to make API call
@@ -647,10 +651,12 @@ public class GamificationTriviaApi {
    * List the answers available for a question
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param questionId The id of the question (required)
-   * @return List&lt;AnswerResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceAnswerResource
    * @throws ApiException if fails to make API call
    */
-  public List<AnswerResource> getQuestionAnswers(String questionId) throws ApiException {
+  public PageResourceAnswerResource getQuestionAnswers(String questionId, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'questionId' is set
@@ -667,6 +673,8 @@ public class GamificationTriviaApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -682,17 +690,19 @@ public class GamificationTriviaApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<AnswerResource>> localVarReturnType = new GenericType<List<AnswerResource>>() {};
+    GenericType<PageResourceAnswerResource> localVarReturnType = new GenericType<PageResourceAnswerResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * List question deltas in ascending order of updated date
    * The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param since Timestamp in seconds (optional)
-   * @return List&lt;DeltaResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceDeltaResource
    * @throws ApiException if fails to make API call
    */
-  public List<DeltaResource> getQuestionDeltas(Long since) throws ApiException {
+  public PageResourceDeltaResource getQuestionDeltas(Long since, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -704,6 +714,8 @@ public class GamificationTriviaApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "since", since));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -719,17 +731,19 @@ public class GamificationTriviaApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<DeltaResource>> localVarReturnType = new GenericType<List<DeltaResource>>() {};
+    GenericType<PageResourceDeltaResource> localVarReturnType = new GenericType<PageResourceDeltaResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * List the tags for a question
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
    * @param id The id of the question (required)
-   * @return List&lt;String&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourcestring
    * @throws ApiException if fails to make API call
    */
-  public List<String> getQuestionTags(String id) throws ApiException {
+  public PageResourcestring getQuestionTags(String id, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -746,6 +760,8 @@ public class GamificationTriviaApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -761,12 +777,12 @@ public class GamificationTriviaApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourcestring> localVarReturnType = new GenericType<PageResourcestring>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Get a single question template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GET
    * @param id The id of the template (required)
    * @return QuestionTemplateResource
    * @throws ApiException if fails to make API call
@@ -808,7 +824,7 @@ public class GamificationTriviaApi {
       }
   /**
    * List and search question templates
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
@@ -914,10 +930,10 @@ public class GamificationTriviaApi {
    * @param filterTagset Filter for questions with specified tags (separated by comma) (optional)
    * @param filterType Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) (optional)
    * @param filterPublished Filter for questions currenctly published or not (optional)
-   * @return Long
+   * @return LongWrapper
    * @throws ApiException if fails to make API call
    */
-  public Long getQuestionsCount(String filterSearch, String filterIdset, String filterCategory, String filterTag, String filterTagset, String filterType, Boolean filterPublished) throws ApiException {
+  public LongWrapper getQuestionsCount(String filterSearch, String filterIdset, String filterCategory, String filterTag, String filterTagset, String filterType, Boolean filterPublished) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -950,7 +966,7 @@ public class GamificationTriviaApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<Long> localVarReturnType = new GenericType<Long>() {};
+    GenericType<LongWrapper> localVarReturnType = new GenericType<LongWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1114,10 +1130,12 @@ public class GamificationTriviaApi {
    * @param filterSearch Filter for tags starting with the given text (optional)
    * @param filterCategory Filter for tags on questions from a specific category (optional)
    * @param filterImportId Filter for tags on questions from a specific import job (optional)
-   * @return List&lt;String&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourcestring
    * @throws ApiException if fails to make API call
    */
-  public List<String> searchQuestionTags(String filterSearch, String filterCategory, Long filterImportId) throws ApiException {
+  public PageResourcestring searchQuestionTags(String filterSearch, String filterCategory, Long filterImportId, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -1131,6 +1149,8 @@ public class GamificationTriviaApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_search", filterSearch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_category", filterCategory));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_import_id", filterImportId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -1146,7 +1166,7 @@ public class GamificationTriviaApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
+    GenericType<PageResourcestring> localVarReturnType = new GenericType<PageResourcestring>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1286,14 +1306,15 @@ public class GamificationTriviaApi {
   }
   /**
    * Update a question template
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
-   * @param questionTemplateResource The question template resource object (optional)
+   * @param templatePatchResource The patch resource object (optional)
+   * @param testValidation If true, this will test validation but not submit the patch request (optional)
    * @return QuestionTemplateResource
    * @throws ApiException if fails to make API call
    */
-  public QuestionTemplateResource updateQuestionTemplate(String id, QuestionTemplateResource questionTemplateResource) throws ApiException {
-    Object localVarPostBody = questionTemplateResource;
+  public QuestionTemplateResource updateQuestionTemplate(String id, PatchResource templatePatchResource, Boolean testValidation) throws ApiException {
+    Object localVarPostBody = templatePatchResource;
     
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1309,6 +1330,7 @@ public class GamificationTriviaApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test_validation", testValidation));
 
     
     
@@ -1325,7 +1347,7 @@ public class GamificationTriviaApi {
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
     GenericType<QuestionTemplateResource> localVarReturnType = new GenericType<QuestionTemplateResource>() {};
-    return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    return apiClient.invokeAPI(localVarPath, "PATCH", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * Bulk update questions

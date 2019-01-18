@@ -1,6 +1,6 @@
 # GamificationLevelingApi
 
-All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 <a name="getLevelTriggers"></a>
 # **getLevelTriggers**
-> List&lt;BreTriggerResource&gt; getLevelTriggers()
+> PageResourceBreTriggerResource getLevelTriggers(size, page)
 
 Get the list of triggers that can be used to trigger a leveling progress update
 
@@ -214,8 +214,10 @@ OAuth oauth2_password_grant = (OAuth) defaultClient.getAuthentication("oauth2_pa
 oauth2_password_grant.setAccessToken("YOUR ACCESS TOKEN");
 
 GamificationLevelingApi apiInstance = new GamificationLevelingApi();
+Integer size = 25; // Integer | The number of objects returned per page
+Integer page = 1; // Integer | The number of the page returned, starting with 1
 try {
-    List<BreTriggerResource> result = apiInstance.getLevelTriggers();
+    PageResourceBreTriggerResource result = apiInstance.getLevelTriggers(size, page);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationLevelingApi#getLevelTriggers");
@@ -224,11 +226,15 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **Integer**| The number of the page returned, starting with 1 | [optional] [default to 1]
 
 ### Return type
 
-[**List&lt;BreTriggerResource&gt;**](BreTriggerResource.md)
+[**PageResourceBreTriggerResource**](PageResourceBreTriggerResource.md)
 
 ### Authorization
 
@@ -548,7 +554,7 @@ null (empty response body)
 
 <a name="updateLevel"></a>
 # **updateLevel**
-> LevelingResource updateLevel(name, newLevel)
+> updateLevel(name, newLevel)
 
 Update a level
 
@@ -577,8 +583,7 @@ GamificationLevelingApi apiInstance = new GamificationLevelingApi();
 String name = "name_example"; // String | The level schema name
 LevelingResource newLevel = new LevelingResource(); // LevelingResource | The level schema definition
 try {
-    LevelingResource result = apiInstance.updateLevel(name, newLevel);
-    System.out.println(result);
+    apiInstance.updateLevel(name, newLevel);
 } catch (ApiException e) {
     System.err.println("Exception when calling GamificationLevelingApi#updateLevel");
     e.printStackTrace();
@@ -594,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LevelingResource**](LevelingResource.md)
+null (empty response body)
 
 ### Authorization
 

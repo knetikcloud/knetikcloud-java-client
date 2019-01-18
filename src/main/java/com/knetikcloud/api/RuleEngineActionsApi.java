@@ -7,7 +7,7 @@ import com.knetikcloud.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import com.knetikcloud.model.ActionResource;
+import com.knetikcloud.model.PageResourceActionResource;
 import com.knetikcloud.model.Result;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class RuleEngineActionsApi {
   private ApiClient apiClient;
 
@@ -42,10 +42,12 @@ public class RuleEngineActionsApi {
    * @param filterName Filter for actions that have names containing the given string (optional)
    * @param filterTags Filter for actions that have all of the given tags (comma separated list) (optional)
    * @param filterSearch Filter for actions containing the given words somewhere within name, description and tags (optional)
-   * @return List&lt;ActionResource&gt;
+   * @param size The number of objects returned per page (optional, default to 25)
+   * @param page The number of the page returned, starting with 1 (optional, default to 1)
+   * @return PageResourceActionResource
    * @throws ApiException if fails to make API call
    */
-  public List<ActionResource> getBREActions(String filterCategory, String filterName, String filterTags, String filterSearch) throws ApiException {
+  public PageResourceActionResource getBREActions(String filterCategory, String filterName, String filterTags, String filterSearch, Integer size, Integer page) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -60,6 +62,8 @@ public class RuleEngineActionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_name", filterName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_tags", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_search", filterSearch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     
     
@@ -75,7 +79,7 @@ public class RuleEngineActionsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<List<ActionResource>> localVarReturnType = new GenericType<List<ActionResource>>() {};
+    GenericType<PageResourceActionResource> localVarReturnType = new GenericType<PageResourceActionResource>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

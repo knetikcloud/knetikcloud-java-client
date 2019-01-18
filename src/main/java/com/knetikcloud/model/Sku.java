@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * Sku
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class Sku {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -44,12 +44,6 @@ public class Sku {
 
   @JsonProperty("min_inventory_threshold")
   private Integer minInventoryThreshold = null;
-
-  @JsonProperty("not_available")
-  private Boolean notAvailable = null;
-
-  @JsonProperty("not_displayable")
-  private Boolean notDisplayable = null;
 
   @JsonProperty("original_price")
   private BigDecimal originalPrice = null;
@@ -171,42 +165,6 @@ public class Sku {
 
   public void setMinInventoryThreshold(Integer minInventoryThreshold) {
     this.minInventoryThreshold = minInventoryThreshold;
-  }
-
-  public Sku notAvailable(Boolean notAvailable) {
-    this.notAvailable = notAvailable;
-    return this;
-  }
-
-   /**
-   * Get notAvailable
-   * @return notAvailable
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isNotAvailable() {
-    return notAvailable;
-  }
-
-  public void setNotAvailable(Boolean notAvailable) {
-    this.notAvailable = notAvailable;
-  }
-
-  public Sku notDisplayable(Boolean notDisplayable) {
-    this.notDisplayable = notDisplayable;
-    return this;
-  }
-
-   /**
-   * Get notDisplayable
-   * @return notDisplayable
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isNotDisplayable() {
-    return notDisplayable;
-  }
-
-  public void setNotDisplayable(Boolean notDisplayable) {
-    this.notDisplayable = notDisplayable;
   }
 
   public Sku originalPrice(BigDecimal originalPrice) {
@@ -341,8 +299,6 @@ public class Sku {
         Objects.equals(this.description, sku.description) &&
         Objects.equals(this.inventory, sku.inventory) &&
         Objects.equals(this.minInventoryThreshold, sku.minInventoryThreshold) &&
-        Objects.equals(this.notAvailable, sku.notAvailable) &&
-        Objects.equals(this.notDisplayable, sku.notDisplayable) &&
         Objects.equals(this.originalPrice, sku.originalPrice) &&
         Objects.equals(this.price, sku.price) &&
         Objects.equals(this.published, sku.published) &&
@@ -355,7 +311,7 @@ public class Sku {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, currencyCode, description, inventory, minInventoryThreshold, notAvailable, notDisplayable, originalPrice, price, published, saleId, saleName, sku, startDate, stopDate);
+    return Objects.hash(additionalProperties, currencyCode, description, inventory, minInventoryThreshold, originalPrice, price, published, saleId, saleName, sku, startDate, stopDate);
   }
 
 
@@ -369,8 +325,6 @@ public class Sku {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    inventory: ").append(toIndentedString(inventory)).append("\n");
     sb.append("    minInventoryThreshold: ").append(toIndentedString(minInventoryThreshold)).append("\n");
-    sb.append("    notAvailable: ").append(toIndentedString(notAvailable)).append("\n");
-    sb.append("    notDisplayable: ").append(toIndentedString(notDisplayable)).append("\n");
     sb.append("    originalPrice: ").append(toIndentedString(originalPrice)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    published: ").append(toIndentedString(published)).append("\n");

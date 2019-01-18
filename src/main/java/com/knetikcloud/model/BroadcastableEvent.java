@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * BroadcastableEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true )
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true )
 @JsonSubTypes({
   @JsonSubTypes.Type(value = ServiceDeployedEvent.class, name = "service_deployed"),
   @JsonSubTypes.Type(value = LogLevelEvent.class, name = "log_level"),
@@ -33,7 +33,6 @@ import io.swagger.annotations.ApiModelProperty;
   @JsonSubTypes.Type(value = NewCustomerEvent.class, name = "new_customer"),
   @JsonSubTypes.Type(value = WebsocketSendTopicMessageEvent.class, name = "websocket_topic_message"),
   @JsonSubTypes.Type(value = RemoveCustomerEvent.class, name = "remove_customer"),
-  @JsonSubTypes.Type(value = SearchDefinitionCreated.class, name = "search_definition_created"),
   @JsonSubTypes.Type(value = WebsocketUnsubscribeEvent.class, name = "websocket_unsubscribe"),
   @JsonSubTypes.Type(value = WebsocketSendMessageEvent.class, name = "websocket_message"),
   @JsonSubTypes.Type(value = WebsocketSubscribeEvent.class, name = "websocket_subscribe"),

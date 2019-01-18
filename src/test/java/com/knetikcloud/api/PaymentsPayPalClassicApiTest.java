@@ -18,7 +18,9 @@ import com.knetikcloud.model.CreateBillingAgreementRequest;
 import com.knetikcloud.model.CreatePayPalPaymentRequest;
 import com.knetikcloud.model.FinalizeBillingAgreementRequest;
 import com.knetikcloud.model.FinalizePayPalPaymentRequest;
+import com.knetikcloud.model.IntWrapper;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -47,7 +49,7 @@ public class PaymentsPayPalClassicApiTest {
     @Test
     public void createPayPalBillingAgreementUrlTest() throws ApiException {
         CreateBillingAgreementRequest request = null;
-        String response = api.createPayPalBillingAgreementUrl(request);
+        StringWrapper response = api.createPayPalBillingAgreementUrl(request);
 
         // TODO: test validations
     }
@@ -63,7 +65,7 @@ public class PaymentsPayPalClassicApiTest {
     @Test
     public void createPayPalExpressCheckoutTest() throws ApiException {
         CreatePayPalPaymentRequest request = null;
-        String response = api.createPayPalExpressCheckout(request);
+        StringWrapper response = api.createPayPalExpressCheckout(request);
 
         // TODO: test validations
     }
@@ -79,7 +81,7 @@ public class PaymentsPayPalClassicApiTest {
     @Test
     public void finalizePayPalBillingAgreementTest() throws ApiException {
         FinalizeBillingAgreementRequest request = null;
-        Integer response = api.finalizePayPalBillingAgreement(request);
+        IntWrapper response = api.finalizePayPalBillingAgreement(request);
 
         // TODO: test validations
     }

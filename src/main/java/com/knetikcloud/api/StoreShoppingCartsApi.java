@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class StoreShoppingCartsApi {
   private ApiClient apiClient;
 
@@ -175,10 +175,10 @@ public class StoreShoppingCartsApi {
    * You don&#39;t have to have a user to create a cart but the API requires authentication to checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param owner Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required (optional)
    * @param currencyCode Set the currency for the cart, by currency code. May be disallowed by site settings. (optional)
-   * @return String
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public String createCart(Integer owner, String currencyCode) throws ApiException {
+  public StringWrapper createCart(Integer owner, String currencyCode) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -206,7 +206,7 @@ public class StoreShoppingCartsApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

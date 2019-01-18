@@ -17,7 +17,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.knetikcloud.model.Order;
 import com.knetikcloud.model.UserLevelingResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,7 +26,7 @@ import java.util.List;
 /**
  * PageResourceUserLevelingResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-29T13:50:55.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
 public class PageResourceUserLevelingResource {
   @JsonProperty("content")
   private List<UserLevelingResource> content = null;
@@ -46,9 +45,6 @@ public class PageResourceUserLevelingResource {
 
   @JsonProperty("size")
   private Integer size = null;
-
-  @JsonProperty("sort")
-  private List<Order> sort = null;
 
   @JsonProperty("total_elements")
   private Long totalElements = null;
@@ -172,32 +168,6 @@ public class PageResourceUserLevelingResource {
     this.size = size;
   }
 
-  public PageResourceUserLevelingResource sort(List<Order> sort) {
-    this.sort = sort;
-    return this;
-  }
-
-  public PageResourceUserLevelingResource addSortItem(Order sortItem) {
-    if (this.sort == null) {
-      this.sort = new ArrayList<Order>();
-    }
-    this.sort.add(sortItem);
-    return this;
-  }
-
-   /**
-   * Get sort
-   * @return sort
-  **/
-  @ApiModelProperty(value = "")
-  public List<Order> getSort() {
-    return sort;
-  }
-
-  public void setSort(List<Order> sort) {
-    this.sort = sort;
-  }
-
   public PageResourceUserLevelingResource totalElements(Long totalElements) {
     this.totalElements = totalElements;
     return this;
@@ -250,14 +220,13 @@ public class PageResourceUserLevelingResource {
         Objects.equals(this.number, pageResourceUserLevelingResource.number) &&
         Objects.equals(this.numberOfElements, pageResourceUserLevelingResource.numberOfElements) &&
         Objects.equals(this.size, pageResourceUserLevelingResource.size) &&
-        Objects.equals(this.sort, pageResourceUserLevelingResource.sort) &&
         Objects.equals(this.totalElements, pageResourceUserLevelingResource.totalElements) &&
         Objects.equals(this.totalPages, pageResourceUserLevelingResource.totalPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, first, last, number, numberOfElements, size, sort, totalElements, totalPages);
+    return Objects.hash(content, first, last, number, numberOfElements, size, totalElements, totalPages);
   }
 
 
@@ -272,7 +241,6 @@ public class PageResourceUserLevelingResource {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    numberOfElements: ").append(toIndentedString(numberOfElements)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    totalElements: ").append(toIndentedString(totalElements)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("}");
