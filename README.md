@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.11</version>
+    <version>3.0.12</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.11"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.12"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.11.jar
+* target/knetikcloud-java-client-3.0.12.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -736,6 +736,7 @@ Class | Method | HTTP request | Description
 *UsersGroupsApi* | [**getGroupTemplate**](docs/UsersGroupsApi.md#getGroupTemplate) | **GET** /users/groups/templates/{id} | Get a single group template
 *UsersGroupsApi* | [**getGroupTemplates**](docs/UsersGroupsApi.md#getGroupTemplates) | **GET** /users/groups/templates | List and search group templates
 *UsersGroupsApi* | [**getGroupsForUser**](docs/UsersGroupsApi.md#getGroupsForUser) | **GET** /users/{user_id}/groups | List groups a user is in
+*UsersGroupsApi* | [**inviteToGroup**](docs/UsersGroupsApi.md#inviteToGroup) | **POST** /users/groups/{unique_name}/invite | Invite to group
 *UsersGroupsApi* | [**listGroups**](docs/UsersGroupsApi.md#listGroups) | **GET** /users/groups | List and search groups
 *UsersGroupsApi* | [**postGroupMessage**](docs/UsersGroupsApi.md#postGroupMessage) | **POST** /users/groups/{unique_name}/messages | Send a group message
 *UsersGroupsApi* | [**removeGroupMember**](docs/UsersGroupsApi.md#removeGroupMember) | **DELETE** /users/groups/{unique_name}/members/{user_id} | Removes a user from a group

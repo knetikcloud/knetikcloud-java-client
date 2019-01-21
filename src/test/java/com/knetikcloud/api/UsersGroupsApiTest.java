@@ -28,6 +28,7 @@ import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.ValueWrapperboolean;
+import com.knetikcloud.model.VerificationRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -367,6 +368,23 @@ public class UsersGroupsApiTest {
         Integer page = null;
         Boolean filterChildren = null;
         PageResourcestring response = api.getGroupsForUser(userId, size, page, filterChildren);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Invite to group
+     *
+     * This will create a verification for joining the group which uses the &#39;group_invite&#39; template and sets the additional_property &#39;group&#39; with the unique name
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void inviteToGroupTest() throws ApiException {
+        String uniqueName = null;
+        VerificationRequest request = null;
+        VerificationRequest response = api.inviteToGroup(uniqueName, request);
 
         // TODO: test validations
     }

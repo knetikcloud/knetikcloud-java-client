@@ -221,8 +221,9 @@ public class UsersApiTest {
     @Test
     public void passwordResetTest() throws ApiException {
         Integer id = null;
+        Boolean test = null;
         NewPasswordRequest newPasswordRequest = null;
-        api.passwordReset(id, newPasswordRequest);
+        api.passwordReset(id, test, newPasswordRequest);
 
         // TODO: test validations
     }

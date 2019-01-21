@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:52.660-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:21.552-05:00")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -458,10 +458,11 @@ public class UsersApi {
    * Choose a new password after a reset
    * Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the user (required)
+   * @param test If true, test for valid code without changing password or burning code (optional, default to false)
    * @param newPasswordRequest The new password request object (optional)
    * @throws ApiException if fails to make API call
    */
-  public void passwordReset(Integer id, NewPasswordRequest newPasswordRequest) throws ApiException {
+  public void passwordReset(Integer id, Boolean test, NewPasswordRequest newPasswordRequest) throws ApiException {
     Object localVarPostBody = newPasswordRequest;
     
     // verify the required parameter 'id' is set
@@ -478,6 +479,7 @@ public class UsersApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "test", test));
 
     
     

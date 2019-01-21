@@ -21,13 +21,14 @@ import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.TemplateResource;
 import com.knetikcloud.model.ValueWrapperboolean;
+import com.knetikcloud.model.VerificationRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:52.660-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:21.552-05:00")
 public class UsersGroupsApi {
   private ApiClient apiClient;
 
@@ -878,6 +879,49 @@ public class UsersGroupsApi {
 
     GenericType<PageResourcestring> localVarReturnType = new GenericType<PageResourcestring>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Invite to group
+   * This will create a verification for joining the group which uses the &#39;group_invite&#39; template and sets the additional_property &#39;group&#39; with the unique name
+   * @param uniqueName The group unique name (required)
+   * @param request The id of the user to invite (optional)
+   * @return VerificationRequest
+   * @throws ApiException if fails to make API call
+   */
+  public VerificationRequest inviteToGroup(String uniqueName, VerificationRequest request) throws ApiException {
+    Object localVarPostBody = request;
+    
+    // verify the required parameter 'uniqueName' is set
+    if (uniqueName == null) {
+      throw new ApiException(400, "Missing the required parameter 'uniqueName' when calling inviteToGroup");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/users/groups/{unique_name}/invite"
+      .replaceAll("\\{" + "unique_name" + "\\}", apiClient.escapeString(uniqueName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+    GenericType<VerificationRequest> localVarReturnType = new GenericType<VerificationRequest>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
    * List and search groups

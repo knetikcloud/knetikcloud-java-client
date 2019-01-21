@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * BreTriggerResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:52.660-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T15:40:21.552-05:00")
 public class BreTriggerResource {
   /**
    * The category this trigger belongs to. See endpoints for related asset information. All new triggers are in category &#39;custom&#39;
@@ -78,7 +78,9 @@ public class BreTriggerResource {
     
     MONITORING("monitoring"),
     
-    VERIFICATION("verification");
+    VERIFICATION("verification"),
+    
+    GROUP("group");
 
     private String value;
 
