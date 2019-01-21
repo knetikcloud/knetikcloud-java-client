@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * SubscriptionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:52.660-05:00")
 public class SubscriptionResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;

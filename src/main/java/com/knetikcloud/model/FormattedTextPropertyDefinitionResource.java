@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * FormattedTextPropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-18T14:10:31.301-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T13:11:52.660-05:00")
 public class FormattedTextPropertyDefinitionResource extends PropertyDefinitionResource {
   @JsonProperty("max_length")
   private Integer maxLength = null;
