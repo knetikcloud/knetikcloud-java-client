@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * RawEmailResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:41:04.857-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
 public class RawEmailResource {
   @JsonProperty("body")
   private String body = null;

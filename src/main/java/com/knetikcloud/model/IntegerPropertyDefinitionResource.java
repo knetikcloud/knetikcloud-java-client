@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * IntegerPropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:41:04.857-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
 public class IntegerPropertyDefinitionResource extends PropertyDefinitionResource {
   @JsonProperty("max")
   private Integer max = null;

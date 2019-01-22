@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * BreEventLog
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-21T16:41:04.857-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
 public class BreEventLog {
   @JsonProperty("age")
   private Long age = null;
