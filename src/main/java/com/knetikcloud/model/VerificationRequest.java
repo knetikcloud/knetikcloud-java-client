@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * VerificationRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:20:21.215-05:00")
 public class VerificationRequest {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -47,6 +47,9 @@ public class VerificationRequest {
 
   @JsonProperty("include_numbers")
   private Boolean includeNumbers = null;
+
+  @JsonProperty("originator")
+  private SimpleUserResource originator = null;
 
   @JsonProperty("target_user")
   private SimpleUserResource targetUser = null;
@@ -164,6 +167,24 @@ public class VerificationRequest {
     this.includeNumbers = includeNumbers;
   }
 
+  public VerificationRequest originator(SimpleUserResource originator) {
+    this.originator = originator;
+    return this;
+  }
+
+   /**
+   * The originating user of the request, filled at 
+   * @return originator
+  **/
+  @ApiModelProperty(value = "The originating user of the request, filled at ")
+  public SimpleUserResource getOriginator() {
+    return originator;
+  }
+
+  public void setOriginator(SimpleUserResource originator) {
+    this.originator = originator;
+  }
+
   public VerificationRequest targetUser(SimpleUserResource targetUser) {
     this.targetUser = targetUser;
     return this;
@@ -225,6 +246,7 @@ public class VerificationRequest {
         Objects.equals(this.createdDate, verificationRequest.createdDate) &&
         Objects.equals(this.expirationDate, verificationRequest.expirationDate) &&
         Objects.equals(this.includeNumbers, verificationRequest.includeNumbers) &&
+        Objects.equals(this.originator, verificationRequest.originator) &&
         Objects.equals(this.targetUser, verificationRequest.targetUser) &&
         Objects.equals(this.template, verificationRequest.template) &&
         Objects.equals(this.updatedDate, verificationRequest.updatedDate);
@@ -232,7 +254,7 @@ public class VerificationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, code, codelength, createdDate, expirationDate, includeNumbers, targetUser, template, updatedDate);
+    return Objects.hash(additionalProperties, code, codelength, createdDate, expirationDate, includeNumbers, originator, targetUser, template, updatedDate);
   }
 
 
@@ -247,6 +269,7 @@ public class VerificationRequest {
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    includeNumbers: ").append(toIndentedString(includeNumbers)).append("\n");
+    sb.append("    originator: ").append(toIndentedString(originator)).append("\n");
     sb.append("    targetUser: ").append(toIndentedString(targetUser)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");

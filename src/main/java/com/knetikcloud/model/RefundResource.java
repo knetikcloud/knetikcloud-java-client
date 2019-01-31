@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * RefundResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:20:21.215-05:00")
 public class RefundResource {
   @JsonProperty("amount")
   private Double amount = null;

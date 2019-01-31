@@ -23,13 +23,34 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ArgumentResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-22T09:26:09.103-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:20:21.215-05:00")
 public class ArgumentResource {
+  @JsonProperty("force_softness")
+  private Boolean forceSoftness = null;
+
   @JsonProperty("name")
   private String name = null;
 
   @JsonProperty("type")
   private String type = null;
+
+  public ArgumentResource forceSoftness(Boolean forceSoftness) {
+    this.forceSoftness = forceSoftness;
+    return this;
+  }
+
+   /**
+   * Get forceSoftness
+   * @return forceSoftness
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isForceSoftness() {
+    return forceSoftness;
+  }
+
+  public void setForceSoftness(Boolean forceSoftness) {
+    this.forceSoftness = forceSoftness;
+  }
 
   public ArgumentResource name(String name) {
     this.name = name;
@@ -77,13 +98,14 @@ public class ArgumentResource {
       return false;
     }
     ArgumentResource argumentResource = (ArgumentResource) o;
-    return Objects.equals(this.name, argumentResource.name) &&
+    return Objects.equals(this.forceSoftness, argumentResource.forceSoftness) &&
+        Objects.equals(this.name, argumentResource.name) &&
         Objects.equals(this.type, argumentResource.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type);
+    return Objects.hash(forceSoftness, name, type);
   }
 
 
@@ -92,6 +114,7 @@ public class ArgumentResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArgumentResource {\n");
     
+    sb.append("    forceSoftness: ").append(toIndentedString(forceSoftness)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

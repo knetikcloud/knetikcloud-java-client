@@ -244,6 +244,22 @@ public class MonitoringApiTest {
     }
     
     /**
+     * Post a metric datapoint batch
+     *
+     * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void postBatchTest() throws ApiException {
+        List<MonitoringMetricDatapointResource> batch = null;
+        api.postBatch(batch);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Post a metric datapoint
      *
      * Only works with counter and gauge metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD

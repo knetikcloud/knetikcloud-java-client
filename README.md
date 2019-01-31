@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.13</version>
+    <version>3.0.14</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.13"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.14"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.13.jar
+* target/knetikcloud-java-client-3.0.14.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -477,6 +477,7 @@ Class | Method | HTTP request | Description
 *MonitoringApi* | [**getIncidents**](docs/MonitoringApi.md#getIncidents) | **GET** /monitoring/incidents | List and search incidents
 *MonitoringApi* | [**getMetric**](docs/MonitoringApi.md#getMetric) | **GET** /monitoring/metrics/{id} | Get a single metric
 *MonitoringApi* | [**getMetrics**](docs/MonitoringApi.md#getMetrics) | **GET** /monitoring/metrics | List and search metrics
+*MonitoringApi* | [**postBatch**](docs/MonitoringApi.md#postBatch) | **POST** /monitoring/metrics/datapoints | Post a metric datapoint batch
 *MonitoringApi* | [**postDatapoint**](docs/MonitoringApi.md#postDatapoint) | **POST** /monitoring/metrics/{id}/datapoints | Post a metric datapoint
 *MonitoringApi* | [**receiveEvent**](docs/MonitoringApi.md#receiveEvent) | **POST** /monitoring/incidents | Report an incident event
 *MonitoringApi* | [**startRecordMetric**](docs/MonitoringApi.md#startRecordMetric) | **POST** /monitoring/metrics/{id}/start | Start recording a metric
