@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.14</version>
+    <version>3.0.15</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.14"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.15"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.14.jar
+* target/knetikcloud-java-client-3.0.15.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -468,6 +468,7 @@ Class | Method | HTTP request | Description
 *MonitoringApi* | [**createAlert**](docs/MonitoringApi.md#createAlert) | **POST** /monitoring/alerts | Create a new alert
 *MonitoringApi* | [**createMetric**](docs/MonitoringApi.md#createMetric) | **POST** /monitoring/metrics | Create a new metric
 *MonitoringApi* | [**deleteAlert**](docs/MonitoringApi.md#deleteAlert) | **DELETE** /monitoring/alerts/{id} | Delete an existing alert
+*MonitoringApi* | [**deleteDatapoint**](docs/MonitoringApi.md#deleteDatapoint) | **DELETE** /monitoring/metrics/{id}/datapoints | Delete a metric datapoint
 *MonitoringApi* | [**deleteIncident**](docs/MonitoringApi.md#deleteIncident) | **DELETE** /monitoring/incidents/{id} | End an existing incident
 *MonitoringApi* | [**deleteMetric**](docs/MonitoringApi.md#deleteMetric) | **DELETE** /monitoring/metrics/{id} | Delete an existing metric
 *MonitoringApi* | [**getAlert**](docs/MonitoringApi.md#getAlert) | **GET** /monitoring/alerts/{id} | Get a single alert

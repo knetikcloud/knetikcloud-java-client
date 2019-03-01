@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * MapPropertyDefinitionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:20:21.215-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:23:20.387-05:00")
 public class MapPropertyDefinitionResource extends PropertyDefinitionResource {
   @JsonProperty("allow_additional")
   private Boolean allowAdditional = null;

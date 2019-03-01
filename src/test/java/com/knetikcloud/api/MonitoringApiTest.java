@@ -91,6 +91,23 @@ public class MonitoringApiTest {
     }
     
     /**
+     * Delete a metric datapoint
+     *
+     * Only works for counter and guage type. &lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDatapointTest() throws ApiException {
+        String id = null;
+        String dimensions = null;
+        api.deleteDatapoint(id, dimensions);
+
+        // TODO: test validations
+    }
+    
+    /**
      * End an existing incident
      *
      * Does not delete the incident, but marks it as resolved by setting the end date.&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DELETE
@@ -246,7 +263,7 @@ public class MonitoringApiTest {
     /**
      * Post a metric datapoint batch
      *
-     * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
+     * Only works with counter and gauge metrics. Re-submit the entire batch in case of failure. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
      *
      * @throws ApiException
      *          if the Api call fails

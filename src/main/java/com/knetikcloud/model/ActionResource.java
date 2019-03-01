@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * ActionResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-31T16:20:21.215-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-01T09:23:20.387-05:00")
 public class ActionResource {
   /**
    * The category the action is in. All customer specific actions are in the &#39;custom&#39; category
@@ -80,7 +80,9 @@ public class ActionResource {
     
     VERIFICATION("verification"),
     
-    GROUP("group");
+    GROUP("group"),
+    
+    ACCESS("access");
 
     private String value;
 
