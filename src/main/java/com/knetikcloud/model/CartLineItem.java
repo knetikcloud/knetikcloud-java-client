@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * CartLineItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:21:30.157-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
 public class CartLineItem {
   @JsonProperty("currency_code")
   private String currencyCode = null;
@@ -38,11 +38,17 @@ public class CartLineItem {
   @JsonProperty("discount")
   private Discount discount = null;
 
+  @JsonProperty("gift_target")
+  private Integer giftTarget = null;
+
   @JsonProperty("line_total")
   private BigDecimal lineTotal = null;
 
   @JsonProperty("name")
   private String name = null;
+
+  @JsonProperty("notes")
+  private String notes = null;
 
   @JsonProperty("original_line_total")
   private BigDecimal originalLineTotal = null;
@@ -137,6 +143,24 @@ public class CartLineItem {
     this.discount = discount;
   }
 
+  public CartLineItem giftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+    return this;
+  }
+
+   /**
+   * Get giftTarget
+   * @return giftTarget
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getGiftTarget() {
+    return giftTarget;
+  }
+
+  public void setGiftTarget(Integer giftTarget) {
+    this.giftTarget = giftTarget;
+  }
+
   public CartLineItem lineTotal(BigDecimal lineTotal) {
     this.lineTotal = lineTotal;
     return this;
@@ -171,6 +195,24 @@ public class CartLineItem {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CartLineItem notes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+   /**
+   * Get notes
+   * @return notes
+  **/
+  @ApiModelProperty(value = "")
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
   }
 
   public CartLineItem originalLineTotal(BigDecimal originalLineTotal) {
@@ -428,8 +470,10 @@ public class CartLineItem {
     return Objects.equals(this.currencyCode, cartLineItem.currencyCode) &&
         Objects.equals(this.description, cartLineItem.description) &&
         Objects.equals(this.discount, cartLineItem.discount) &&
+        Objects.equals(this.giftTarget, cartLineItem.giftTarget) &&
         Objects.equals(this.lineTotal, cartLineItem.lineTotal) &&
         Objects.equals(this.name, cartLineItem.name) &&
+        Objects.equals(this.notes, cartLineItem.notes) &&
         Objects.equals(this.originalLineTotal, cartLineItem.originalLineTotal) &&
         Objects.equals(this.originalUnitPrice, cartLineItem.originalUnitPrice) &&
         Objects.equals(this.qty, cartLineItem.qty) &&
@@ -447,7 +491,7 @@ public class CartLineItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, description, discount, lineTotal, name, originalLineTotal, originalUnitPrice, qty, saleName, sku, skuDescription, storeItemId, tags, thumbUrl, uniqueKey, unitPrice, vendorId, vendorName);
+    return Objects.hash(currencyCode, description, discount, giftTarget, lineTotal, name, notes, originalLineTotal, originalUnitPrice, qty, saleName, sku, skuDescription, storeItemId, tags, thumbUrl, uniqueKey, unitPrice, vendorId, vendorName);
   }
 
 
@@ -459,8 +503,10 @@ public class CartLineItem {
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    discount: ").append(toIndentedString(discount)).append("\n");
+    sb.append("    giftTarget: ").append(toIndentedString(giftTarget)).append("\n");
     sb.append("    lineTotal: ").append(toIndentedString(lineTotal)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    originalLineTotal: ").append(toIndentedString(originalLineTotal)).append("\n");
     sb.append("    originalUnitPrice: ").append(toIndentedString(originalUnitPrice)).append("\n");
     sb.append("    qty: ").append(toIndentedString(qty)).append("\n");

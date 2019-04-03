@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MonitoringIncidentEventResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:21:30.157-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
 public class MonitoringIncidentEventResource {
   @JsonProperty("alert_id")
   private String alertId = null;
@@ -79,9 +79,6 @@ public class MonitoringIncidentEventResource {
 
   @JsonProperty("status")
   private StatusEnum status = null;
-
-  @JsonProperty("trigger_value")
-  private String triggerValue = null;
 
   public MonitoringIncidentEventResource alertId(String alertId) {
     this.alertId = alertId;
@@ -182,24 +179,6 @@ public class MonitoringIncidentEventResource {
     this.status = status;
   }
 
-  public MonitoringIncidentEventResource triggerValue(String triggerValue) {
-    this.triggerValue = triggerValue;
-    return this;
-  }
-
-   /**
-   * The value that triggered the alarm
-   * @return triggerValue
-  **/
-  @ApiModelProperty(value = "The value that triggered the alarm")
-  public String getTriggerValue() {
-    return triggerValue;
-  }
-
-  public void setTriggerValue(String triggerValue) {
-    this.triggerValue = triggerValue;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,13 +194,12 @@ public class MonitoringIncidentEventResource {
         Objects.equals(this.id, monitoringIncidentEventResource.id) &&
         Objects.equals(this.incidentId, monitoringIncidentEventResource.incidentId) &&
         Objects.equals(this.levelName, monitoringIncidentEventResource.levelName) &&
-        Objects.equals(this.status, monitoringIncidentEventResource.status) &&
-        Objects.equals(this.triggerValue, monitoringIncidentEventResource.triggerValue);
+        Objects.equals(this.status, monitoringIncidentEventResource.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertId, date, id, incidentId, levelName, status, triggerValue);
+    return Objects.hash(alertId, date, id, incidentId, levelName, status);
   }
 
 
@@ -236,7 +214,6 @@ public class MonitoringIncidentEventResource {
     sb.append("    incidentId: ").append(toIndentedString(incidentId)).append("\n");
     sb.append("    levelName: ").append(toIndentedString(levelName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    triggerValue: ").append(toIndentedString(triggerValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

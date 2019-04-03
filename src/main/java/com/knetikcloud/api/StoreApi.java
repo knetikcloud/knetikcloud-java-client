@@ -13,6 +13,7 @@ import com.knetikcloud.model.PageResourceStoreItem;
 import com.knetikcloud.model.PageResourceStoreItemTemplateResource;
 import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.QuickBuyRequest;
+import com.knetikcloud.model.QuickPaidRequest;
 import com.knetikcloud.model.Result;
 import com.knetikcloud.model.StoreItem;
 import com.knetikcloud.model.StoreItemTemplateResource;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:21:30.157-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
 public class StoreApi {
   private ApiClient apiClient;
 
@@ -445,6 +446,42 @@ public class StoreApi {
     
     // create path and map variables
     String localVarPath = "/store/quick-buy";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+    GenericType<InvoiceResource> localVarReturnType = new GenericType<InvoiceResource>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * One-step purchase when already paid
+   * Used to create and automatically mark paid an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+   * @param quickPaidRequest Quick buy details (optional)
+   * @return InvoiceResource
+   * @throws ApiException if fails to make API call
+   */
+  public InvoiceResource quickPaid(QuickPaidRequest quickPaidRequest) throws ApiException {
+    Object localVarPostBody = quickPaidRequest;
+    
+    // create path and map variables
+    String localVarPath = "/store/quick-paid";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

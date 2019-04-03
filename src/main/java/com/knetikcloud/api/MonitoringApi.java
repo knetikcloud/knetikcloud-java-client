@@ -11,7 +11,6 @@ import com.knetikcloud.model.MonitoringAlertResource;
 import com.knetikcloud.model.MonitoringIncidentEventResource;
 import com.knetikcloud.model.MonitoringIncidentResource;
 import com.knetikcloud.model.MonitoringMetricDatapointResource;
-import com.knetikcloud.model.MonitoringMetricRecordResource;
 import com.knetikcloud.model.MonitoringMetricResource;
 import com.knetikcloud.model.PageResourceMonitoringAlertResource;
 import com.knetikcloud.model.PageResourceMonitoringIncidentEventResource;
@@ -24,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:21:30.157-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
 public class MonitoringApi {
   private ApiClient apiClient;
 
@@ -692,90 +691,6 @@ public class MonitoringApi {
     GenericType<MonitoringIncidentResource> localVarReturnType = new GenericType<MonitoringIncidentResource>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
-  /**
-   * Start recording a metric
-   * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-   * @param id The metric id (required)
-   * @param metricRecord The metric record (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void startRecordMetric(String id, MonitoringMetricRecordResource metricRecord) throws ApiException {
-    Object localVarPostBody = metricRecord;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling startRecordMetric");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/monitoring/metrics/{id}/start"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
-
-
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
-  /**
-   * Stop recording a metric
-   * Only works with delta and timer metrics. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; RECORD
-   * @param id The metric id (required)
-   * @param metricRecord The metric record (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void stopRecordMetric(String id, MonitoringMetricRecordResource metricRecord) throws ApiException {
-    Object localVarPostBody = metricRecord;
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling stopRecordMetric");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/monitoring/metrics/{id}/stop"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
-
-
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
   /**
    * Update an existing alert
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT

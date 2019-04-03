@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.17</version>
+    <version>3.0.18</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.17"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.18"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.17.jar
+* target/knetikcloud-java-client-3.0.18.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -481,8 +481,6 @@ Class | Method | HTTP request | Description
 *MonitoringApi* | [**postBatch**](docs/MonitoringApi.md#postBatch) | **POST** /monitoring/metrics/datapoints | Post a metric datapoint batch
 *MonitoringApi* | [**postDatapoint**](docs/MonitoringApi.md#postDatapoint) | **POST** /monitoring/metrics/{id}/datapoints | Post a metric datapoint
 *MonitoringApi* | [**receiveEvent**](docs/MonitoringApi.md#receiveEvent) | **POST** /monitoring/incidents | Report an incident event
-*MonitoringApi* | [**startRecordMetric**](docs/MonitoringApi.md#startRecordMetric) | **POST** /monitoring/metrics/{id}/start | Start recording a metric
-*MonitoringApi* | [**stopRecordMetric**](docs/MonitoringApi.md#stopRecordMetric) | **POST** /monitoring/metrics/{id}/stop | Stop recording a metric
 *MonitoringApi* | [**updateAlert**](docs/MonitoringApi.md#updateAlert) | **PUT** /monitoring/alerts/{id} | Update an existing alert
 *MonitoringApi* | [**updateMetric**](docs/MonitoringApi.md#updateMetric) | **PUT** /monitoring/metrics/{id} | Update an existing metric
 *NotificationsApi* | [**createNotificationType**](docs/NotificationsApi.md#createNotificationType) | **POST** /notifications/types | Create a notification type
@@ -602,6 +600,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getStoreItem**](docs/StoreApi.md#getStoreItem) | **GET** /store/items/{id} | Get a single store item
 *StoreApi* | [**getStoreItems**](docs/StoreApi.md#getStoreItems) | **GET** /store/items | List and search store items
 *StoreApi* | [**quickBuy**](docs/StoreApi.md#quickBuy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
+*StoreApi* | [**quickPaid**](docs/StoreApi.md#quickPaid) | **POST** /store/quick-paid | One-step purchase when already paid
 *StoreApi* | [**updateItemTemplate**](docs/StoreApi.md#updateItemTemplate) | **PATCH** /store/items/templates/{id} | Update an item template
 *StoreApi* | [**updateStoreItem**](docs/StoreApi.md#updateStoreItem) | **PUT** /store/items/{id} | Update a store item
 *StoreBundlesApi* | [**createBundleItem**](docs/StoreBundlesApi.md#createBundleItem) | **POST** /store/bundles | Create a bundle item
@@ -965,7 +964,6 @@ Class | Method | HTTP request | Description
  - [MonitoringIncidentLevelResource](docs/MonitoringIncidentLevelResource.md)
  - [MonitoringIncidentResource](docs/MonitoringIncidentResource.md)
  - [MonitoringMetricDatapointResource](docs/MonitoringMetricDatapointResource.md)
- - [MonitoringMetricRecordResource](docs/MonitoringMetricRecordResource.md)
  - [MonitoringMetricResource](docs/MonitoringMetricResource.md)
  - [NestedCategory](docs/NestedCategory.md)
  - [NewPasswordRequest](docs/NewPasswordRequest.md)
@@ -1109,6 +1107,7 @@ Class | Method | HTTP request | Description
  - [QuestionResource](docs/QuestionResource.md)
  - [QuestionTemplateResource](docs/QuestionTemplateResource.md)
  - [QuickBuyRequest](docs/QuickBuyRequest.md)
+ - [QuickPaidRequest](docs/QuickPaidRequest.md)
  - [RawEmailResource](docs/RawEmailResource.md)
  - [RawPushResource](docs/RawPushResource.md)
  - [RawSMSResource](docs/RawSMSResource.md)

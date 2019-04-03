@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * ChallengeActivityResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:21:30.157-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
 public class ChallengeActivityResource {
   @JsonProperty("activity_id")
   private Long activityId = null;
