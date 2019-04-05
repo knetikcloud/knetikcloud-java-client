@@ -14,6 +14,7 @@ import com.knetikcloud.model.PageResourceChatMessageResource;
 import com.knetikcloud.model.PageResourceTemplateResource;
 import com.knetikcloud.model.PageResourceUserBaseResource;
 import com.knetikcloud.model.PageResourcestring;
+import com.knetikcloud.model.PasswordChangeRequest;
 import com.knetikcloud.model.PasswordResetRequest;
 import com.knetikcloud.model.PatchResource;
 import com.knetikcloud.model.Result;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
 public class UsersApi {
   private ApiClient apiClient;
 
@@ -627,13 +628,13 @@ public class UsersApi {
   }
   /**
    * Set a user&#39;s password
-   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
+   * Password should be in plain text and will be encrypted on receipt. Use SSL for security. If not USERS_ADMIN, the correct current password must be supplied as wellPUT&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the user (required)
-   * @param password The new plain text password (optional)
+   * @param passwordRequest request body for password change (optional)
    * @throws ApiException if fails to make API call
    */
-  public void setPassword(Integer id, StringWrapper password) throws ApiException {
-    Object localVarPostBody = password;
+  public void setPassword(Integer id, PasswordChangeRequest passwordRequest) throws ApiException {
+    Object localVarPostBody = passwordRequest;
     
     // verify the required parameter 'id' is set
     if (id == null) {

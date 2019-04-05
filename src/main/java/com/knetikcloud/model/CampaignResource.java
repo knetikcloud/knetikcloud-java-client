@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * CampaignResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
 public class CampaignResource {
   @JsonProperty("active")
   private Boolean active = null;

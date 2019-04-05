@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * ClientResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
 public class ClientResource {
   @JsonProperty("access_token_validity_seconds")
   private Integer accessTokenValiditySeconds = null;

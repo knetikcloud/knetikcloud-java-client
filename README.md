@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.18</version>
+    <version>3.0.19</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.18"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.19"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.18.jar
+* target/knetikcloud-java-client-3.0.19.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -363,9 +363,13 @@ Class | Method | HTTP request | Description
 *GamificationTriviaApi* | [**updateQuestionTemplate**](docs/GamificationTriviaApi.md#updateQuestionTemplate) | **PATCH** /trivia/questions/templates/{id} | Update a question template
 *GamificationTriviaApi* | [**updateQuestionsInBulk**](docs/GamificationTriviaApi.md#updateQuestionsInBulk) | **PUT** /trivia/questions | Bulk update questions
 *InvoicesApi* | [**createInvoice**](docs/InvoicesApi.md#createInvoice) | **POST** /invoices | Create an invoice
+*InvoicesApi* | [**createInvoiceTemplate**](docs/InvoicesApi.md#createInvoiceTemplate) | **POST** /invoices/templates | Create a invoice template
+*InvoicesApi* | [**deleteInvoiceTemplate**](docs/InvoicesApi.md#deleteInvoiceTemplate) | **DELETE** /invoices/templates/{id} | Delete a invoice template
 *InvoicesApi* | [**getFulFillmentStatuses**](docs/InvoicesApi.md#getFulFillmentStatuses) | **GET** /invoices/fulfillment-statuses | Lists available fulfillment statuses
 *InvoicesApi* | [**getInvoice**](docs/InvoicesApi.md#getInvoice) | **GET** /invoices/{id} | Retrieve an invoice
 *InvoicesApi* | [**getInvoiceLogs**](docs/InvoicesApi.md#getInvoiceLogs) | **GET** /invoices/{id}/logs | List invoice logs
+*InvoicesApi* | [**getInvoiceTemplate**](docs/InvoicesApi.md#getInvoiceTemplate) | **GET** /invoices/templates/{id} | Get a single invoice template
+*InvoicesApi* | [**getInvoiceTemplates**](docs/InvoicesApi.md#getInvoiceTemplates) | **GET** /invoices/templates | List and search invoice templates
 *InvoicesApi* | [**getInvoices**](docs/InvoicesApi.md#getInvoices) | **GET** /invoices | Retrieve invoices
 *InvoicesApi* | [**getPaymentStatuses**](docs/InvoicesApi.md#getPaymentStatuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
 *InvoicesApi* | [**payInvoice**](docs/InvoicesApi.md#payInvoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
@@ -375,6 +379,7 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**setOrderNotes**](docs/InvoicesApi.md#setOrderNotes) | **PUT** /invoices/{id}/order-notes | Set the order notes of an invoice
 *InvoicesApi* | [**setPaymentStatus**](docs/InvoicesApi.md#setPaymentStatus) | **PUT** /invoices/{id}/payment-status | Set the payment status of an invoice
 *InvoicesApi* | [**updateBillingInfo**](docs/InvoicesApi.md#updateBillingInfo) | **PUT** /invoices/{id}/billing-address | Set or update billing info
+*InvoicesApi* | [**updateInvoiceTemplate**](docs/InvoicesApi.md#updateInvoiceTemplate) | **PATCH** /invoices/templates/{id} | Update a invoice template
 *LevelingApi* | [**createLevelingTemplate**](docs/LevelingApi.md#createLevelingTemplate) | **POST** /leveling/templates | Create a leveling template
 *LevelingApi* | [**deleteLevelingTemplate**](docs/LevelingApi.md#deleteLevelingTemplate) | **DELETE** /leveling/templates/{id} | Delete a leveling template
 *LevelingApi* | [**getLevelingTemplate**](docs/LevelingApi.md#getLevelingTemplate) | **GET** /leveling/templates/{id} | Get a single leveling template
@@ -1087,6 +1092,7 @@ Class | Method | HTTP request | Description
  - [PageResourcestring](docs/PageResourcestring.md)
  - [ParameterResource](docs/ParameterResource.md)
  - [Participant](docs/Participant.md)
+ - [PasswordChangeRequest](docs/PasswordChangeRequest.md)
  - [PasswordResetRequest](docs/PasswordResetRequest.md)
  - [PatchActionResource](docs/PatchActionResource.md)
  - [PatchResource](docs/PatchResource.md)

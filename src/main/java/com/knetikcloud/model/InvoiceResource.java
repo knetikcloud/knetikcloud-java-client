@@ -18,18 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.knetikcloud.model.InvoiceItemResource;
+import com.knetikcloud.model.Property;
 import com.knetikcloud.model.SimpleUserResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * InvoiceResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-03T13:51:02.971-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
 public class InvoiceResource {
+  @JsonProperty("additional_properties")
+  private Map<String, Property> additionalProperties = null;
+
   @JsonProperty("billing_address1")
   private String billingAddress1 = null;
 
@@ -144,6 +150,9 @@ public class InvoiceResource {
   @JsonProperty("subtotal")
   private BigDecimal subtotal = null;
 
+  @JsonProperty("template")
+  private String template = null;
+
   @JsonProperty("updated_date")
   private Long updatedDate = null;
 
@@ -155,6 +164,32 @@ public class InvoiceResource {
 
   @JsonProperty("vendor_name")
   private String vendorName = null;
+
+  public InvoiceResource additionalProperties(Map<String, Property> additionalProperties) {
+    this.additionalProperties = additionalProperties;
+    return this;
+  }
+
+  public InvoiceResource putAdditionalPropertiesItem(String key, Property additionalPropertiesItem) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Property>();
+    }
+    this.additionalProperties.put(key, additionalPropertiesItem);
+    return this;
+  }
+
+   /**
+   * A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this invoice type, or be an extra not from the template
+   * @return additionalProperties
+  **/
+  @ApiModelProperty(value = "A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this invoice type, or be an extra not from the template")
+  public Map<String, Property> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  public void setAdditionalProperties(Map<String, Property> additionalProperties) {
+    this.additionalProperties = additionalProperties;
+  }
 
   public InvoiceResource billingAddress1(String billingAddress1) {
     this.billingAddress1 = billingAddress1;
@@ -830,6 +865,24 @@ public class InvoiceResource {
     this.subtotal = subtotal;
   }
 
+  public InvoiceResource template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * An invoice template this invoice is validated against (private). May be null and no validation of properties will be done
+   * @return template
+  **/
+  @ApiModelProperty(value = "An invoice template this invoice is validated against (private). May be null and no validation of properties will be done")
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
    /**
    * The date the invoice was last updated, unix timestamp in seconds
    * @return updatedDate
@@ -903,7 +956,8 @@ public class InvoiceResource {
       return false;
     }
     InvoiceResource invoiceResource = (InvoiceResource) o;
-    return Objects.equals(this.billingAddress1, invoiceResource.billingAddress1) &&
+    return Objects.equals(this.additionalProperties, invoiceResource.additionalProperties) &&
+        Objects.equals(this.billingAddress1, invoiceResource.billingAddress1) &&
         Objects.equals(this.billingAddress2, invoiceResource.billingAddress2) &&
         Objects.equals(this.billingCityName, invoiceResource.billingCityName) &&
         Objects.equals(this.billingCountryName, invoiceResource.billingCountryName) &&
@@ -941,6 +995,7 @@ public class InvoiceResource {
         Objects.equals(this.sort, invoiceResource.sort) &&
         Objects.equals(this.stateTax, invoiceResource.stateTax) &&
         Objects.equals(this.subtotal, invoiceResource.subtotal) &&
+        Objects.equals(this.template, invoiceResource.template) &&
         Objects.equals(this.updatedDate, invoiceResource.updatedDate) &&
         Objects.equals(this.user, invoiceResource.user) &&
         Objects.equals(this.vendorId, invoiceResource.vendorId) &&
@@ -949,7 +1004,7 @@ public class InvoiceResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress1, billingAddress2, billingCityName, billingCountryName, billingFullName, billingPostalCode, billingStateName, cartId, createdDate, currency, currentFulfillmentStatus, currentPaymentStatus, discount, email, externalRef, fedTax, grandTotal, id, invoiceNumber, items, namePrefix, orderNotes, parentInvoiceId, paymentMethodId, phone, phoneNumber, remainingBalance, shipping, shippingAddress1, shippingAddress2, shippingCityName, shippingCountryName, shippingFullName, shippingPostalCode, shippingStateName, sort, stateTax, subtotal, updatedDate, user, vendorId, vendorName);
+    return Objects.hash(additionalProperties, billingAddress1, billingAddress2, billingCityName, billingCountryName, billingFullName, billingPostalCode, billingStateName, cartId, createdDate, currency, currentFulfillmentStatus, currentPaymentStatus, discount, email, externalRef, fedTax, grandTotal, id, invoiceNumber, items, namePrefix, orderNotes, parentInvoiceId, paymentMethodId, phone, phoneNumber, remainingBalance, shipping, shippingAddress1, shippingAddress2, shippingCityName, shippingCountryName, shippingFullName, shippingPostalCode, shippingStateName, sort, stateTax, subtotal, template, updatedDate, user, vendorId, vendorName);
   }
 
 
@@ -958,6 +1013,7 @@ public class InvoiceResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class InvoiceResource {\n");
     
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("    billingAddress1: ").append(toIndentedString(billingAddress1)).append("\n");
     sb.append("    billingAddress2: ").append(toIndentedString(billingAddress2)).append("\n");
     sb.append("    billingCityName: ").append(toIndentedString(billingCityName)).append("\n");
@@ -996,6 +1052,7 @@ public class InvoiceResource {
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    stateTax: ").append(toIndentedString(stateTax)).append("\n");
     sb.append("    subtotal: ").append(toIndentedString(subtotal)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    updatedDate: ").append(toIndentedString(updatedDate)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    vendorId: ").append(toIndentedString(vendorId)).append("\n");
