@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.knetikcloud.model.Property;
-import com.knetikcloud.model.UserRelationshipReferenceResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ import java.util.Map;
 /**
  * UserResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:48.774-04:00")
 public class UserResource {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -43,17 +42,8 @@ public class UserResource {
   @JsonProperty("avatar_url")
   private String avatarUrl = null;
 
-  @JsonProperty("children")
-  private List<UserRelationshipReferenceResource> children = null;
-
   @JsonProperty("city")
   private String city = null;
-
-  @JsonProperty("country_code")
-  private String countryCode = null;
-
-  @JsonProperty("currency_code")
-  private String currencyCode = null;
 
   @JsonProperty("date_of_birth")
   private Long dateOfBirth = null;
@@ -79,9 +69,6 @@ public class UserResource {
   @JsonProperty("id")
   private Integer id = null;
 
-  @JsonProperty("language_code")
-  private String languageCode = null;
-
   @JsonProperty("last_activity")
   private Long lastActivity = null;
 
@@ -97,9 +84,6 @@ public class UserResource {
   @JsonProperty("mobile_number")
   private String mobileNumber = null;
 
-  @JsonProperty("parents")
-  private List<UserRelationshipReferenceResource> parents = null;
-
   @JsonProperty("password")
   private String password = null;
 
@@ -114,9 +98,6 @@ public class UserResource {
 
   @JsonProperty("template")
   private String template = null;
-
-  @JsonProperty("timezone_code")
-  private String timezoneCode = null;
 
   @JsonProperty("username")
   private String username = null;
@@ -201,32 +182,6 @@ public class UserResource {
     this.avatarUrl = avatarUrl;
   }
 
-  public UserResource children(List<UserRelationshipReferenceResource> children) {
-    this.children = children;
-    return this;
-  }
-
-  public UserResource addChildrenItem(UserRelationshipReferenceResource childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<UserRelationshipReferenceResource>();
-    }
-    this.children.add(childrenItem);
-    return this;
-  }
-
-   /**
-   * Relationships where this user is the parent. Read-Only, manage through separate endpoints
-   * @return children
-  **/
-  @ApiModelProperty(value = "Relationships where this user is the parent. Read-Only, manage through separate endpoints")
-  public List<UserRelationshipReferenceResource> getChildren() {
-    return children;
-  }
-
-  public void setChildren(List<UserRelationshipReferenceResource> children) {
-    this.children = children;
-  }
-
   public UserResource city(String city) {
     this.city = city;
     return this;
@@ -243,42 +198,6 @@ public class UserResource {
 
   public void setCity(String city) {
     this.city = city;
-  }
-
-  public UserResource countryCode(String countryCode) {
-    this.countryCode = countryCode;
-    return this;
-  }
-
-   /**
-   * The ISO3 code for the country from the user&#39;s address (private). Will be filled in based on GeoIP country at registration if not provided.
-   * @return countryCode
-  **/
-  @ApiModelProperty(value = "The ISO3 code for the country from the user's address (private). Will be filled in based on GeoIP country at registration if not provided.")
-  public String getCountryCode() {
-    return countryCode;
-  }
-
-  public void setCountryCode(String countryCode) {
-    this.countryCode = countryCode;
-  }
-
-  public UserResource currencyCode(String currencyCode) {
-    this.currencyCode = currencyCode;
-    return this;
-  }
-
-   /**
-   * The code for the user&#39;s real money currency (private)
-   * @return currencyCode
-  **/
-  @ApiModelProperty(value = "The code for the user's real money currency (private)")
-  public String getCurrencyCode() {
-    return currencyCode;
-  }
-
-  public void setCurrencyCode(String currencyCode) {
-    this.currencyCode = currencyCode;
   }
 
   public UserResource dateOfBirth(Long dateOfBirth) {
@@ -416,24 +335,6 @@ public class UserResource {
     return id;
   }
 
-  public UserResource languageCode(String languageCode) {
-    this.languageCode = languageCode;
-    return this;
-  }
-
-   /**
-   * The ISO3 code for the user&#39;s currency (private)
-   * @return languageCode
-  **/
-  @ApiModelProperty(value = "The ISO3 code for the user's currency (private)")
-  public String getLanguageCode() {
-    return languageCode;
-  }
-
-  public void setLanguageCode(String languageCode) {
-    this.languageCode = languageCode;
-  }
-
    /**
    * The date the user last interacted with the API (private)
    * @return lastActivity
@@ -495,32 +396,6 @@ public class UserResource {
 
   public void setMobileNumber(String mobileNumber) {
     this.mobileNumber = mobileNumber;
-  }
-
-  public UserResource parents(List<UserRelationshipReferenceResource> parents) {
-    this.parents = parents;
-    return this;
-  }
-
-  public UserResource addParentsItem(UserRelationshipReferenceResource parentsItem) {
-    if (this.parents == null) {
-      this.parents = new ArrayList<UserRelationshipReferenceResource>();
-    }
-    this.parents.add(parentsItem);
-    return this;
-  }
-
-   /**
-   * Relationships where this user is the child. Read-Only, manage through separate endpoints
-   * @return parents
-  **/
-  @ApiModelProperty(value = "Relationships where this user is the child. Read-Only, manage through separate endpoints")
-  public List<UserRelationshipReferenceResource> getParents() {
-    return parents;
-  }
-
-  public void setParents(List<UserRelationshipReferenceResource> parents) {
-    this.parents = parents;
   }
 
   public UserResource password(String password) {
@@ -621,24 +496,6 @@ public class UserResource {
     this.template = template;
   }
 
-  public UserResource timezoneCode(String timezoneCode) {
-    this.timezoneCode = timezoneCode;
-    return this;
-  }
-
-   /**
-   * The code for the user&#39;s timezone (private)
-   * @return timezoneCode
-  **/
-  @ApiModelProperty(value = "The code for the user's timezone (private)")
-  public String getTimezoneCode() {
-    return timezoneCode;
-  }
-
-  public void setTimezoneCode(String timezoneCode) {
-    this.timezoneCode = timezoneCode;
-  }
-
   public UserResource username(String username) {
     this.username = username;
     return this;
@@ -671,10 +528,7 @@ public class UserResource {
         Objects.equals(this.address, userResource.address) &&
         Objects.equals(this.address2, userResource.address2) &&
         Objects.equals(this.avatarUrl, userResource.avatarUrl) &&
-        Objects.equals(this.children, userResource.children) &&
         Objects.equals(this.city, userResource.city) &&
-        Objects.equals(this.countryCode, userResource.countryCode) &&
-        Objects.equals(this.currencyCode, userResource.currencyCode) &&
         Objects.equals(this.dateOfBirth, userResource.dateOfBirth) &&
         Objects.equals(this.description, userResource.description) &&
         Objects.equals(this.displayName, userResource.displayName) &&
@@ -683,25 +537,22 @@ public class UserResource {
         Objects.equals(this.fullname, userResource.fullname) &&
         Objects.equals(this.gender, userResource.gender) &&
         Objects.equals(this.id, userResource.id) &&
-        Objects.equals(this.languageCode, userResource.languageCode) &&
         Objects.equals(this.lastActivity, userResource.lastActivity) &&
         Objects.equals(this.lastName, userResource.lastName) &&
         Objects.equals(this.lastUpdated, userResource.lastUpdated) &&
         Objects.equals(this.memberSince, userResource.memberSince) &&
         Objects.equals(this.mobileNumber, userResource.mobileNumber) &&
-        Objects.equals(this.parents, userResource.parents) &&
         Objects.equals(this.password, userResource.password) &&
         Objects.equals(this.postalCode, userResource.postalCode) &&
         Objects.equals(this.state, userResource.state) &&
         Objects.equals(this.tags, userResource.tags) &&
         Objects.equals(this.template, userResource.template) &&
-        Objects.equals(this.timezoneCode, userResource.timezoneCode) &&
         Objects.equals(this.username, userResource.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, address, address2, avatarUrl, children, city, countryCode, currencyCode, dateOfBirth, description, displayName, email, firstName, fullname, gender, id, languageCode, lastActivity, lastName, lastUpdated, memberSince, mobileNumber, parents, password, postalCode, state, tags, template, timezoneCode, username);
+    return Objects.hash(additionalProperties, address, address2, avatarUrl, city, dateOfBirth, description, displayName, email, firstName, fullname, gender, id, lastActivity, lastName, lastUpdated, memberSince, mobileNumber, password, postalCode, state, tags, template, username);
   }
 
 
@@ -714,10 +565,7 @@ public class UserResource {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    address2: ").append(toIndentedString(address2)).append("\n");
     sb.append("    avatarUrl: ").append(toIndentedString(avatarUrl)).append("\n");
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-    sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
@@ -726,19 +574,16 @@ public class UserResource {
     sb.append("    fullname: ").append(toIndentedString(fullname)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    lastActivity: ").append(toIndentedString(lastActivity)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    memberSince: ").append(toIndentedString(memberSince)).append("\n");
     sb.append("    mobileNumber: ").append(toIndentedString(mobileNumber)).append("\n");
-    sb.append("    parents: ").append(toIndentedString(parents)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    timezoneCode: ").append(toIndentedString(timezoneCode)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();

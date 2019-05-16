@@ -706,6 +706,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**passwordReset**](docs/UsersApi.md#passwordReset) | **PUT** /users/{id}/password-reset | Choose a new password after a reset
 *UsersApi* | [**postUserMessage**](docs/UsersApi.md#postUserMessage) | **POST** /users/{recipient_id}/messages | Send a user message
 *UsersApi* | [**registerUser**](docs/UsersApi.md#registerUser) | **POST** /users | Register a new user
+*UsersApi* | [**registerUserCuentas**](docs/UsersApi.md#registerUserCuentas) | **POST** /users/cuentas | Register a new cuentas user
 *UsersApi* | [**removeUserTag**](docs/UsersApi.md#removeUserTag) | **DELETE** /users/{user_id}/tags/{tag} | Remove a tag from a user
 *UsersApi* | [**setPassword**](docs/UsersApi.md#setPassword) | **PUT** /users/{id}/password | Set a user&#39;s password
 *UsersApi* | [**startPasswordReset**](docs/UsersApi.md#startPasswordReset) | **POST** /users/{id}/password-reset | Reset a user&#39;s password
@@ -1189,7 +1190,6 @@ Class | Method | HTTP request | Description
  - [UserLevelingResource](docs/UserLevelingResource.md)
  - [UserNotificationResource](docs/UserNotificationResource.md)
  - [UserNotificationStatusWrapper](docs/UserNotificationStatusWrapper.md)
- - [UserRelationshipReferenceResource](docs/UserRelationshipReferenceResource.md)
  - [UserRelationshipResource](docs/UserRelationshipResource.md)
  - [UserResource](docs/UserResource.md)
  - [UserSidResource](docs/UserSidResource.md)

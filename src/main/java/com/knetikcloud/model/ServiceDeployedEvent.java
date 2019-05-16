@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * ServiceDeployedEvent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:48.774-04:00")
 public class ServiceDeployedEvent extends BroadcastableEvent {
   @JsonProperty("events")
   private List<BreTriggerResource> events = new ArrayList<BreTriggerResource>();

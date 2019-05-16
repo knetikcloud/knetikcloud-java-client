@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * PreReqEntitlement
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-04-05T10:20:50.333-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:07:48.774-04:00")
 public class PreReqEntitlement extends Behavior {
   @JsonProperty("item_ids")
   private List<Integer> itemIds = new ArrayList<Integer>();
