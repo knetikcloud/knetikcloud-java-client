@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * ListProperty
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:18:12.930-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:47:37.134-04:00")
 public class ListProperty extends Property {
   @JsonProperty("values")
   private List<Property> values = new ArrayList<Property>();
