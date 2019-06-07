@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:17:28.027-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:18:12.930-04:00")
 public class VerificationApi {
   private ApiClient apiClient;
 
@@ -79,11 +79,12 @@ public class VerificationApi {
    * Create a new request
    * Verification requests ask for a user to respond and confirm something, like their email address of an invitation to join a group.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POST
    * @param verificationRequest The request (optional)
+   * @param originator Optional originator id, admin only (optional)
    * @return VerificationRequest
    * @throws ApiException if fails to make API call
    */
-  public VerificationRequest createVerificationRequest(VerificationRequest verificationRequest) throws ApiException {
-    Object localVarPostBody = verificationRequest;
+  public VerificationRequest createVerificationRequest(VerificationRequest verificationRequest, Integer originator) throws ApiException {
+    Object localVarPostBody = originator;
     
     // create path and map variables
     String localVarPath = "/verification/requests";

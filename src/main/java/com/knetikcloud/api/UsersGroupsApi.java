@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:17:28.027-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:18:12.930-04:00")
 public class UsersGroupsApi {
   private ApiClient apiClient;
 
@@ -885,11 +885,12 @@ public class UsersGroupsApi {
    * This will create a verification for joining the group which uses the &#39;group_invite&#39; template and sets the additional_property &#39;group&#39; with the unique name&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVITE
    * @param uniqueName The group unique name (required)
    * @param request The id of the user to invite (optional)
+   * @param originator Optional originator id, admin only (optional)
    * @return VerificationRequest
    * @throws ApiException if fails to make API call
    */
-  public VerificationRequest inviteToGroup(String uniqueName, VerificationRequest request) throws ApiException {
-    Object localVarPostBody = request;
+  public VerificationRequest inviteToGroup(String uniqueName, VerificationRequest request, Integer originator) throws ApiException {
+    Object localVarPostBody = originator;
     
     // verify the required parameter 'uniqueName' is set
     if (uniqueName == null) {

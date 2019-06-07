@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * RewardSetResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-16T13:17:28.027-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T13:18:12.930-04:00")
 public class RewardSetResource {
   @JsonProperty("created_date")
   private Long createdDate = null;

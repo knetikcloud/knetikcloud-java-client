@@ -384,7 +384,8 @@ public class UsersGroupsApiTest {
     public void inviteToGroupTest() throws ApiException {
         String uniqueName = null;
         VerificationRequest request = null;
-        VerificationRequest response = api.inviteToGroup(uniqueName, request);
+        Integer originator = null;
+        VerificationRequest response = api.inviteToGroup(uniqueName, request, originator);
 
         // TODO: test validations
     }
