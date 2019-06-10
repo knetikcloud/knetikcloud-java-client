@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:47:37.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:34:11.759-04:00")
 public class UsersGroupsApi {
   private ApiClient apiClient;
 
@@ -890,7 +890,7 @@ public class UsersGroupsApi {
    * @throws ApiException if fails to make API call
    */
   public VerificationRequest inviteToGroup(String uniqueName, VerificationRequest request, Integer originator) throws ApiException {
-    Object localVarPostBody = originator;
+    Object localVarPostBody = request;
     
     // verify the required parameter 'uniqueName' is set
     if (uniqueName == null) {
@@ -906,6 +906,7 @@ public class UsersGroupsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "originator", originator));
 
     
     

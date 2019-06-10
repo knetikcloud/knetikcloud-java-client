@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MonitoringIncidentEventResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:47:37.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:34:11.759-04:00")
 public class MonitoringIncidentEventResource {
   @JsonProperty("alert_id")
   private String alertId = null;

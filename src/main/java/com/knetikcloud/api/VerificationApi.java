@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-07T15:47:37.134-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T11:34:11.759-04:00")
 public class VerificationApi {
   private ApiClient apiClient;
 
@@ -84,7 +84,7 @@ public class VerificationApi {
    * @throws ApiException if fails to make API call
    */
   public VerificationRequest createVerificationRequest(VerificationRequest verificationRequest, Integer originator) throws ApiException {
-    Object localVarPostBody = originator;
+    Object localVarPostBody = verificationRequest;
     
     // create path and map variables
     String localVarPath = "/verification/requests";
@@ -94,6 +94,7 @@ public class VerificationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "originator", originator));
 
     
     
