@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:28:25.565-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-22T09:25:55.249-04:00")
 public class StoreApi {
   private ApiClient apiClient;
 
@@ -81,7 +81,7 @@ public class StoreApi {
       }
   /**
    * Create a store item
-   * SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \&quot;parameters\&quot; field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:&lt;br /&gt; {..., parameters: [[{item: 1, skus: [\&quot;SKU-1\&quot;]}]]}&lt;br /&gt; If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN
+   * SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \&quot;parameters\&quot; field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:&lt;br /&gt; {..., parameters: [[{item: 1, skus: [\&quot;SKU-1\&quot;]}]]}&lt;br /&gt; If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
    * @param storeItem The store item object (optional)
    * @return StoreItem
@@ -162,7 +162,7 @@ public class StoreApi {
   }
   /**
    * Delete a store item
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the item (required)
    * @throws ApiException if fails to make API call
    */
@@ -203,7 +203,7 @@ public class StoreApi {
   }
   /**
    * List available item behaviors
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @return PageResourceBehaviorDefinitionResource
@@ -325,7 +325,7 @@ public class StoreApi {
       }
   /**
    * Get a single store item
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the item (required)
    * @return StoreItem
    * @throws ApiException if fails to make API call
@@ -367,7 +367,7 @@ public class StoreApi {
       }
   /**
    * List and search store items
-   * If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller&#39;s country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase. br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+   * If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller&#39;s country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase. br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param filterNameSearch Filter for items whose name starts with a given string. (optional)
    * @param filterUniqueKey Filter for items whose unique_key is a given string. (optional)
    * @param filterPublished Filter for skus that have been published. (optional)
@@ -507,6 +507,42 @@ public class StoreApi {
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * One-step invoice creation when already processing
+   * Used to create and automatically mark processing an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+   * @param quickProcessingRequest Quick processing details (optional)
+   * @return InvoiceResource
+   * @throws ApiException if fails to make API call
+   */
+  public InvoiceResource quickProcessing(QuickPaidRequest quickProcessingRequest) throws ApiException {
+    Object localVarPostBody = quickProcessingRequest;
+    
+    // create path and map variables
+    String localVarPath = "/store/quick-processing";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+    GenericType<InvoiceResource> localVarReturnType = new GenericType<InvoiceResource>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Update an item template
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PUT
    * @param id The id of the template (required)
@@ -553,7 +589,7 @@ public class StoreApi {
       }
   /**
    * Update a store item
-   * &lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; STORE_ADMIN&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NONE
    * @param id The id of the item (required)
    * @param cascade Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional, default to false)
    * @param storeItem The store item object (optional)

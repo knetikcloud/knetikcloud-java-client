@@ -31,7 +31,7 @@ import java.util.List;
  * A occurrence of an activity (the actual game for example). Used to track scores, participants, and provide settings
  */
 @ApiModel(description = "A occurrence of an activity (the actual game for example). Used to track scores, participants, and provide settings")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-10T16:28:25.565-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-22T09:25:55.249-04:00")
 public class ActivityOccurrenceResource {
   @JsonProperty("activity_id")
   private Long activityId = null;

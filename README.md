@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.263</version>
+    <version>3.0.264</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.263"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.264"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.263.jar
+* target/knetikcloud-java-client-3.0.264.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -606,6 +606,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getStoreItems**](docs/StoreApi.md#getStoreItems) | **GET** /store/items | List and search store items
 *StoreApi* | [**quickBuy**](docs/StoreApi.md#quickBuy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 *StoreApi* | [**quickPaid**](docs/StoreApi.md#quickPaid) | **POST** /store/quick-paid | One-step purchase when already paid
+*StoreApi* | [**quickProcessing**](docs/StoreApi.md#quickProcessing) | **POST** /store/quick-processing | One-step invoice creation when already processing
 *StoreApi* | [**updateItemTemplate**](docs/StoreApi.md#updateItemTemplate) | **PATCH** /store/items/templates/{id} | Update an item template
 *StoreApi* | [**updateStoreItem**](docs/StoreApi.md#updateStoreItem) | **PUT** /store/items/{id} | Update a store item
 *StoreBundlesApi* | [**createBundleItem**](docs/StoreBundlesApi.md#createBundleItem) | **POST** /store/bundles | Create a bundle item
