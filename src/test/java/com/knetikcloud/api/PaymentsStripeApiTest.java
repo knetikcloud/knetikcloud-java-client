@@ -16,6 +16,7 @@ package com.knetikcloud.api;
 import com.knetikcloud.client.ApiException;
 import com.knetikcloud.model.PaymentMethodResource;
 import com.knetikcloud.model.Result;
+import com.knetikcloud.model.StringWrapper;
 import com.knetikcloud.model.StripeCreatePaymentMethod;
 import com.knetikcloud.model.StripePaymentRequest;
 import org.junit.Test;
@@ -54,7 +55,7 @@ public class PaymentsStripeApiTest {
     /**
      * Pay with a single use token
      *
-     * Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+     * Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. A 200 status code indicates sucess with a return value of \&quot;succeeded\&quot;. \&quot;pending\&quot; status is also a 200 and otherwise a non-200 will be sent for failures. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
      *
      * @throws ApiException
      *          if the Api call fails
@@ -62,7 +63,7 @@ public class PaymentsStripeApiTest {
     @Test
     public void payStripeInvoiceTest() throws ApiException {
         StripePaymentRequest request = null;
-        api.payStripeInvoice(request);
+        StringWrapper response = api.payStripeInvoice(request);
 
         // TODO: test validations
     }
