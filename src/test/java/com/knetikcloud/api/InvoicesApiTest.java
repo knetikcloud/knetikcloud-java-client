@@ -239,7 +239,7 @@ public class InvoicesApiTest {
     public void payInvoiceTest() throws ApiException {
         Integer id = null;
         PayBySavedMethodRequest request = null;
-        api.payInvoice(id, request);
+        StringWrapper response = api.payInvoice(id, request);
 
         // TODO: test validations
     }

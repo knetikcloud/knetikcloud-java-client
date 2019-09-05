@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * CartShippingOption
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-04T08:46:30.788-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:46:21.119-04:00")
 public class CartShippingOption {
   @JsonProperty("currency_code")
   private String currencyCode = null;

@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-04T08:46:30.788-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:46:21.119-04:00")
 public class StoreApi {
   private ApiClient apiClient;
 
@@ -446,6 +446,42 @@ public class StoreApi {
     
     // create path and map variables
     String localVarPath = "/store/quick-buy";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+    GenericType<InvoiceResource> localVarReturnType = new GenericType<InvoiceResource>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * One-step invoice creation
+   * Used to create an invoice. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+   * @param quickNewRequest Quick new details (optional)
+   * @return InvoiceResource
+   * @throws ApiException if fails to make API call
+   */
+  public InvoiceResource quickNew(QuickPaidRequest quickNewRequest) throws ApiException {
+    Object localVarPostBody = quickNewRequest;
+    
+    // create path and map variables
+    String localVarPath = "/store/quick-new";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();

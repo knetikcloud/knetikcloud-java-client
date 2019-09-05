@@ -223,6 +223,22 @@ public class StoreApiTest {
     }
     
     /**
+     * One-step invoice creation
+     *
+     * Used to create an invoice. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void quickNewTest() throws ApiException {
+        QuickPaidRequest quickNewRequest = null;
+        InvoiceResource response = api.quickNew(quickNewRequest);
+
+        // TODO: test validations
+    }
+    
+    /**
      * One-step purchase when already paid
      *
      * Used to create and automatically mark paid an invoice. Must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_USER and owner, or PAYMENTS_ADMIN

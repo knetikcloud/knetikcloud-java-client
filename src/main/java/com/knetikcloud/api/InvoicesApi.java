@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-04T08:46:30.788-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:46:21.119-04:00")
 public class InvoicesApi {
   private ApiClient apiClient;
 
@@ -484,9 +484,10 @@ public class InvoicesApi {
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
    * @param id The id of the invoice (required)
    * @param request The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited. (optional)
+   * @return StringWrapper
    * @throws ApiException if fails to make API call
    */
-  public void payInvoice(Integer id, PayBySavedMethodRequest request) throws ApiException {
+  public StringWrapper payInvoice(Integer id, PayBySavedMethodRequest request) throws ApiException {
     Object localVarPostBody = request;
     
     // verify the required parameter 'id' is set
@@ -518,9 +519,9 @@ public class InvoicesApi {
 
     String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
 
-
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-  }
+    GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
   /**
    * Set the fulfillment status of a bundled invoice item
    * This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN

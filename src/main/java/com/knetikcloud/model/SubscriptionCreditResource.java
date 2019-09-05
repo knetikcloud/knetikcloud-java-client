@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * SubscriptionCreditResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-04T08:46:30.788-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:46:21.119-04:00")
 public class SubscriptionCreditResource {
   @JsonProperty("amount")
   private BigDecimal amount = null;
