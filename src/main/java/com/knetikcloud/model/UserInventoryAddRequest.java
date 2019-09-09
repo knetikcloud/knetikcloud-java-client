@@ -25,8 +25,11 @@ import java.util.List;
 /**
  * UserInventoryAddRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-05T08:46:21.119-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-09T10:26:02.967-04:00")
 public class UserInventoryAddRequest {
+  @JsonProperty("invoice_id")
+  private Integer invoiceId = null;
+
   @JsonProperty("note")
   private String note = null;
 
@@ -38,6 +41,24 @@ public class UserInventoryAddRequest {
 
   @JsonProperty("sku")
   private String sku = null;
+
+  public UserInventoryAddRequest invoiceId(Integer invoiceId) {
+    this.invoiceId = invoiceId;
+    return this;
+  }
+
+   /**
+   * An invoice id to link the inventory to (skip_invoice should be true)
+   * @return invoiceId
+  **/
+  @ApiModelProperty(value = "An invoice id to link the inventory to (skip_invoice should be true)")
+  public Integer getInvoiceId() {
+    return invoiceId;
+  }
+
+  public void setInvoiceId(Integer invoiceId) {
+    this.invoiceId = invoiceId;
+  }
 
   public UserInventoryAddRequest note(String note) {
     this.note = note;
@@ -129,7 +150,8 @@ public class UserInventoryAddRequest {
       return false;
     }
     UserInventoryAddRequest userInventoryAddRequest = (UserInventoryAddRequest) o;
-    return Objects.equals(this.note, userInventoryAddRequest.note) &&
+    return Objects.equals(this.invoiceId, userInventoryAddRequest.invoiceId) &&
+        Objects.equals(this.note, userInventoryAddRequest.note) &&
         Objects.equals(this.overrides, userInventoryAddRequest.overrides) &&
         Objects.equals(this.skipInvoice, userInventoryAddRequest.skipInvoice) &&
         Objects.equals(this.sku, userInventoryAddRequest.sku);
@@ -137,7 +159,7 @@ public class UserInventoryAddRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(note, overrides, skipInvoice, sku);
+    return Objects.hash(invoiceId, note, overrides, skipInvoice, sku);
   }
 
 
@@ -146,6 +168,7 @@ public class UserInventoryAddRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserInventoryAddRequest {\n");
     
+    sb.append("    invoiceId: ").append(toIndentedString(invoiceId)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("    skipInvoice: ").append(toIndentedString(skipInvoice)).append("\n");
