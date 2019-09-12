@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * VerificationRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-09T10:26:02.967-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-12T16:33:56.846-04:00")
 public class VerificationRequest {
   @JsonProperty("additional_properties")
   private Map<String, Property> additionalProperties = null;
@@ -44,6 +44,9 @@ public class VerificationRequest {
 
   @JsonProperty("expiration_date")
   private Long expirationDate = null;
+
+  @JsonProperty("include_letters")
+  private Boolean includeLetters = null;
 
   @JsonProperty("include_numbers")
   private Boolean includeNumbers = null;
@@ -149,6 +152,24 @@ public class VerificationRequest {
     this.expirationDate = expirationDate;
   }
 
+  public VerificationRequest includeLetters(Boolean includeLetters) {
+    this.includeLetters = includeLetters;
+    return this;
+  }
+
+   /**
+   * Whether to include letters, if the code is auto-generated. Default: true
+   * @return includeLetters
+  **/
+  @ApiModelProperty(example = "false", value = "Whether to include letters, if the code is auto-generated. Default: true")
+  public Boolean isIncludeLetters() {
+    return includeLetters;
+  }
+
+  public void setIncludeLetters(Boolean includeLetters) {
+    this.includeLetters = includeLetters;
+  }
+
   public VerificationRequest includeNumbers(Boolean includeNumbers) {
     this.includeNumbers = includeNumbers;
     return this;
@@ -245,6 +266,7 @@ public class VerificationRequest {
         Objects.equals(this.codelength, verificationRequest.codelength) &&
         Objects.equals(this.createdDate, verificationRequest.createdDate) &&
         Objects.equals(this.expirationDate, verificationRequest.expirationDate) &&
+        Objects.equals(this.includeLetters, verificationRequest.includeLetters) &&
         Objects.equals(this.includeNumbers, verificationRequest.includeNumbers) &&
         Objects.equals(this.originator, verificationRequest.originator) &&
         Objects.equals(this.targetUser, verificationRequest.targetUser) &&
@@ -254,7 +276,7 @@ public class VerificationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalProperties, code, codelength, createdDate, expirationDate, includeNumbers, originator, targetUser, template, updatedDate);
+    return Objects.hash(additionalProperties, code, codelength, createdDate, expirationDate, includeLetters, includeNumbers, originator, targetUser, template, updatedDate);
   }
 
 
@@ -268,6 +290,7 @@ public class VerificationRequest {
     sb.append("    codelength: ").append(toIndentedString(codelength)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    includeLetters: ").append(toIndentedString(includeLetters)).append("\n");
     sb.append("    includeNumbers: ").append(toIndentedString(includeNumbers)).append("\n");
     sb.append("    originator: ").append(toIndentedString(originator)).append("\n");
     sb.append("    targetUser: ").append(toIndentedString(targetUser)).append("\n");
