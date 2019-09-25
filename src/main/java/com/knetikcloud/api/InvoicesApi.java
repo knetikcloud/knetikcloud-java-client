@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-12T16:33:56.846-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:42:19.526-04:00")
 public class InvoicesApi {
   private ApiClient apiClient;
 
@@ -388,13 +388,14 @@ public class InvoicesApi {
    * @param filterShipping Filters invoices by shipping price. Multiple values possible for range search. Format: filter_shipping&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_shipping&#x3D;GT,14.58,LT,15.54 (optional)
    * @param filterVendorName Filters invoices by vendor name starting with given string (optional)
    * @param filterSku Filters invoices by item sku (optional)
+   * @param filterNotSku Filters for invoices that do not have an item sku (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
    * @return PageResourceInvoiceResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceInvoiceResource getInvoices(Integer filterUser, String filterEmail, String filterFulfillmentStatus, String filterPaymentStatus, String filterItemName, String filterExternalRef, String filterCreatedDate, String filterVendorIds, String filterCurrency, String filterShippingStateName, String filterShippingCountryName, String filterShipping, String filterVendorName, String filterSku, Integer size, Integer page, String order) throws ApiException {
+  public PageResourceInvoiceResource getInvoices(Integer filterUser, String filterEmail, String filterFulfillmentStatus, String filterPaymentStatus, String filterItemName, String filterExternalRef, String filterCreatedDate, String filterVendorIds, String filterCurrency, String filterShippingStateName, String filterShippingCountryName, String filterShipping, String filterVendorName, String filterSku, String filterNotSku, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -419,6 +420,7 @@ public class InvoicesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_shipping", filterShipping));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_vendor_name", filterVendorName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_sku", filterSku));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_not_sku", filterNotSku));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));

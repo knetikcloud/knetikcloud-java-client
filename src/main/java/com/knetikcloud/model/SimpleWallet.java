@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 /**
  * SimpleWallet
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-12T16:33:56.846-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:42:19.526-04:00")
 public class SimpleWallet {
   @JsonProperty("balance")
   private BigDecimal balance = null;
