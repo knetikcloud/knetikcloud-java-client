@@ -13,7 +13,7 @@
 
 package com.knetikcloud.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:42:19.526-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
 public class Pair {
     private String name = "";
     private String value = "";

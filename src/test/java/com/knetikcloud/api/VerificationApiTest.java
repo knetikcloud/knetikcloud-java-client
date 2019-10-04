@@ -163,10 +163,13 @@ public class VerificationApiTest {
      */
     @Test
     public void getVerificationRequestsTest() throws ApiException {
+        String filterTemplate = null;
+        String filterTarget = null;
+        String filterOriginator = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        PageResourceVerificationRequest response = api.getVerificationRequests(size, page, order);
+        PageResourceVerificationRequest response = api.getVerificationRequests(filterTemplate, filterTarget, filterOriginator, size, page, order);
 
         // TODO: test validations
     }

@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:42:19.526-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
 public class VerificationApi {
   private ApiClient apiClient;
 
@@ -325,13 +325,16 @@ public class VerificationApi {
   /**
    * List requests
    * Get a list of verification requests.&lt;br /&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LIST
+   * @param filterTemplate Filter for verifications with specified template (optional)
+   * @param filterTarget Filter for verifications with specified user id as the target (optional)
+   * @param filterOriginator Filter for verifications with specified user id as the originator (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
    * @return PageResourceVerificationRequest
    * @throws ApiException if fails to make API call
    */
-  public PageResourceVerificationRequest getVerificationRequests(Integer size, Integer page, String order) throws ApiException {
+  public PageResourceVerificationRequest getVerificationRequests(String filterTemplate, String filterTarget, String filterOriginator, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -342,6 +345,9 @@ public class VerificationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_template", filterTemplate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_target", filterTarget));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_originator", filterOriginator));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));

@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Behavior
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T09:42:19.526-04:00")@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type_hint", visible = true )
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type_hint", visible = true )
 @JsonSubTypes({
   @JsonSubTypes.Type(value = TimePeriodGettable.class, name = "time_period_gettable"),
   @JsonSubTypes.Type(value = Expirable.class, name = "expirable"),
