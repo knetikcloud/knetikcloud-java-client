@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.272</version>
+    <version>3.0.273</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.272"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.273"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.272.jar
+* target/knetikcloud-java-client-3.0.273.jar
 * target/lib/*.jar
 
 ## Getting Started 
@@ -373,6 +373,7 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**getInvoices**](docs/InvoicesApi.md#getInvoices) | **GET** /invoices | Retrieve invoices
 *InvoicesApi* | [**getPaymentStatuses**](docs/InvoicesApi.md#getPaymentStatuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
 *InvoicesApi* | [**payInvoice**](docs/InvoicesApi.md#payInvoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
+*InvoicesApi* | [**setAdditionalProperties**](docs/InvoicesApi.md#setAdditionalProperties) | **PUT** /invoices/{id}/properties | Set the additional properties of an invoice
 *InvoicesApi* | [**setBundledInvoiceItemFulfillmentStatus**](docs/InvoicesApi.md#setBundledInvoiceItemFulfillmentStatus) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 *InvoicesApi* | [**setExternalRef**](docs/InvoicesApi.md#setExternalRef) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 *InvoicesApi* | [**setInvoiceItemFulfillmentStatus**](docs/InvoicesApi.md#setInvoiceItemFulfillmentStatus) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item

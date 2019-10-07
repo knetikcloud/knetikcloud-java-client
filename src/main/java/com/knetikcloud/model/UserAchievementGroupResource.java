@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * UserAchievementGroupResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:44:21.413-04:00")
 public class UserAchievementGroupResource {
   @JsonProperty("achievements")
   private List<UserAchievementResource> achievements = new ArrayList<UserAchievementResource>();

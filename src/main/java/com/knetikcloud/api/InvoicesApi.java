@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:44:21.413-04:00")
 public class InvoicesApi {
   private ApiClient apiClient;
 
@@ -524,6 +524,53 @@ public class InvoicesApi {
     GenericType<StringWrapper> localVarReturnType = new GenericType<StringWrapper>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
+  /**
+   * Set the additional properties of an invoice
+   * &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
+   * @param id The id of the invoice (required)
+   * @param properties The new properties for the membership (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void setAdditionalProperties(Integer id, Object properties) throws ApiException {
+    Object localVarPostBody = properties;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setAdditionalProperties");
+    }
+    
+    // verify the required parameter 'properties' is set
+    if (properties == null) {
+      throw new ApiException(400, "Missing the required parameter 'properties' when calling setAdditionalProperties");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/invoices/{id}/properties"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "oauth2_client_credentials_grant", "oauth2_password_grant" };
+
+
+    apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+  }
   /**
    * Set the fulfillment status of a bundled invoice item
    * This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN

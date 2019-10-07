@@ -50,7 +50,7 @@ import com.knetikcloud.client.auth.HttpBasicAuth;
 import com.knetikcloud.client.auth.ApiKeyAuth;
 import com.knetikcloud.client.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:44:21.413-04:00")
 public class ApiClient {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected String basePath = "https://devsandbox.knetikcloud.com";
@@ -75,7 +75,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("Swagger-Codegen/3.0.272/java");
+    setUserAgent("Swagger-Codegen/3.0.273/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

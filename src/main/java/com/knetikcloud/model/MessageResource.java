@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * MessageResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:44:21.413-04:00")
 public class MessageResource {
   @JsonProperty("content")
   private MessageContentResource content = null;

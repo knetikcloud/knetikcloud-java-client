@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * BareActivityResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-04T11:36:20.337-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-10-07T16:44:21.413-04:00")
 public class BareActivityResource {
   @JsonProperty("created_date")
   private Long createdDate = null;
