@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * MessageTemplateResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:56:21.771-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:32.790-05:00")
 public class MessageTemplateResource {
   @JsonProperty("content")
   private String content = null;

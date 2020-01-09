@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * TokenDetailsResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-04T08:56:21.771-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:32.790-05:00")
 public class TokenDetailsResource {
   @JsonProperty("client_id")
   private String clientId = null;

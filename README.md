@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.knetikcloud</groupId>
     <artifactId>knetikcloud-java-client</artifactId>
-    <version>3.0.274</version>
+    <version>3.0.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.knetikcloud:knetikcloud-java-client:3.0.274"
+compile "com.knetikcloud:knetikcloud-java-client:3.0.2"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/knetikcloud-java-client-3.0.274.jar
+* target/knetikcloud-java-client-3.0.2.jar
 * target/lib/*.jar
 
 ## Getting Started 
