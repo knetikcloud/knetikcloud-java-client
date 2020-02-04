@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * PageResourceUsageInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:32.790-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:34.695-05:00")
 public class PageResourceUsageInfo {
   @JsonProperty("content")
   private List<UsageInfo> content = null;

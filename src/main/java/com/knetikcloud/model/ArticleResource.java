@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * ArticleResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:32.790-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:34.695-05:00")
 public class ArticleResource {
   @JsonProperty("active")
   private Boolean active = null;

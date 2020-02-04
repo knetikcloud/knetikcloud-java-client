@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-09T14:18:32.790-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:34.695-05:00")
 public class ObjectsApi {
   private ApiClient apiClient;
 
@@ -264,13 +264,14 @@ public class ObjectsApi {
    * List and search objects
    * &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
    * @param templateId The id of the template to get objects for (required)
+   * @param filterNameSearch Filter for items whose name starts with a given string. (optional)
    * @param size The number of objects returned per page (optional, default to 25)
    * @param page The number of the page returned, starting with 1 (optional, default to 1)
    * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional, default to id:ASC)
    * @return PageResourceObjectResource
    * @throws ApiException if fails to make API call
    */
-  public PageResourceObjectResource getObjectItems(String templateId, Integer size, Integer page, String order) throws ApiException {
+  public PageResourceObjectResource getObjectItems(String templateId, String filterNameSearch, Integer size, Integer page, String order) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'templateId' is set
@@ -287,6 +288,7 @@ public class ObjectsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter_name_search", filterNameSearch));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "size", size));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "order", order));

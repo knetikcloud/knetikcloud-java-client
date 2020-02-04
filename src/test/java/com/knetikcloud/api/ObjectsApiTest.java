@@ -133,10 +133,11 @@ public class ObjectsApiTest {
     @Test
     public void getObjectItemsTest() throws ApiException {
         String templateId = null;
+        String filterNameSearch = null;
         Integer size = null;
         Integer page = null;
         String order = null;
-        PageResourceObjectResource response = api.getObjectItems(templateId, size, page, order);
+        PageResourceObjectResource response = api.getObjectItems(templateId, filterNameSearch, size, page, order);
 
         // TODO: test validations
     }
