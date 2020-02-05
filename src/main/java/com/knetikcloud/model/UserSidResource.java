@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * UserSidResource
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-04T16:12:34.695-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-02-05T11:01:12.134-05:00")
 public class UserSidResource {
   @JsonProperty("sid")
   private String sid = null;
